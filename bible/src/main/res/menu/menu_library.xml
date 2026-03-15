@@ -12,7 +12,7 @@
 		android:title="@string/messageRefresh"
 		android:orderInCategory="0"
 		android:icon="@drawable/ic_action_refresh"
-		app:showAsAction="always|withText"/>
+		app:showAsAction="never"/>
 	<item
 		android:id="@+id/menu_library_pick_folder"
 		android:title="@string/menu_library_pick_folder"

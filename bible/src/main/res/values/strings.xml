@@ -65,7 +65,7 @@
 	<string name="fav_delete_all_question">Вы уверены, что хотите удалить все закладки?</string>
 	<string name="about">О программе</string>
 	<string name="app_about_dev_label">Разработчики:</string>
-	<string name="messageRefresh">Обновление…</string>
+	<string name="messageRefresh">Обновление</string>
 	<string name="exception_books_definition">Некорректное описание книги в модуле %1$s: BookQty=%2$d, PathName#=%3$d, FullName#=%4$d, ShortName#=%5$d, ChapterQty#=%6$d\n\t</string>
 	<string name="exception_open_module_short">Некорректный модуль %s</string>
 	<string name="exception_book_not_found">Книга %1$s не найдена в модуле %2$s</string>
@@ -113,8 +113,8 @@
 	<string name="press_again_to_exit">Нажмите снова для выхода</string>
 	<string name="menu_history_clear">Очистить</string>
 	<string name="history_delete_question">Удалить эту запись из истории?</string>
-	<string name="menu_library_add">Добавить…</string>
-	<string name="menu_library_pick_folder">Выбрать место хранения…</string>
+	<string name="menu_library_add">Добавить</string>
+	<string name="menu_library_pick_folder">Выбрать место хранения</string>
 	<string name="library_apply">Применить</string>
 	<string name="module_delete_title">Удаление модуля</string>
 	<string name="module_delete_message_intro">Для удаления модуля %1$s введите код:</string>
