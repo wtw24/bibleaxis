@@ -11,10 +11,12 @@ import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.core.view.WindowCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.core.view.WindowInsetsControllerCompat;
 
+import de.wladimirwendland.bibleaxis.R;
 import de.wladimirwendland.bibleaxis.BibleAxisApp;
 import de.wladimirwendland.bibleaxis.di.component.ActivityComponent;
 import de.wladimirwendland.bibleaxis.di.module.ActivityModule;
@@ -78,10 +80,13 @@ public abstract class BaseAppActivity extends AppCompatActivity {
     }
 
     private void applyImmersiveNavigationMode() {
+        WindowCompat.setDecorFitsSystemWindows(getWindow(), true);
+        getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.primary_dark));
         WindowInsetsControllerCompat controller = WindowCompat.getInsetsController(getWindow(), getWindow().getDecorView());
         if (controller == null) {
             return;
         }
+        controller.setAppearanceLightStatusBars(false);
         controller.setSystemBarsBehavior(WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE);
 
         boolean autoHideNavigationBar = preferenceHelper == null || preferenceHelper.isAutoHideNavigationBarEnabled();
