@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:descendantFocusability="beforeDescendants"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical">
+
+	<LinearLayout
+        android:id="@+id/search_settings_container"
+        android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:orientation="vertical"
+		android:paddingLeft="@dimen/default_margin"
+		android:paddingTop="@dimen/default_margin_min"
+		android:paddingRight="@dimen/default_margin"
+		android:paddingBottom="@dimen/default_margin_min">
+
+        <EditText
+            android:id="@+id/search_text"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginBottom="@dimen/default_margin_min"
+            android:background="@drawable/bg_search_input"
+            android:drawableStart="@drawable/ic_action_search"
+            android:drawableLeft="@drawable/ic_action_search"
+            android:drawablePadding="10dp"
+            android:elevation="0dp"
+            android:hint="@string/search_hint"
+            android:imeOptions="actionSearch"
+			android:paddingLeft="14dp"
+			android:paddingRight="14dp"
+            android:stateListAnimator="@null"
+			android:translationZ="0dp"
+			android:inputType="textAutoComplete|text"
+			android:maxLines="1"
+			android:importantForAutofill="no" />
+
+        <Button
+            android:id="@+id/search_modules_button"
+            style="@style/LibraryPickerButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/default_margin_min"
+            android:drawableEnd="@drawable/ic_library_chevron_down"
+            android:drawablePadding="10dp"
+            android:drawableRight="@drawable/ic_library_chevron_down"
+            android:elevation="0dp"
+            android:gravity="center"
+            android:stateListAnimator="@null"
+            android:textAllCaps="false"
+            android:text="@string/search_modules_choose"
+            android:textColor="@color/library_picker_text"
+            android:translationZ="0dp" />
+
+        <Spinner
+            android:id="@+id/search_scope"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_marginBottom="@dimen/default_margin_min"
+            android:background="@drawable/bg_search_picker_spinner"
+            android:elevation="0dp"
+            android:paddingLeft="16dp"
+            android:paddingTop="2dp"
+            android:paddingRight="16dp"
+            android:paddingBottom="2dp"
+            android:minHeight="0dp"
+            android:stateListAnimator="@null"
+            android:translationZ="0dp"
+            android:spinnerMode="dropdown" />
+
+        <Button
+            android:id="@+id/search_selected_books_button"
+            style="@style/LibraryPickerButton"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_marginBottom="@dimen/default_margin_min"
+            android:drawableEnd="@drawable/ic_library_chevron_down"
+            android:drawablePadding="10dp"
+            android:drawableRight="@drawable/ic_library_chevron_down"
+            android:elevation="0dp"
+            android:gravity="center"
+            android:minHeight="0dp"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp"
+            android:text="@string/search_selected_books_choose"
+            android:textAllCaps="false"
+            android:stateListAnimator="@null"
+            android:translationZ="0dp"
+            android:visibility="gone" />
+
+        <Spinner
+            android:id="@+id/search_single_book"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_marginBottom="@dimen/default_margin_min"
+            android:background="@drawable/bg_search_picker_spinner"
+            android:elevation="0dp"
+            android:paddingLeft="16dp"
+            android:paddingTop="2dp"
+            android:paddingRight="16dp"
+            android:paddingBottom="2dp"
+            android:minHeight="0dp"
+            android:stateListAnimator="@null"
+            android:translationZ="0dp"
+            android:spinnerMode="dropdown"
+            android:visibility="gone" />
+
+		<LinearLayout
+            android:id="@+id/search_range_container"
+            android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginBottom="@dimen/default_margin_min"
+			android:orientation="horizontal"
+            android:visibility="gone">
+
+            <Spinner
+                android:id="@+id/from_book"
+				android:layout_width="fill_parent"
+				android:layout_height="44dp"
+                android:layout_marginRight="6dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_search_picker_spinner"
+                android:elevation="0dp"
+                android:paddingLeft="16dp"
+                android:paddingTop="2dp"
+                android:paddingRight="16dp"
+                android:paddingBottom="2dp"
+                android:minHeight="0dp"
+                android:stateListAnimator="@null"
+                android:translationZ="0dp"
+                android:spinnerMode="dropdown" />
+
+            <Spinner
+                android:id="@+id/to_book"
+				android:layout_width="fill_parent"
+				android:layout_height="44dp"
+                android:layout_marginLeft="6dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_search_picker_spinner"
+                android:elevation="0dp"
+                android:paddingLeft="16dp"
+                android:paddingTop="2dp"
+                android:paddingRight="16dp"
+                android:paddingBottom="2dp"
+                android:minHeight="0dp"
+                android:stateListAnimator="@null"
+                android:translationZ="0dp"
+                android:spinnerMode="dropdown" />
+		</LinearLayout>
+
+        <CheckBox
+            android:id="@+id/search_whole_words_match"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/default_margin_min"
+            android:text="@string/search_whole_words_match" />
+
+        <Button
+            android:id="@+id/search_start_button"
+            style="@style/LibraryPickerButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="@dimen/default_margin_min"
+            android:background="@drawable/bg_search_primary_button"
+            android:elevation="0dp"
+            android:minHeight="0dp"
+            android:minWidth="220dp"
+            android:paddingLeft="36dp"
+            android:paddingTop="12dp"
+            android:paddingRight="36dp"
+            android:paddingBottom="12dp"
+            android:stateListAnimator="@null"
+            android:text="@string/search"
+            android:textAllCaps="false"
+            android:textColor="@color/white_real"
+            android:translationZ="0dp" />
+	
+	</LinearLayout>
+
+    <TextView
+        android:id="@+id/search_results_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/default_margin"
+        android:paddingTop="6dp"
+        android:paddingRight="@dimen/default_margin"
+        android:paddingBottom="6dp"
+        android:textColor="@color/dark_gray"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:visibility="gone" />
+	
+	<ListView
+        android:id="@+id/search_list"
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:background="@android:color/transparent" />
+
+</LinearLayout>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+	<string-array name="history_size" translatable="false">
+		<item>10</item>
+		<item>25</item>
+		<item>50</item>
+		<item>75</item>
+		<item>100</item>
+	</string-array>
+	
+	<string-array name="font_face_txt" translatable="false">
+	    <item>Droid Sans</item>
+	    <item>Droid Sans Mono</item>
+		<item>Droid Serif</item>
+	</string-array>
+	
+	<string-array name="font_face" translatable="false">
+		<item>sans-serif</item>
+	    <item>monospace</item>
+		<item>serif</item>
+	</string-array>
+	
+</resources>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="white">#DEE3E7</color>
+    <color name="black">#000000</color>
+    <color name="gray">#8A9297</color>
+    <color name="light_gray">#DADADA</color>
+    <color name="dark_gray">#C0C8CD</color>
+    <color name="button_gray">#E7E7E7</color>
+    <color name="button_border">#9D9D9D</color>
+
+    <color name="primary">#1159A2</color>
+    <color name="primary_dark">#00344A</color>
+    <color name="action_mode_background">#0E4E8F</color>
+    <color name="accent">#B3CAD9</color>
+    <color name="accent_dark">#1D3440</color>
+    <color name="toolbarTextColor">#FFFFFF</color>
+    <color name="splash_background">#0F1417</color>
+
+    <color name="def_text_color">#000000</color>
+    <color name="def_background">#FAFAEF</color>
+    <color name="def_sel_text_color">#000000</color>
+    <color name="def_sel_background">#CFE6F5</color>
+
+</resources>

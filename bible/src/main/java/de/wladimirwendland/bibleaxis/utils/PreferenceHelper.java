@@ -1,0 +1,224 @@
+/*
+ * Copyright (C) 2011 Scripture Software and contributors
+ * Copyright (C) 2026 Wladimir Wendland
+ * SPDX-License-Identifier: Apache-2.0
+ * Modified by BibleAxis contributors
+ */
+
+package de.wladimirwendland.bibleaxis.utils;
+
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
+import androidx.annotation.NonNull;
+
+import de.wladimirwendland.bibleaxis.R;
+import de.wladimirwendland.bibleaxis.entity.TextAppearance;
+
+import org.jetbrains.annotations.NotNull;
+
+public class PreferenceHelper {
+
+    private static final String DEF_HISTORY_SIZE = "50";
+    private static final int DEF_LINE_SPACING = 136;
+    private static final int DEF_TEXT_SIZE = 22;
+    private static final String DEF_TYPEFACE = "serif";
+
+    private static final String KEY_ADD_MODULE_TO_REFERENCE = "add_module_to_reference";
+    private static final String KEY_ADD_REFERENCE = "add_reference";
+    private static final String KEY_CROSS_REFERENCE_DISPLAY_CONTEXT = "cross_reference_display_context";
+    private static final String KEY_DIVIDE_THE_VERSES = "divide_the_verses";
+    private static final String KEY_FIND_IN_PAGE_ENABLED = "find_in_page_enabled";
+    private static final String KEY_FONT_FAMILY = "font_family";
+    private static final String KEY_HISTORY_SIZE = "HistorySize";
+    private static final String KEY_LINE_SPACING = "line_spacing";
+    private static final String KEY_NIGHT_MODE = "nightMode";
+    private static final String KEY_PUT_REFERENCE_IN_BEGINNING = "put_reference_in_beginning";
+    private static final String KEY_READ_MODE_BY_DEFAULT = "ReadModeByDefault";
+    private static final String KEY_SHORT_REFERENCE = "short_reference";
+    private static final String KEY_TEXT_ALIGN_JUSTIFY = "text_align_justify";
+    private static final String KEY_TEXT_BG = "background";
+    private static final String KEY_TEXT_BG_SEL = "sel_background";
+    private static final String KEY_TEXT_COLOR = "text_color";
+    private static final String KEY_TEXT_COLOR_SEL = "sel_text_color";
+    private static final String KEY_TEXT_SIZE = "TextSize";
+    private static final String KEY_VIEW_BOOK_VERSE = "always_view_verse_numbers";
+    private static final String KEY_VOLUME_BUTTONS_TO_SCROLL = "volume_butons_to_scroll";
+    private static final String KEY_LAST_READ = "last_read";
+    private static final String KEY_AUTO_HIDE_NAVIGATION_BAR = "auto_hide_navigation_bar";
+    private static final String KEY_MODULES_SOURCE_TREE_URI = "modules_source_tree_uri";
+
+    private final SharedPreferences preference;
+    private final Context context;
+
+    public PreferenceHelper(Context context) {
+        preference = PreferenceManager.getDefaultSharedPreferences(context);
+        this.context = context.getApplicationContext();
+    }
+
+    public Integer getHistorySize() {
+        return Integer.parseInt(preference.getString(KEY_HISTORY_SIZE, DEF_HISTORY_SIZE));
+    }
+
+    @NotNull
+    public String getString(@NotNull String key, @NotNull String defaultValue) {
+        return preference.getString(key, defaultValue);
+    }
+
+    public TextAppearance getTextAppearance() {
+        return TextAppearance.builder()
+                .typeface(getFontFamily())
+                .textSize(getTextSize())
+                .textColor(getTextColor())
+                .background(getTextBackground())
+                .selectedTextColor(getTextColorSelected())
+                .selectedBackgroung(getTextBackgroundSelected())
+                .textAlign(textAlignJustify() ? "justify" : "left")
+                .nightMode(getNightMode())
+                .lineSpacing(getLineSpacing())
+                .build();
+    }
+
+    public String getLastRead() {
+        return preference.getString(KEY_LAST_READ, "");
+    }
+
+    public boolean isReadModeByDefault() {
+        return preference.getBoolean(KEY_READ_MODE_BY_DEFAULT, false);
+    }
+
+    public boolean addModuleToBibleReference() {
+        return preference.getBoolean(KEY_ADD_MODULE_TO_REFERENCE, true);
+    }
+
+    public boolean addReference() {
+        return preference.getBoolean(KEY_ADD_REFERENCE, true);
+    }
+
+    public boolean crossRefViewDetails() {
+        return preference.getBoolean(KEY_CROSS_REFERENCE_DISPLAY_CONTEXT, true);
+    }
+
+    public boolean divideTheVerses() {
+        return preference.getBoolean(KEY_DIVIDE_THE_VERSES, false);
+    }
+
+    public boolean isFindInPageEnabled() {
+        return preference.getBoolean(KEY_FIND_IN_PAGE_ENABLED, false);
+    }
+
+    @NonNull
+    public Boolean getBoolean(String key) {
+        return preference.getBoolean(key, false);
+    }
+
+    public int getInt(String key) {
+        return preference.getInt(key, 0);
+    }
+
+    @NonNull
+    public String getString(String key) {
+        return preference.getString(key, "");
+    }
+
+    public void putInt(@NotNull String key, int value) {
+        preference.edit().putInt(key, value).apply();
+    }
+
+    public boolean putReferenceInBeginning() {
+        return preference.getBoolean(KEY_PUT_REFERENCE_IN_BEGINNING, false);
+    }
+
+    public void saveInt(String key, int value) {
+        preference.edit().putInt(key, value).apply();
+    }
+
+    public void saveString(String key, String value) {
+        preference.edit().putString(key, value).apply();
+    }
+
+    public void saveBoolean(String key, boolean value) {
+        preference.edit().putBoolean(key, value).apply();
+    }
+
+    public boolean shortReference() {
+        return preference.getBoolean(KEY_SHORT_REFERENCE, false);
+    }
+
+    public boolean viewBookVerse() {
+        return preference.getBoolean(PreferenceHelper.KEY_VIEW_BOOK_VERSE, false);
+    }
+
+    public boolean volumeButtonsToScroll() {
+        return preference.getBoolean(KEY_VOLUME_BUTTONS_TO_SCROLL, false);
+    }
+
+    public boolean isAutoHideNavigationBarEnabled() {
+        return preference.getBoolean(KEY_AUTO_HIDE_NAVIGATION_BAR, true);
+    }
+
+    public void setAutoHideNavigationBarEnabled(boolean enabled) {
+        preference.edit().putBoolean(KEY_AUTO_HIDE_NAVIGATION_BAR, enabled).apply();
+    }
+
+    @NonNull
+    public String getModulesSourceTreeUri() {
+        return preference.getString(KEY_MODULES_SOURCE_TREE_URI, "");
+    }
+
+    public void setModulesSourceTreeUri(@NonNull String value) {
+        preference.edit().putString(KEY_MODULES_SOURCE_TREE_URI, value).apply();
+    }
+
+    private String getFontFamily() {
+        return preference.getString(KEY_FONT_FAMILY, DEF_TYPEFACE);
+    }
+
+    private int getLineSpacing() {
+        return preference.getInt(KEY_LINE_SPACING, DEF_LINE_SPACING);
+    }
+
+    private boolean getNightMode() {
+        return preference.getBoolean(KEY_NIGHT_MODE, false);
+    }
+
+    public void setNightMode(boolean nightMode) {
+        preference.edit().putBoolean(KEY_NIGHT_MODE, nightMode).apply();
+    }
+
+    public void setFindInPageEnabled(boolean enabled) {
+        preference.edit().putBoolean(KEY_FIND_IN_PAGE_ENABLED, enabled).apply();
+    }
+
+    @SuppressWarnings("deprecation")
+    private String getTextBackground() {
+        int color = preference.getInt(KEY_TEXT_BG, context.getResources().getColor(R.color.def_background));
+        return ColorUtils.toWeb(color);
+    }
+
+    @SuppressWarnings("deprecation")
+    private String getTextBackgroundSelected() {
+        int color = preference.getInt(KEY_TEXT_BG_SEL, context.getResources().getColor(R.color.def_sel_background));
+        return ColorUtils.toWeb(color);
+    }
+
+    @SuppressWarnings("deprecation")
+    private String getTextColor() {
+        int color = preference.getInt(KEY_TEXT_COLOR, context.getResources().getColor(R.color.def_text_color));
+        return ColorUtils.toWeb(color);
+    }
+
+    @SuppressWarnings("deprecation")
+    private String getTextColorSelected() {
+        int color = preference.getInt(KEY_TEXT_COLOR_SEL, context.getResources().getColor(R.color.def_sel_text_color));
+        return ColorUtils.toWeb(color);
+    }
+
+    private String getTextSize() {
+        return String.valueOf(preference.getInt(KEY_TEXT_SIZE, DEF_TEXT_SIZE));
+    }
+
+    private boolean textAlignJustify() {
+        return preference.getBoolean(KEY_TEXT_ALIGN_JUSTIFY, false);
+    }
+}

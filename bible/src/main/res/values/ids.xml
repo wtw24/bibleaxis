@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Reader -->
+    <item type="id" name="action_bar_search" />
+    <item type="id" name="action_bar_refresh" />
+    <item type="id" name="action_bar_history" />
+	<item type="id" name="action_bar_history_clear" />
+	<item type="id" name="action_highlight_text" />
+
+</resources>

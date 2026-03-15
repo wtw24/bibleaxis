@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/chapter"
+    android:layout_width="@dimen/ch_chapter_width"
+    android:layout_height="@dimen/ch_chapter_height"
+    android:layout_margin="0dp"
+    android:background="@drawable/bg_library_chapter_tile"
+    android:gravity="center"
+    android:maxLines="1"
+    android:padding="2dp"
+    android:textColor="@color/black"
+    android:textSize="@dimen/text_size_medium"
+    tools:text="123"/>

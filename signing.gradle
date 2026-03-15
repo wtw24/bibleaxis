@@ -1,0 +1,59 @@
+Map<String, String> debugSigningValues() {
+    def defaults = [
+            storeFile    : project.rootProject.file('debug-bibleaxis.keystore'),
+            storePassword: "android",
+            keyAlias     : "bibleaxisdebug",
+            keyPassword  : "android"
+    ]
+
+    File propFile = project.rootProject.file('local.properties')
+    if (!propFile.exists()) {
+        return defaults
+    }
+
+    Properties localProps = new Properties()
+    localProps.load(new FileInputStream(propFile))
+    def storeFilePath = localProps["DEBUG_STORE_FILE"] ?: "debug-bibleaxis.keystore"
+    def storePassword = localProps["DEBUG_STORE_PASSWORD"] ?: "android"
+    def keyAlias = localProps["DEBUG_KEY_ALIAS"] ?: "bibleaxisdebug"
+    def keyPassword = localProps["DEBUG_KEY_PASSWORD"] ?: "android"
+
+    return [
+            storeFile    : project.rootProject.file(storeFilePath),
+            storePassword: storePassword,
+            keyAlias     : keyAlias,
+            keyPassword  : keyPassword
+    ]
+}
+
+Map<String, String> releaseSigningValues() {
+    def fallback = debugSigningValues()
+
+    File propFile = project.rootProject.file('local.properties')
+    if (!propFile.exists()) {
+        return fallback
+    }
+
+    Properties localProps = new Properties()
+    localProps.load(new FileInputStream(propFile))
+    def storePassword = localProps["STORE_PASSWORD"]
+    def keyAlias = localProps["KEY_ALIAS"]
+    def keyPassword = localProps["KEY_PASSWORD"]
+    def storeFilePath = localProps["STORE_FILE"] ?: "bibleaxis.keystore"
+
+    if (!storePassword || !keyAlias || !keyPassword) {
+        return fallback
+    }
+
+    return [
+            storeFile    : project.rootProject.file(storeFilePath),
+            storePassword: storePassword,
+            keyAlias     : keyAlias,
+            keyPassword  : keyPassword
+    ]
+}
+
+ext {
+    debugSigningValues = this.&debugSigningValues
+    releaseSigningValues = this.&releaseSigningValues
+}

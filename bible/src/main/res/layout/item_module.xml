@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/library_item_height"
+    android:descendantFocusability="blocksDescendants"
+    android:orientation="horizontal"
+    android:paddingStart="8dp"
+    android:paddingEnd="8dp">
+
+    <TextView
+        android:id="@+id/id"
+        android:layout_width="@dimen/book_id_width"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:padding="2sp"
+        android:singleLine="true"
+        android:textColor="@color/tag_gray_darker"
+        android:textSize="@dimen/text_size_small"
+        tools:text="RST" />
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:ellipsize="end"
+        android:gravity="center_vertical"
+        android:paddingEnd="8dp"
+        android:singleLine="true"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_size_medium"
+        tools:text="Русский синодальный текст" />
+
+    <ImageButton
+        android:id="@+id/module_delete"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_gravity="center_vertical"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/delete"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:padding="6dp"
+        android:src="@drawable/ic_action_delete"
+        android:tint="@color/tag_gray_darker" />
+
+</LinearLayout>

@@ -1,0 +1,127 @@
+/*
+ * Copyright (C) 2011 Scripture Software and contributors
+ * Copyright (C) 2026 Wladimir Wendland
+ * SPDX-License-Identifier: Apache-2.0
+ * Modified by BibleAxis contributors
+ */
+
+package de.wladimirwendland.bibleaxis.domain.entity;
+
+import androidx.annotation.NonNull;
+
+import de.wladimirwendland.bibleaxis.managers.BibleBooksID;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * @author Yakushev Vladimir, Sergey Ursul
+ */
+public abstract class Book implements Serializable {
+
+	private static final long serialVersionUID = -6348188202419079481L;
+
+	private final String name;
+    private String osisId;
+    private final List<String> shortNames;
+    private final Integer chapterQty;
+    private final boolean hasChapterZero;
+
+    public Book(String name, String shortNames, int chapterQty, boolean hasChapterZero) {
+        this.name = name;
+        this.chapterQty = chapterQty;
+        this.hasChapterZero = hasChapterZero;
+        this.shortNames = getShortNames(shortNames);
+    }
+
+	/**
+	 * Количество глав в книге
+	 */
+	public Integer getChapterQty() {
+		return chapterQty;
+	}
+
+    public abstract String getDataSourceID();
+
+    public int getFirstChapterNumber() {
+        return hasChapterZero ? 0 : 1;
+    }
+
+    public String getID() {
+        return getOSIS_ID();
+    }
+
+    public int getLastChapterNumber() {
+        return chapterQty - (hasChapterZero ? 1 : 0);
+    }
+
+    /**
+     * Полное имя книги
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * Имя книги по классификации OSIS
+     */
+    public String getOSIS_ID() {
+        if (osisId == null) {
+            if (shortNames.size() == 0) {
+                throw new IllegalStateException("Short names not found");
+            }
+
+            osisId = BibleBooksID.getID(shortNames);
+            if (osisId == null) {
+                osisId = shortNames.get(0);
+            }
+        }
+        return osisId;
+    }
+
+    /**
+     * @return Возвращает краткое имя книги. являющееся первым в списке кратких имен
+     */
+    public String getShortName() {
+        return getShortNames().get(0);
+    }
+
+    /**
+     * Краткое имя книги. являющееся первым в списке кратких имен
+     */
+    private List<String> getShortNames() {
+        return shortNames;
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        return name;
+    }
+
+    @NonNull
+    private String createShortName() {
+        return (name.length() < 4 ? name : name.substring(0, 3)) + ".";
+    }
+
+    private List<String> getShortNames(String shortNames) {
+        final List<String> result = new ArrayList<>();
+        String[] names = shortNames == null ? new String[]{} : shortNames.trim().split("\\s+");
+        if (names.length == 0) {
+            result.add(createShortName());
+        } else {
+            for (String shortName : names) {
+                // В bibleqt.ini может содержаться одно и то же имя
+                // с точкой и без. При загрузке модуля точки удаляем,
+                // чтобы не было проблемм с ссылками OSIS. Отсюда
+                // могут быть не нужные нам дубли имен, избавляемся от них
+                if (!result.contains(shortName.trim())) {
+                    result.add(shortName.trim());
+                }
+            }
+        }
+
+        return result;
+    }
+}

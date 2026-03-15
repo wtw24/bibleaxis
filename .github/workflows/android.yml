@@ -1,0 +1,38 @@
+name: Android CI
+
+on:
+  push:
+    branches: [ develop ]
+  pull_request:
+    branches: [ develop ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Configure JDK
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'adopt'
+          java-version: 11
+          cache: gradle
+
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+
+      - name: Assemble
+        run: ./gradlew clean assembleDebug
+
+      - name: Test
+        run: ./gradlew testDebugUnitTest
+
+      - name: Tests results
+        uses: actions/upload-artifact@v2
+        with:
+          name: unit-tests-results
+          path: bible/build/reports/tests/

@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent">
+
+	<LinearLayout
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="24dp"
+		android:orientation="vertical" >
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+			android:gravity="start|center_vertical"
+			android:orientation="horizontal" >
+
+			<ImageView
+				android:layout_width="72dp"
+				android:layout_height="72dp"
+				android:layout_gravity="start"
+				android:padding="8dp"
+				android:src="@drawable/ic_dialog_header_logo"
+				android:contentDescription="@string/app_name"/>
+
+			<LinearLayout
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+				android:orientation="vertical" >
+
+				<TextView
+					android:id="@+id/about_name"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_gravity="center_vertical"
+					android:gravity="start"
+					android:textColor="#02174c"
+					android:textSize="22sp" />
+
+				<TextView
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:gravity="start"
+					android:text="@string/app_about_license"
+					android:textColor="@color/tag_gray_darker"
+					android:textSize="14sp" />
+			</LinearLayout>
+		</LinearLayout>
+
+		<TextView
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="20dp"
+			android:layout_marginTop="12dp"
+			android:gravity="start"
+			android:text="@string/app_about_www_label"
+			android:textColor="@android:color/black"
+			android:textSize="14sp"
+			android:textStyle="bold" />
+		<TextView
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:autoLink="web"
+			android:layout_marginStart="20dp"
+			android:gravity="start"
+			android:linksClickable="true"
+			android:text="@string/app_about_www"
+			android:textColor="#120AAF"
+			android:textSize="14sp" />
+
+		<TextView
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="20dp"
+			android:layout_marginTop="10dp"
+			android:gravity="start"
+			android:text="@string/app_about_email_label"
+			android:textColor="@android:color/black"
+			android:textSize="14sp"
+			android:textStyle="bold" />
+		<TextView
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="20dp"
+			android:autoLink="email"
+			android:gravity="start"
+			android:linksClickable="true"
+			android:text="@string/app_about_email"
+			android:textColor="@android:color/black"
+			android:textSize="14sp" />
+
+		<TextView
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="20dp"
+			android:layout_marginTop="28dp"
+			android:gravity="start"
+			android:text="@string/app_about_dev_label"
+			android:textColor="@android:color/black"
+			android:textSize="18sp"
+			android:textStyle="bold" />
+		<TextView
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="20dp"
+			android:gravity="start"
+			android:text="@string/app_about_dev"
+			android:textColor="@android:color/black"
+			android:textSize="16sp" />
+
+		<TextView
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="20dp"
+			android:layout_marginTop="10dp"
+			android:gravity="start"
+			android:text="@string/app_about_design_label"
+			android:textColor="@android:color/black"
+			android:textSize="18sp"
+			android:textStyle="bold" />
+		<TextView
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="20dp"
+			android:gravity="start"
+			android:text="@string/app_about_design"
+			android:textColor="@android:color/black"
+			android:textSize="16sp" />
+
+		<TextView
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="20dp"
+			android:layout_marginTop="10dp"
+			android:gravity="start"
+			android:text="@string/app_about_thanks_label"
+			android:textColor="@android:color/black"
+			android:textSize="18sp"
+			android:textStyle="bold" />
+		<TextView
+			android:id="@+id/about_thanks"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="20dp"
+			android:layout_marginEnd="20dp"
+			android:gravity="start"
+            android:linksClickable="true"
+			android:text="@string/app_about_thanks"
+			android:textColor="@android:color/black"
+			android:textSize="16sp" />
+
+	</LinearLayout>
+
+</ScrollView>

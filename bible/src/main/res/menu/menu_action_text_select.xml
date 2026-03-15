@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto">
+	<item
+		android:id="@+id/action_bookmarks"
+		android:title="@string/bookmarks"
+		android:orderInCategory="0"
+		android:icon="@drawable/ic_action_bookmark"
+		app:showAsAction="always|withText"/>
+	<item
+		android:title="@string/share"
+		android:id="@+id/action_share"
+		android:orderInCategory="1"
+		android:icon="@drawable/ic_action_mode_share"
+		app:showAsAction="always|withText"/>
+	<item
+		android:title="@string/references"
+		android:id="@+id/action_references"
+		android:orderInCategory="2"
+		android:icon="@drawable/ic_action_mode_parallels"
+		app:showAsAction="always|withText"/>
+	<item
+		android:title="@string/copy"
+		android:id="@+id/action_copy"
+		android:orderInCategory="2"
+		android:icon="@drawable/ic_action_mode_copy"
+		app:showAsAction="always|withText"/>
+</menu>

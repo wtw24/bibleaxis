@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<resources>
+	<string name="app_name" translatable="false">BibleAxis</string>
+	<string name="app_about_name" translatable="false">BibleAxis %1$s</string>
+	<string name="app_about_license" translatable="false">Apache License Version 2.0</string>
+	<string name="app_about_dev" translatable="false">Wladimir Wendland</string>
+	<string name="app_about_design" translatable="false">BibleAxis</string>
+	<string name="app_about_thanks" translatable="false">Based on open-source Bible study software:</string>
+	<string name="app_about_email_label" translatable="false">Support:</string>
+	<string name="app_about_email" translatable="false">wladimir.wendland@gmail.com</string>
+	<string name="app_about_www_label" translatable="false">Web:</string>
+	<string name="app_about_www" translatable="false">https://wladimir-wendland.de</string>
+	<string name="text_size">Размер шрифта</string>
+	<string name="current_text_size">Текущий размер шрифта: %1$d</string>
+	<string name="text_color">Цвет текста</string>
+	<string name="background">Цвет фона</string>
+	<string name="text_color_summary">Выберите цвет шрифта</string>
+	<string name="background_summary">Выберите цвет фона</string>
+	<string name="text_color_selected">Цвет выбранного текста</string>
+	<string name="text_color_selected_summary">Выберите цвет шрифта выбранного текста</string>
+	<string name="background_selected">Цвет фона выбранного текста</string>
+	<string name="background_selected_summary">Выберите цвет фона выбранного текста</string>
+	<string name="disable_auto_screen_rotation">Отключить автоматический поворот экрана</string>
+	<string name="may_need_to_restart">Может потребоваться перезапуск</string>
+	<string name="read_mode_by_default">Режим чтения по-умолчанию</string>
+	<string name="read_mode_by_default_summary">Использовать по-умолчанию режим чтения</string>
+	<string name="category_reader_appearance">Внешний вид</string>
+	<string name="category_reader_other">Прочие</string>
+	<string name="category_reader_other_history_size">Размер истории</string>
+	<string name="category_reader_other_history_size_summary">Текущий размер истории: %1$s</string>
+	<string name="menu_night_mode">Ночной режим</string>
+	<string name="menu_highlights">Маркеры</string>
+	<string name="menu_favorites">Закладки</string>
+	<string name="menu_history">История</string>
+	<string name="menu_search">Поиск</string>
+	<string name="menu_find_in_page">Поиск на странице</string>
+	<string name="menu_help">Справка</string>
+	<string name="menu_settings">Настройки</string>
+	<string name="cancel">Отмена</string>
+	<string name="added">Добавлена</string>
+	<string name="removed">Удалено</string>
+	<string name="messageLoad">Загрузка…</string>
+	<string name="messageLoadBooks">Загрузка книг…</string>
+	<string name="messageSearch">Поиск…</string>
+	<string name="messageSearchCanceled">Поиск завершен</string>
+	<string name="results">результатов</string>
+	<string name="share">Поделиться</string>
+	<string name="copy">Копировать</string>
+	<string name="highlight">Маркер</string>
+	<string name="highlight_select_text_first">Сначала выделите текст</string>
+	<string name="highlight_save_failed">Не удалось сохранить выделение</string>
+	<string name="highlight_color_yellow">Желтый</string>
+	<string name="highlight_color_orange">Оранжевый</string>
+	<string name="highlight_color_red">Красный</string>
+	<string name="highlight_color_purple">Фиолетовый</string>
+	<string name="highlight_color_cyan">Голубой</string>
+	<string name="highlight_color_green">Зеленый</string>
+	<string name="highlight_close_palette">Скрыть палитру</string>
+	<string name="highlights_show">Показать маркеры</string>
+	<string name="highlights_hide">Скрыть маркеры</string>
+	<string name="highlight_delete_question">Удалить этот маркер?</string>
+	<string name="highlight_delete_failed">Не удалось удалить маркер</string>
+	<string name="fav_question_del_fav">Удалить эту закладку?</string>
+	<string name="fav_delete_all">Очистить</string>
+	<string name="fav_delete_all_question">Вы уверены, что хотите удалить все закладки?</string>
+	<string name="about">О программе</string>
+	<string name="app_about_dev_label">Разработчики:</string>
+	<string name="messageRefresh">Обновление…</string>
+	<string name="exception_books_definition">Некорректное описание книги в модуле %1$s: BookQty=%2$d, PathName#=%3$d, FullName#=%4$d, ShortName#=%5$d, ChapterQty#=%6$d\n\t</string>
+	<string name="exception_open_module_short">Некорректный модуль %s</string>
+	<string name="exception_book_not_found">Книга %1$s не найдена в модуле %2$s</string>
+	<string name="exception_book_definition">Некорректные параметры книги #%1$d в модуле %2$s</string>
+	<string name="app_about_design_label">Дизайн:</string>
+	<string name="bookmark_invalid_removed">Недопустимая закладка удалена</string>
+	<string name="app_about_thanks_label">Спасибо:</string>
+	<string name="dialog_color_picker">Выберите цвет</string>
+	<string name="settings">Настройки</string>
+	<string name="help">Справка</string>
+	<string name="search">Поиск</string>
+	<string name="history">История</string>
+	<string name="bookmarks">Закладки</string>
+	<string name="library">Библиотека</string>
+	<string name="library_chapter_label">Глава</string>
+	<string name="cross_reference">Перекрестные ссылки</string>
+	<string name="cross_references_display_context">Отображать контекст</string>
+	<string name="cross_references_display_context_summary">Отображать контекст в списке ссылок</string>
+	<string name="references">Ссылки</string>
+	<string name="preference_screen_cross_references">Перекрестные ссылки</string>
+	<string name="enabled">Включено</string>
+	<string name="volume_butons_to_scroll">Прокрутка кнопками громкости</string>
+	<string name="disabled">Отключено</string>
+	<string name="text_align_justify">Выравнивать текст по ширине</string>
+	<string name="font_family">Шрифт</string>
+	<string name="short_reference_summary">Сокращенная ссылка к отрывку</string>
+	<string name="divide_the_verses">Разбивать по стихам</string>
+	<string name="add_module_to_reference_summary">Добавлять имя модуля к ссылке на отрывок</string>
+	<string name="share_passage">Отправка текста</string>
+	<string name="put_reference_in_beginning">Помещать ссылку в начало</string>
+	<string name="short_reference">Короткая ссылка</string>
+	<string name="add_reference_summary">Добавлять ссылку к отрывку</string>
+	<string name="add_module_to_reference">Добавлять имя модуля</string>
+	<string name="add_reference">Добавлять ссылку</string>
+	<string name="no_tags">Меток нет</string>
+	<string name="tags">Метки</string>
+	<string name="tags_description">Укажите метки через запятую</string>
+    <string name="bookmark_name">Текст первого стиха</string>
+	<string name="question_del_tag">Удалить метку?</string>
+	<string name="edit">Редактировать</string>
+	<string name="delete">Удалить</string>
+	<string name="disable_turn_screen">Не отключать экран</string>
+	<string name="disable_turn_screen_summury">Не отключать подсветку экрана при чтении</string>
+	<string name="auto_hide_navigation_bar">Автоматически скрывать нижнюю панель Android</string>
+	<string name="press_again_to_exit">Нажмите снова для выхода</string>
+	<string name="menu_history_clear">Очистить</string>
+	<string name="history_delete_question">Удалить эту запись из истории?</string>
+	<string name="menu_library_add">Добавить…</string>
+	<string name="menu_library_pick_folder">Выбрать место хранения…</string>
+	<string name="library_apply">Применить</string>
+	<string name="module_delete_title">Удаление модуля</string>
+	<string name="module_delete_message_intro">Для удаления модуля %1$s введите код:</string>
+	<string name="module_delete_message">Для удаления модуля %1$s введите код: %2$s</string>
+	<string name="module_delete_code_hint">Код подтверждения</string>
+	<string name="module_delete_code_wrong">Неверный код подтверждения</string>
+	<string name="module_delete_failed_reload">Не удалось удалить модуль</string>
+	<string name="file_not_exist">Файл не найден</string>
+	<string name="file_cant_read">Файл недоступен для чтения</string>
+	<string name="file_not_supported">Файл не поддерживается</string>
+	<string name="file_not_moved">Операция не удалась</string>
+	<string name="error_open_module">Не удалось открыть модуль %1$s из %2$s</string>
+	<string name="copy_module_from_file">Копирование модуля…</string>
+	<string name="exception_add_module_from_file">Данная функция не доступна! Установите файловый менеджер.</string>
+	<string name="modules_storage_location_required">Выберите место хранения для папки BibleAxis</string>
+	<string name="modules_storage_location_saved">Место хранения подключено</string>
+	<string name="modules_storage_picker_unavailable">Не удалось открыть выбор места хранения</string>
+	<string name="modules_storage_access_denied">Нет доступа к выбранному месту хранения</string>
+	<string name="modules_storage_folder_invalid">Место хранения недоступно или повреждено</string>
+	<string name="modules_storage_structure_created">Папки BibleAxis/modules подготовлены</string>
+	<string name="modules_storage_structure_create_failed">Не удалось создать папки BibleAxis/modules</string>
+	<string name="modules_sync_failed">Не удалось импортировать модули из выбранной папки</string>
+	<string name="notify_dialog_title">Ошибка</string>
+	<string name="always_view_verse_numbers_enabled">Для всех текстов</string>
+	<string name="always_view_verse_numbers_disabled">Только для текстов Библии</string>
+	<string name="always_view_verse_numbers_title">Всегда показывать номера стихов</string>
+	<string name="choice_chapter">Открыть…</string>
+	<string name="menu_tags">Метки</string>
+	<string name="search_hint">Что найти?</string>
+    <string name="find_in_page_hint">Найти на странице</string>
+    <string name="find_in_page_no_matches">Нет совпадений</string>
+    <string name="find_in_page_matches_format">%1$d/%2$d</string>
+    <string name="find_in_page_prev">Предыдущее совпадение</string>
+    <string name="find_in_page_next">Следующее совпадение</string>
+    <string name="find_in_page_close">Закрыть поиск на странице</string>
+    <string name="search_modules">Модули</string>
+    <string name="search_modules_choose">Выбрать модули</string>
+    <string name="search_modules_selected">Выбрано модулей: %1$d — %2$s</string>
+    <string name="search_module_single">%1$s - %2$s</string>
+    <string name="search_scope_whole_bible">По всей Библии</string>
+    <string name="search_scope_old_testament">Только Ветхий Завет</string>
+    <string name="search_scope_new_testament">Только Новый Завет</string>
+    <string name="search_scope_book">В одной книге</string>
+    <string name="search_scope_selected_books">В выбранных книгах</string>
+    <string name="search_scope_book_range">От книги до книги</string>
+    <string name="search_whole_words_match">Совпадение слов целиком</string>
+    <string name="search_selected_books">Выбор книг</string>
+    <string name="search_selected_books_choose">Выбрать книги</string>
+    <string name="search_selected_books_count">Выбрано книг: %1$d</string>
+    <string name="search_results_for_query">Результаты поиска по запросу: %1$s</string>
+    <string name="search_old_testament_label">Ветхий Завет</string>
+    <string name="search_new_testament_label">Новый Завет</string>
+    <string name="search_other_books_label">Другие книги</string>
+    <string name="search_select_module_first">Выберите хотя бы один модуль</string>
+    <string name="search_select_book_first">Выберите книгу</string>
+    <string name="search_books_not_available">Нет доступных книг</string>
+    <string name="search_no_bible_modules">Нет библейских модулей для поиска</string>
+    <string name="modules">модулей</string>
+    <string name="image_not_found">Изображение не найдено</string>
+    <string name="retry">Повторить</string>
+    <string name="msg_permission_denied">Отсутствуют разрешения необходимые для работы приложения</string>
+	<string name="err_load_module_unknown">Не удалось загрузить модуль. Попробуйте ещё раз или используйте другой модуль</string>
+    <string name="line_spacing_title">Межстрочный интервал</string>
+	<string name="update_tsk">Обновление TSK…</string>
+	<string name="update_reload_modules">Обновление библиотеки модулей…</string>
+	<string name="update_builtin_modules">Обновление встроенных модулей…</string>
+	<string name="update_preferences">Обновление настроек…</string>
+	<string name="openDrawer" translatable="false">drawer_open</string>
+	<string name="closeDrawer" translatable="false">drawer_close</string>
+	<string name="line_spacing_summary" translatable="false">%d%%</string>
+	<string name="error_initialization_failed" translatable="false">Initialization failed</string>
+</resources>

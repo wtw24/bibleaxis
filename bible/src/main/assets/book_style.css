@@ -1,0 +1,18 @@
+body {
+    font-family: "Noto Serif", serif;
+}
+
+p {
+    margin: 6pt 0;
+    text-indent: 0.8em;
+}
+
+a {
+	text-decoration: none;
+	font-weight: bold;
+	color:#003b77;
+}
+
+h2, h3, h4 {
+	margin: 8pt 0;
+}

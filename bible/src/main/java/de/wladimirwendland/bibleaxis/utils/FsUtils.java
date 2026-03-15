@@ -1,0 +1,196 @@
+/*
+ * Copyright (C) 2011 Scripture Software and contributors
+ * Copyright (C) 2026 Wladimir Wendland
+ * SPDX-License-Identifier: Apache-2.0
+ * Modified by BibleAxis contributors
+ */
+
+package de.wladimirwendland.bibleaxis.utils;
+
+import android.content.Context;
+import android.util.Log;
+
+import de.wladimirwendland.bibleaxis.domain.exceptions.DataAccessException;
+
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileFilter;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.UTFDataFormatException;
+import java.nio.charset.StandardCharsets;
+import java.util.List;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipInputStream;
+
+import de.wladimirwendland.bibleaxis.domain.logger.StaticLogger;
+
+public final class FsUtils {
+
+    private static final int BUFFER_SIZE = 1024 * 4;
+    private static final String TAG = "FsUtils";
+
+    private FsUtils() throws InstantiationException {
+        throw new InstantiationException("This class is not for instantiation");
+    }
+
+    static InputStream getStreamFromZip(String path, String fileName) {
+        try {
+            FileInputStream fis = new FileInputStream(path);
+            ZipInputStream zis = new ZipInputStream(fis);
+            ZipEntry entry;
+            while ((entry = zis.getNextEntry()) != null) {
+                String entryName = entry.getName();
+                if (entryName.contains(File.separator)) {
+                    entryName = entryName.substring(entryName.lastIndexOf(File.separator) + 1);
+                }
+                if (entryName.equalsIgnoreCase(fileName)) {
+                    return zis;
+                }
+            }
+        } catch (IOException e) {
+            String message = String.format("File %1$s in zip-arhive %2$s not found", fileName, path);
+            Log.e(TAG, message);
+        }
+        return null;
+    }
+
+    public static byte[] getBytes(InputStream stream) {
+        try (
+                ByteArrayOutputStream out = new ByteArrayOutputStream(BUFFER_SIZE);
+                BufferedInputStream in = new BufferedInputStream(stream)
+        ) {
+            byte[] buffer = new byte[BUFFER_SIZE];
+            int length;
+            while ((length = in.read(buffer, 0, buffer.length)) != -1) {
+                out.write(buffer, 0, length);
+            }
+            return out.toByteArray();
+        } catch (IOException ex) {
+            return null;
+        }
+    }
+
+    static InputStream getStream(String path, String fileName) {
+        File streamFile = new File(path, fileName);
+        try {
+            return new FileInputStream(streamFile);
+        } catch (IOException e) {
+            String message = String.format("File %s/%s not found", path, fileName);
+            Log.e(TAG, message);
+        }
+        return null;
+    }
+
+    static BufferedReader getTextFileReaderFromZipArchive(String archivePath, String searchFileName,
+                                                          String encoding) throws DataAccessException {
+        File zipFile = new File(archivePath);
+        try {
+            InputStream moduleStream = new FileInputStream(zipFile);
+            ZipInputStream zStream = new ZipInputStream(moduleStream);
+            ZipEntry entry;
+            while ((entry = zStream.getNextEntry()) != null) {
+                String entryName = entry.getName().toLowerCase();
+                if (entryName.contains(File.separator)) {
+                    entryName = entryName.substring(entryName.lastIndexOf(File.separator) + 1);
+                }
+                if (entryName.equalsIgnoreCase(searchFileName)) {
+                    InputStreamReader iReader = new InputStreamReader(zStream, encoding);
+                    return new BufferedReader(iReader);
+                }
+            }
+            String message = String.format("File %1$s in zip-arhive %2$s not found", searchFileName, archivePath);
+            Log.e(TAG, message);
+            throw new DataAccessException(message);
+        } catch (UTFDataFormatException e) {
+            String message = String.format("Archive %1$s contains the file names not in the UTF format", zipFile.getName());
+            Log.e(TAG, message);
+            throw new DataAccessException(message);
+        } catch (FileNotFoundException e) {
+            String message = String.format("File %1$s in zip-arhive %2$s not found", searchFileName, archivePath);
+            throw new DataAccessException(message);
+        } catch (IOException e) {
+            Log.e(TAG,
+                    String.format("getTextFileReaderFromZipArchive(%1$s, %2$s, %3$s)",
+                            archivePath, searchFileName, encoding), e);
+            throw new DataAccessException(e);
+        }
+    }
+
+    static BufferedReader getTextFileReader(String dir, String fileName, String textFileEncoding) throws DataAccessException {
+        BufferedReader bReader;
+        try {
+            File file = new File(dir, fileName);
+            bReader = FsUtils.openFile(file, textFileEncoding);
+            if (bReader == null) {
+                throw new DataAccessException(String.format("File %1$s not exists", fileName));
+            }
+        } catch (Exception e) {
+            throw new DataAccessException(e);
+        }
+        return bReader;
+    }
+
+    public static void searchByFilter(File currentFile, List<File> resultFiles, FileFilter filter) {
+        StaticLogger.info(TAG, "Search modules into " + currentFile.getAbsolutePath());
+
+        try {
+            File[] files = currentFile.listFiles(filter);
+            if (files == null) {
+                return;
+            }
+
+            for (File file : files) {
+                if (file.isDirectory()) {
+                    searchByFilter(file, resultFiles, filter);
+                } else if (file.canRead()) {
+                    StaticLogger.info(TAG, "\t- add file " + file.getAbsolutePath());
+                    resultFiles.add(file);
+                }
+            }
+        } catch (Exception e) {
+            StaticLogger.error(TAG, String.format("SearchByFilter(%1$s, %2$s)", currentFile.getName(), filter.toString()), e);
+        }
+
+    }
+
+    private static BufferedReader openFile(File file, String encoding) {
+        Log.i(TAG, "FileUtilities.OpenFile(" + file + ", " + encoding + ")");
+
+        if (!file.exists()) {
+            return null;
+        }
+        BufferedReader bReader;
+        try {
+            InputStreamReader iReader;
+            iReader = new InputStreamReader(new FileInputStream(file), encoding);
+            bReader = new BufferedReader(iReader);
+        } catch (Exception e) {
+            Log.i(TAG, e.toString());
+            return null;
+        }
+
+        return bReader;
+    }
+
+    public static String getAssetString(Context context, String fileName) {
+        try (
+                InputStream assetIS = context.getResources().getAssets().open(fileName);
+                InputStreamReader localInputStreamReader = new InputStreamReader(assetIS, StandardCharsets.UTF_8);
+                BufferedReader localBufferedReader = new BufferedReader(localInputStreamReader)
+        ) {
+            StringBuilder sBuilder = new StringBuilder();
+            for (String str = localBufferedReader.readLine(); str != null; str = localBufferedReader.readLine()) {
+                sBuilder.append(str).append("\n");
+            }
+            return sBuilder.toString();
+        } catch (IOException e) {
+            return "";
+        }
+    }
+}

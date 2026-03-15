@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+	<color name="white">#dddddd</color>
+	<color name="black">#000000</color>
+	<color name="gray">#aaaaaa</color>
+	<color name="light_gray">#dadada</color>
+	<color name="dark_gray">#7e7e7e</color>
+	<color name="tag_gray_darker">#5f6368</color>
+	<color name="bookmark_verse_gray">#4a4a4a</color>
+	<color name="button_gray">#e7e7e7</color>
+    <color name="button_border">#9d9d9d</color>
+	<color name="library_picker_bg">@color/white_real</color>
+	<color name="library_picker_bg_pressed">#F4F8FF</color>
+	<color name="library_picker_border">#C6CBD3</color>
+	<color name="library_picker_text">#000000</color>
+	<color name="library_picker_subtitle">#000000</color>
+	<color name="library_header_bg">#EAF4FF</color>
+	<color name="white_real">#FFFFFF</color>
+	<color name="library_chapter_bg">#FFFFFF</color>
+	<color name="library_chapter_bg_selected">#DDEEFF</color>
+	<color name="library_chapter_border">#C3CCD7</color>
+	<color name="library_chapter_border_selected">#7EA3CC</color>
+	<color name="library_chapter_shadow">#D7DEE8</color>
+
+	<color name="primary">#1159A2</color>
+	<color name="primary_dark">#001F2C</color>
+	<color name="action_mode_background">#0E4E8F</color>
+	<color name="accent">#7A5C3E</color>
+	<color name="accent_dark">#2C1703</color>
+	<color name="toolbarTextColor">#FFFFFF</color>
+	<color name="splash_background">#D1EAF8</color>
+
+	<color name="def_text_color">#000000</color>
+	<color name="def_background">#FAFAEF</color>
+	<color name="def_sel_text_color">#000000</color>
+	<color name="def_sel_background">#CFE6F5</color>
+
+</resources>

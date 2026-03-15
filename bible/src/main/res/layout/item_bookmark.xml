@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:drawable/list_selector_background"
+    android:orientation="vertical"
+    android:padding="@dimen/default_margin">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/bookmark_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:gravity="center_vertical|right"
+            android:maxLines="1"
+            android:paddingLeft="4dp"
+            android:textAppearance="@style/TextAppearance.AppCompat"
+            tools:text="2 May, 2013"/>
+
+        <TextView
+            android:id="@+id/bookmark_link"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_toLeftOf="@+id/bookmark_time"
+            android:ellipsize="end"
+            android:gravity="center_vertical|left"
+            android:maxLines="1"
+            android:textAppearance="@style/TextAppearance.AppCompat"
+            tools:text="KJV:1Samuel 3:1"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp">
+
+        <ImageButton
+            android:id="@+id/bookmark_delete"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/delete"
+            android:padding="6dp"
+            android:src="@drawable/ic_action_delete"
+            android:tint="@color/tag_gray_darker"/>
+
+        <TextView
+            android:id="@+id/bookmark_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toStartOf="@+id/bookmark_delete"
+            android:layout_toLeftOf="@+id/bookmark_delete"
+            android:gravity="center_vertical|left"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/bookmark_verse_gray"
+            tools:text="Bookmark name"/>
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/bookmark_tags"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical|left"
+        android:drawableLeft="@drawable/ic_tag_outline"
+        android:drawableTint="@color/tag_gray_darker"
+        android:drawablePadding="4dp"
+        android:gravity="center_vertical|left"
+        android:maxLines="1"
+        android:text="@string/no_tags"
+        android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+        android:textColor="@color/tag_gray_darker"/>
+
+</LinearLayout>

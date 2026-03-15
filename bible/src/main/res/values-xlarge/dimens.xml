@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+
+    <dimen name="text_size_very_small">14.0sp</dimen>
+    <dimen name="text_size_small">16.0sp</dimen>
+    <dimen name="text_size_medium">20.0sp</dimen>
+    <dimen name="text_size_large">22.0sp</dimen>
+
+    <dimen name="bookLink_container_height">32dp</dimen>
+    <dimen name="library_item_height">60dp</dimen>
+    <dimen name="ch_chapter_height">60dp</dimen>
+    <dimen name="ch_chapter_width">60dp</dimen>
+    <dimen name="ch_chapter_spacing">15dp</dimen>
+    <dimen name="book_id_width">80dp</dimen>
+
+</resources>

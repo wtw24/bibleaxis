@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "781677480021",
+    "project_id": "bibleaxis",
+    "storage_bucket": "bibleaxis.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:781677480021:android:f7650c5a988e6a57ccecdc",
+        "android_client_info": {
+          "package_name": "de.wladimirwendland.bibleaxis"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDpMjCjDuUTVlJRjZxOvlMGRLtlRbLg7A4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:781677480021:android:77fc7395f25cd198ccecdc",
+        "android_client_info": {
+          "package_name": "de.wladimirwendland.bibleaxis.debug"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDpMjCjDuUTVlJRjZxOvlMGRLtlRbLg7A4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<de.wladimirwendland.bibleaxis.presentation.widget.listview.itemview.SubtitleItemView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:drawable/list_selector_background"
+    android:orientation="vertical"
+    android:padding="6dp">
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.5"
+        android:ellipsize="end"
+        android:gravity="bottom|left"
+        android:maxLines="1"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/text_size_large"/>
+
+    <TextView
+        android:id="@+id/subtitletext"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.5"
+        android:ellipsize="end"
+        android:gravity="top|left"
+        android:textColor="#ff5d5d5d"
+        android:textSize="@dimen/text_size_medium"/>
+
+</de.wladimirwendland.bibleaxis.presentation.widget.listview.itemview.SubtitleItemView>
