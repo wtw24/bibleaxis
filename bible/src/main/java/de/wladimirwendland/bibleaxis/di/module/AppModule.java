@@ -46,7 +46,6 @@ import dagger.Provides;
 import de.wladimirwendland.bibleaxis.data.library.LibraryContext;
 import de.wladimirwendland.bibleaxis.data.logger.AndroidLogger;
 import de.wladimirwendland.bibleaxis.data.logger.CrashlyticsLogger;
-import de.wladimirwendland.bibleaxis.domain.RxSchedulers;
 import de.wladimirwendland.bibleaxis.domain.logger.CompositeLogger;
 import de.wladimirwendland.bibleaxis.domain.logger.Logger;
 import de.wladimirwendland.bibleaxis.domain.migration.Migration;
@@ -112,14 +111,6 @@ public class AppModule {
     UpdateManager provideUpdateManager(PreferenceHelper prefHelper, Set<Migration> migrations) {
         return new UpdateManager(prefHelper, migrations);
     }
-
-
-    @Singleton
-    @Provides
-    RxSchedulers  provideRxSchedulers() {
-        return new RxSchedulers();
-    }
-
     @Singleton
     @Provides
     AppTaskRunner provideAppTaskRunner() {
