@@ -209,6 +209,7 @@ public class ReaderViewPresenterTest {
 
         InOrder progressOrder = inOrder(view);
         progressOrder.verify(view).showProgress(eq(false));
+        progressOrder.verify(view).hideProgress();
         progressOrder.verify(view).onOpenChapterFailure(any(OpenModuleException.class));
     }
 

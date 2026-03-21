@@ -154,11 +154,6 @@ dependencies {
     kapt "com.google.auto.value:auto-value:$auto_value_version"
     compileOnly "com.google.auto.value:auto-value-annotations:$auto_value_version"
 
-    // RxJava
-
-    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
-    implementation 'io.reactivex.rxjava2:rxjava:2.2.21'
-
     // OkHttp
     implementation("com.squareup.okhttp3:okhttp:4.12.0")
 

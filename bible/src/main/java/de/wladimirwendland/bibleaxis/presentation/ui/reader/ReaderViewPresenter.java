@@ -170,7 +170,10 @@ public class ReaderViewPresenter extends BasePresenter<ReaderView> {
                     view.hideProgress();
                 }));
             } catch (Throwable throwable) {
-                appTaskRunner.runOnMain(() -> getViewAndExecute(view -> view.onOpenChapterFailure(throwable)));
+                appTaskRunner.runOnMain(() -> getViewAndExecute(view -> {
+                    view.hideProgress();
+                    view.onOpenChapterFailure(throwable);
+                }));
             }
         });
     }

@@ -9,7 +9,6 @@ package de.wladimirwendland.bibleaxis.domain.migration
 
 import de.wladimirwendland.bibleaxis.BuildConfig
 import de.wladimirwendland.bibleaxis.utils.PreferenceHelper
-import io.reactivex.Observable
 import de.wladimirwendland.bibleaxis.domain.logger.StaticLogger
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -37,25 +36,6 @@ class UpdateManager(
                 prefHelper.saveInt("versionCode", BuildConfig.VERSION_CODE)
                 StaticLogger.info(this@UpdateManager, "Update success")
             }
-        }
-    }
-
-    fun update(): Observable<Int> {
-        return Observable.create { emitter ->
-            StaticLogger.info(this, "Start update manager...")
-            val currVersionCode = prefHelper.getInt("versionCode")
-            if (BuildConfig.VERSION_CODE > currVersionCode) {
-                migrationList
-                    .filter { it.version > currVersionCode }
-                    .sortedBy { it.version }
-                    .forEach {
-                        emitter.onNext(it.description)
-                        it.migrate(currVersionCode)
-                    }
-                prefHelper.saveInt("versionCode", BuildConfig.VERSION_CODE)
-                StaticLogger.info(this, "Update success")
-            }
-            emitter.onComplete()
         }
     }
 }
