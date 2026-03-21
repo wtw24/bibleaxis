@@ -7,7 +7,11 @@ updates:
       day: "monday"
       time: "05:00"
       timezone: "UTC"
-    open-pull-requests-limit: 10
+    open-pull-requests-limit: 3
+    groups:
+      github-actions:
+        patterns:
+          - "*"
 
   - package-ecosystem: "gradle"
     directory: "/"
@@ -16,13 +20,24 @@ updates:
       day: "monday"
       time: "05:30"
       timezone: "UTC"
-    open-pull-requests-limit: 10
-
-  - package-ecosystem: "gradle"
-    directory: "/bible"
-    schedule:
-      interval: "weekly"
-      day: "monday"
-      time: "06:00"
-      timezone: "UTC"
-    open-pull-requests-limit: 10
+    open-pull-requests-limit: 6
+    groups:
+      androidx:
+        patterns:
+          - "androidx.*"
+      kotlin:
+        patterns:
+          - "org.jetbrains.kotlin*"
+      test-libs:
+        patterns:
+          - "junit:*"
+          - "org.mockito:*"
+          - "org.robolectric:*"
+          - "org.hamcrest:*"
+          - "io.mockk:*"
+          - "com.google.truth:*"
+      networking-and-firebase:
+        patterns:
+          - "com.squareup.okhttp3:*"
+          - "com.squareup.retrofit2:*"
+          - "com.google.firebase:*"
