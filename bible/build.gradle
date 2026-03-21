@@ -43,7 +43,6 @@ android {
         versionCode 9
         versionName "2.2.2"
         resConfigs 'en', 'ru', 'be', 'uk'
-        setProperty("archivesBaseName", "bibleaxis-v${versionName}(${versionCode})")
     }
 
     signingConfigs {
@@ -87,7 +86,7 @@ android {
 
     buildFeatures {
         buildConfig true
-        dataBinding true
+        dataBinding false
     }
 
     testOptions {

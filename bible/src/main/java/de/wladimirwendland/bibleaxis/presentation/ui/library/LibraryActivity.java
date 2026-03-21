@@ -35,6 +35,8 @@ import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.core.content.ContextCompat;
@@ -80,8 +82,6 @@ import de.wladimirwendland.bibleaxis.data.library.LibraryContext;
 
 public class LibraryActivity extends AsyncTaskActivity {
 
-    private static final int ACTION_CODE_GET_FILE = 1;
-    private static final int ACTION_CODE_PICK_MODULES_FOLDER = 2;
     private static final int MODULE_VIEW = 1, BOOK_VIEW = 2, CHAPTER_VIEW = 3;
     private static final String TAG = LibraryActivity.class.getSimpleName();
 
@@ -112,6 +112,24 @@ public class LibraryActivity extends AsyncTaskActivity {
     private int viewMode = 1;
     private final Random random = new Random();
     private PreferenceHelper prefHelper;
+    private final ActivityResultLauncher<Intent> pickModuleFileLauncher = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            result -> {
+                Intent data = result.getData();
+                if (result.getResultCode() == RESULT_OK && data != null && data.getData() != null) {
+                    getModuleFromFile(data.getData());
+                }
+            });
+    private final ActivityResultLauncher<Intent> pickModulesFolderLauncher = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            result -> {
+                Intent data = result.getData();
+                if (result.getResultCode() == RESULT_OK && data != null && data.getData() != null) {
+                    onModulesFolderPicked(data);
+                } else {
+                    Toast.makeText(this, R.string.modules_storage_location_required, Toast.LENGTH_LONG).show();
+                }
+            });
 
     public static Intent createIntent(@NonNull Context context) {
         return new Intent(context, LibraryActivity.class);
@@ -183,24 +201,6 @@ public class LibraryActivity extends AsyncTaskActivity {
     protected void onPostResume() {
         super.onPostResume();
         updateView(viewMode);
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == ACTION_CODE_GET_FILE) {
-            if (resultCode == RESULT_OK && data != null && data.getData() != null) {
-                getModuleFromFile(data.getData());
-            }
-        } else if (requestCode == ACTION_CODE_PICK_MODULES_FOLDER) {
-            if (resultCode == RESULT_OK && data != null && data.getData() != null) {
-                onModulesFolderPicked(data);
-            } else {
-                Toast.makeText(this, R.string.modules_storage_location_required, Toast.LENGTH_LONG).show();
-            }
-        } else {
-            Log.e(TAG, "Unknown request code: " + requestCode);
-        }
-        super.onActivityResult(requestCode, resultCode, data);
     }
 
     @Override
@@ -296,7 +296,7 @@ public class LibraryActivity extends AsyncTaskActivity {
                 .setType("application/zip")
                 .addCategory(Intent.CATEGORY_OPENABLE);
         try {
-            startActivityForResult(target, ACTION_CODE_GET_FILE);
+            pickModuleFileLauncher.launch(target);
         } catch (ActivityNotFoundException e) {
             Toast.makeText(this, R.string.exception_add_module_from_file, Toast.LENGTH_LONG).show();
         }
@@ -512,7 +512,7 @@ public class LibraryActivity extends AsyncTaskActivity {
                 .addFlags(Intent.FLAG_GRANT_PREFIX_URI_PERMISSION);
 
         try {
-            startActivityForResult(target, ACTION_CODE_PICK_MODULES_FOLDER);
+            pickModulesFolderLauncher.launch(target);
         } catch (ActivityNotFoundException e) {
             Toast.makeText(this, R.string.modules_storage_picker_unavailable, Toast.LENGTH_LONG).show();
         }

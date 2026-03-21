@@ -31,6 +31,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -80,13 +82,6 @@ import de.wladimirwendland.bibleaxis.domain.config.FeatureToggle;
 public class ReaderActivity extends BaseActivity<ReaderViewPresenter>
         implements ReaderView, IReaderViewListener, ReaderWebView.OnFindInPageListener {
 
-    public static final int ID_BOOKMARKS = 4;
-    public static final int ID_HISTORY = 3;
-    public static final int ID_SETTINGS = 6;
-    public static final int ID_PARALLELS = 5;
-    public static final int ID_CHOOSE_CH = 1;
-    public static final int ID_SEARCH = 2;
-
     @Inject
     FeatureToggle featureToggle;
     @Inject
@@ -96,6 +91,25 @@ public class ReaderActivity extends BaseActivity<ReaderViewPresenter>
 
     private static final String KEY_LINK_OSIS = "linkOSIS";
     private static final String TAG = ReaderActivity.class.getSimpleName();
+
+    private final ActivityResultLauncher<Intent> openLinkResultLauncher = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            result -> {
+                if (result.getResultCode() != RESULT_OK) {
+                    return;
+                }
+                Intent data = result.getData();
+                if (data == null) {
+                    return;
+                }
+                String osisLink = data.getStringExtra(KEY_LINK_OSIS);
+                if (!TextUtils.isEmpty(osisLink)) {
+                    presenter.openLink(osisLink);
+                }
+            });
+    private final ActivityResultLauncher<Intent> settingsResultLauncher = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            result -> presenter.onChangeSettings());
 
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
@@ -257,26 +271,6 @@ public class ReaderActivity extends BaseActivity<ReaderViewPresenter>
                 return false;
         }
         return true;
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        switch (requestCode) {
-            case ID_BOOKMARKS:
-            case ID_SEARCH:
-            case ID_CHOOSE_CH:
-            case ID_PARALLELS:
-            case ID_HISTORY:
-                if (resultCode == RESULT_OK) {
-                    presenter.openLink(data.getStringExtra(KEY_LINK_OSIS));
-                }
-                break;
-            case ID_SETTINGS:
-                presenter.onChangeSettings();
-                break;
-            default:
-                super.onActivityResult(requestCode, resultCode, data);
-        }
     }
 
     @Override
@@ -482,7 +476,7 @@ public class ReaderActivity extends BaseActivity<ReaderViewPresenter>
 
     @Override
     public void openLibraryActivity() {
-        startActivityForResult(LibraryActivity.createIntent(this), ID_CHOOSE_CH);
+        openLinkResultLauncher.launch(LibraryActivity.createIntent(this));
     }
 
     @Override
@@ -637,7 +631,7 @@ public class ReaderActivity extends BaseActivity<ReaderViewPresenter>
         Intent intentBookmarks = new Intent()
                 .setClass(this, BookmarksActivity.class)
                 .putExtra(BookmarksActivity.EXTRA_MODE, BookmarksActivity.MODE_BOOKMARKS);
-        startActivityForResult(intentBookmarks, ID_BOOKMARKS);
+        openLinkResultLauncher.launch(intentBookmarks);
     }
 
     private void openHelpActivity() {
@@ -647,7 +641,7 @@ public class ReaderActivity extends BaseActivity<ReaderViewPresenter>
 
     private void openHistoryActivity() {
         Intent intentHistory = new Intent().setClass(this, HistoryActivity.class);
-        startActivityForResult(intentHistory, ID_HISTORY);
+        openLinkResultLauncher.launch(intentHistory);
     }
 
     private void openImageViewActivity(String imagePath) {
@@ -656,7 +650,7 @@ public class ReaderActivity extends BaseActivity<ReaderViewPresenter>
 
     private void openSearchActivity() {
         Intent intentSearch = new Intent().setClass(this, SearchActivity.class);
-        startActivityForResult(intentSearch, ID_SEARCH);
+        openLinkResultLauncher.launch(intentSearch);
     }
 
     private void setupFindInPagePanel() {
@@ -755,14 +749,20 @@ public class ReaderActivity extends BaseActivity<ReaderViewPresenter>
 
     private void openSettingsActivity() {
         Intent intentSettings = new Intent(this, SettingsActivity.class);
-        startActivityForResult(intentSettings, ID_SETTINGS);
+        settingsResultLauncher.launch(intentSettings);
     }
 
     private void openTagsActivity() {
         Intent intentBookmarks = new Intent()
                 .setClass(this, BookmarksActivity.class)
                 .putExtra(BookmarksActivity.EXTRA_MODE, BookmarksActivity.MODE_TAGS);
-        startActivityForResult(intentBookmarks, ID_BOOKMARKS);
+        openLinkResultLauncher.launch(intentBookmarks);
+    }
+
+    void openCrossReferenceActivity(String osisLink) {
+        Intent intentParallels = new Intent(this, de.wladimirwendland.bibleaxis.presentation.ui.crossreference.CrossReferenceActivity.class);
+        intentParallels.putExtra(KEY_LINK_OSIS, osisLink);
+        openLinkResultLauncher.launch(intentParallels);
     }
 
     private void saveHighlight(JSONObject selectionJson, String color) {

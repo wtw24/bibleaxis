@@ -11,6 +11,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 
 import de.wladimirwendland.bibleaxis.R;
 import de.wladimirwendland.bibleaxis.entity.TextAppearance;
@@ -190,27 +191,23 @@ public class PreferenceHelper {
         preference.edit().putBoolean(KEY_FIND_IN_PAGE_ENABLED, enabled).apply();
     }
 
-    @SuppressWarnings("deprecation")
     private String getTextBackground() {
-        int color = preference.getInt(KEY_TEXT_BG, context.getResources().getColor(R.color.def_background));
+        int color = preference.getInt(KEY_TEXT_BG, ContextCompat.getColor(context, R.color.def_background));
         return ColorUtils.toWeb(color);
     }
 
-    @SuppressWarnings("deprecation")
     private String getTextBackgroundSelected() {
-        int color = preference.getInt(KEY_TEXT_BG_SEL, context.getResources().getColor(R.color.def_sel_background));
+        int color = preference.getInt(KEY_TEXT_BG_SEL, ContextCompat.getColor(context, R.color.def_sel_background));
         return ColorUtils.toWeb(color);
     }
 
-    @SuppressWarnings("deprecation")
     private String getTextColor() {
-        int color = preference.getInt(KEY_TEXT_COLOR, context.getResources().getColor(R.color.def_text_color));
+        int color = preference.getInt(KEY_TEXT_COLOR, ContextCompat.getColor(context, R.color.def_text_color));
         return ColorUtils.toWeb(color);
     }
 
-    @SuppressWarnings("deprecation")
     private String getTextColorSelected() {
-        int color = preference.getInt(KEY_TEXT_COLOR_SEL, context.getResources().getColor(R.color.def_sel_text_color));
+        int color = preference.getInt(KEY_TEXT_COLOR_SEL, ContextCompat.getColor(context, R.color.def_sel_text_color));
         return ColorUtils.toWeb(color);
     }
 

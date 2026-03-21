@@ -7,7 +7,6 @@
 
 package de.wladimirwendland.bibleaxis.presentation.ui.reader;
 
-import android.content.Intent;
 import androidx.fragment.app.DialogFragment;
 import androidx.appcompat.view.ActionMode;
 import android.view.Menu;
@@ -19,7 +18,6 @@ import de.wladimirwendland.bibleaxis.R;
 import de.wladimirwendland.bibleaxis.domain.entity.Bookmark;
 import de.wladimirwendland.bibleaxis.managers.Librarian;
 import de.wladimirwendland.bibleaxis.presentation.dialogs.BookmarksDialog;
-import de.wladimirwendland.bibleaxis.presentation.ui.crossreference.CrossReferenceActivity;
 import de.wladimirwendland.bibleaxis.presentation.widget.ReaderWebView;
 import de.wladimirwendland.bibleaxis.utils.share.ShareBuilder;
 
@@ -85,9 +83,7 @@ final class SelectTextHandler implements ActionMode.Callback {
 
             case R.id.action_references:
                 myLibrarian.setCurrentVerseNumber(selVerses.first());
-                Intent intParallels = new Intent(readerActivity, CrossReferenceActivity.class);
-                intParallels.putExtra("linkOSIS", myLibrarian.getCurrentOSISLink().getPath());
-                readerActivity.startActivityForResult(intParallels, ReaderActivity.ID_PARALLELS);
+                readerActivity.openCrossReferenceActivity(myLibrarian.getCurrentOSISLink().getPath());
                 break;
 
             default:
