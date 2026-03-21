@@ -11,64 +11,70 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.viewModelScope
 import de.wladimirwendland.bibleaxis.di.scope.PerActivity
 import de.wladimirwendland.bibleaxis.domain.controller.ILibraryController
-import io.reactivex.Completable
-import io.reactivex.disposables.CompositeDisposable
-import de.wladimirwendland.bibleaxis.domain.RxSchedulers
 import de.wladimirwendland.bibleaxis.domain.config.FeatureToggle
 import de.wladimirwendland.bibleaxis.domain.logger.StaticLogger
 import de.wladimirwendland.bibleaxis.domain.migration.UpdateManager
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 class SplashViewModel(
     private val libraryController: ILibraryController,
     private val updateManager: UpdateManager,
-    private val featureToggle: FeatureToggle,
-    private val rxSchedulers: RxSchedulers
+    private val featureToggle: FeatureToggle
 ): ViewModel() {
 
-    private val compositeDisposable = CompositeDisposable()
+    private var initJob: Job? = null
 
     private val resultData = MutableLiveData<SplashViewResult>()
     val result: LiveData<SplashViewResult>
         get() = resultData
 
     fun onViewStarted() {
-        updateManager.update()
-            .subscribeOn(rxSchedulers.computation)
-            .observeOn(rxSchedulers.mainThread)
-            .subscribe(
-                { message: Int ->
-                    resultData.value = SplashViewResult.UpdateResult(message)
-                },
-                { throwable: Throwable ->
-                    StaticLogger.error(this, "Update failure", throwable)
-                    resultData.value = SplashViewResult.InitFailure
-                },
-                { initLibrary() }
-            ).let {
-                compositeDisposable.add(it)
+        initJob?.cancel()
+        initJob = viewModelScope.launch {
+            if (!runUpdateStep()) {
+                return@launch
             }
+            runInitStep()
+        }
     }
 
-    private fun initLibrary() {
-        Completable.fromRunnable { libraryController.init() }
-            .concatWith(Completable.fromRunnable { featureToggle.initToggles() })
-            .subscribeOn(rxSchedulers.computation)
-            .observeOn(rxSchedulers.mainThread)
-            .subscribe(
-                { resultData.value = SplashViewResult.InitSuccess },
-                { throwable: Throwable ->
-                    StaticLogger.error(this, "Init library failure", throwable)
-                    resultData.value = SplashViewResult.InitFailure
-            }).let {
-                compositeDisposable.add(it)
+    private suspend fun runUpdateStep(): Boolean {
+        return try {
+            withContext(Dispatchers.Default) {
+                updateManager.update().blockingForEach { message ->
+                    resultData.postValue(SplashViewResult.UpdateResult(message))
+                }
             }
+            true
+        } catch (throwable: Throwable) {
+            StaticLogger.error(this, "Update failure", throwable)
+            resultData.value = SplashViewResult.InitFailure
+            false
+        }
+    }
+
+    private suspend fun runInitStep() {
+        try {
+            withContext(Dispatchers.Default) {
+                libraryController.init()
+                featureToggle.initToggles()
+            }
+            resultData.value = SplashViewResult.InitSuccess
+        } catch (throwable: Throwable) {
+            StaticLogger.error(this, "Init library failure", throwable)
+            resultData.value = SplashViewResult.InitFailure
+        }
     }
 
     override fun onCleared() {
-        compositeDisposable.dispose()
+        initJob?.cancel()
         super.onCleared()
     }
 
@@ -76,11 +82,10 @@ class SplashViewModel(
     class Factory @Inject constructor(
         private val libraryController: ILibraryController,
         private val updateManager: UpdateManager,
-        private val featureToggle: FeatureToggle,
-        private val rxSchedulers: RxSchedulers
+        private val featureToggle: FeatureToggle
     ): ViewModelProvider.Factory {
         @Suppress("UNCHECKED_CAST")
         override fun <T : ViewModel> create(modelClass: Class<T>): T =
-            SplashViewModel(libraryController, updateManager, featureToggle, rxSchedulers) as T
+            SplashViewModel(libraryController, updateManager, featureToggle) as T
     }
 }
