@@ -71,6 +71,8 @@ Current unit tests cover key areas including:
 
 `assembleRelease` requires valid release signing values and fails fast when keys are missing or keystore path is invalid. See [Signing](signing.md) before running release builds.
 
+Release builds use resource shrinking, code minification, and obfuscation (R8). Keep `mapping.txt` artifacts for troubleshooting and symbolization.
+
 ## See Also
 
 - [Getting Started](getting-started.md) - local environment setup

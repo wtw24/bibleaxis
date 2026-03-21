@@ -16,8 +16,12 @@
 #   public *;
 #}
 
--dontobfuscate
 -dontwarn org.BibleQoute.**
+
+# Preserve JavaScript bridge method names used by Reader WebView scripts.
+-keepclassmembers class * {
+    @android.webkit.JavascriptInterface <methods>;
+}
 
 # JSR 305 annotations are for embedding nullability information.
 -dontwarn javax.annotation.**
