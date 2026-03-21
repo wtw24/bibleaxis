@@ -9,6 +9,7 @@ package de.wladimirwendland.bibleaxis.presentation.widget;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
@@ -18,6 +19,9 @@ import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.webkit.JavascriptInterface;
 import android.webkit.JsResult;
+import android.webkit.WebResourceRequest;
+import android.webkit.WebResourceResponse;
+import android.webkit.WebSettings;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -35,6 +39,7 @@ import de.wladimirwendland.bibleaxis.presentation.ui.reader.IReaderViewListener;
 import org.jetbrains.annotations.NotNull;
 
 import java.lang.ref.WeakReference;
+import java.util.Locale;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -64,6 +69,14 @@ public class ReaderWebView extends WebView
     private static final Pattern PRESENTATION_ATTRS_PATTERN = Pattern.compile(
             "(?i)\\s+(?:style|color|face|size|class)\\s*=\\s*(?:\"[^\"]*\"|'[^']*'|[^\\s>]+)"
     );
+    private static final Pattern SCRIPT_TAG_PATTERN = Pattern.compile("(?is)<script\\b[^>]*>.*?</script>");
+    private static final Pattern UNSAFE_EMBED_TAG_PATTERN = Pattern.compile("(?is)</?(?:iframe|object|embed|meta|base)\\b[^>]*>");
+    private static final Pattern EVENT_HANDLER_ATTR_PATTERN = Pattern.compile(
+            "(?i)\\s+on[a-z0-9_-]+\\s*=\\s*(?:\"[^\"]*\"|'[^']*'|[^\\s>]+)"
+    );
+    private static final Pattern JAVASCRIPT_URL_ATTR_PATTERN = Pattern.compile(
+            "(?i)\\s+(?:href|src)\\s*=\\s*(?:\"\\s*javascript:[^\"]*\"|'\\s*javascript:[^']*'|\\s*javascript:[^\\s>]+)"
+    );
 
     public boolean mPageLoaded;
     private String baseUrl;
@@ -90,7 +103,7 @@ public class ReaderWebView extends WebView
         viewHandler = new ViewHandler();
         taskHandler = new ReaderTaskHandler(this);
         if (!isInEditMode()) {
-            getSettings().setJavaScriptEnabled(true);
+            hardenWebViewSettings();
             setWebViewClient(new webClient());
             setWebChromeClient(new ChromeClient());
 
@@ -107,6 +120,35 @@ public class ReaderWebView extends WebView
             mGestureScanner = new GestureDetector(mContext, this);
             mGestureScanner.setIsLongpressEnabled(true);
             mGestureScanner.setOnDoubleTapListener(this);
+        }
+    }
+
+    @SuppressLint("SetJavaScriptEnabled")
+    private void hardenWebViewSettings() {
+        WebSettings settings = getSettings();
+        settings.setJavaScriptEnabled(true);
+        settings.setJavaScriptCanOpenWindowsAutomatically(false);
+        settings.setSupportMultipleWindows(false);
+        settings.setAllowFileAccess(true);
+        settings.setAllowContentAccess(false);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+            settings.setAllowFileAccessFromFileURLs(false);
+            settings.setAllowUniversalAccessFromFileURLs(false);
+        }
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            settings.setMixedContentMode(WebSettings.MIXED_CONTENT_NEVER_ALLOW);
+        }
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            settings.setSafeBrowsingEnabled(true);
+        }
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+            removeJavascriptInterface("searchBoxJavaBridge_");
+            removeJavascriptInterface("accessibility");
+            removeJavascriptInterface("accessibilityTraversal");
         }
     }
 
@@ -332,6 +374,7 @@ public class ReaderWebView extends WebView
         StringBuilder chapterHTML = new StringBuilder();
         for (int verse = 1; verse <= verses.size(); verse++) {
             String verseText = formatter.format(verses.get(verse - 1).getText());
+            verseText = sanitizeUntrustedMarkup(verseText);
             if (isBible) {
                 verseText = sanitizeBibleVerseMarkup(verseText);
             }
@@ -472,6 +515,49 @@ public class ReaderWebView extends WebView
         return PRESENTATION_ATTRS_PATTERN.matcher(normalized).replaceAll("");
     }
 
+    static String sanitizeUntrustedMarkup(String verseText) {
+        if (verseText == null || verseText.isEmpty()) {
+            return "";
+        }
+
+        String sanitized = SCRIPT_TAG_PATTERN.matcher(verseText).replaceAll("");
+        sanitized = UNSAFE_EMBED_TAG_PATTERN.matcher(sanitized).replaceAll("");
+        sanitized = EVENT_HANDLER_ATTR_PATTERN.matcher(sanitized).replaceAll("");
+        sanitized = JAVASCRIPT_URL_ATTR_PATTERN.matcher(sanitized).replaceAll("");
+        return sanitized;
+    }
+
+    static boolean isAllowedResourceUrl(String rawUrl) {
+        if (rawUrl == null || rawUrl.trim().isEmpty()) {
+            return false;
+        }
+
+        int schemeSeparator = rawUrl.indexOf(':');
+        if (schemeSeparator <= 0) {
+            return true;
+        }
+
+        String normalizedScheme = rawUrl.substring(0, schemeSeparator).toLowerCase(Locale.US);
+        return "file".equals(normalizedScheme)
+                || "data".equals(normalizedScheme)
+                || "about".equals(normalizedScheme)
+                || "content".equals(normalizedScheme)
+                || "android.resource".equals(normalizedScheme);
+    }
+
+    private WebResourceResponse blockedResourceResponse(String reason) {
+        Log.w(TAG, "Blocked web resource load: " + reason);
+        WebResourceResponse response = new WebResourceResponse(
+                "text/plain",
+                "UTF-8",
+                new java.io.ByteArrayInputStream(new byte[0])
+        );
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            response.setStatusCodeAndReasonPhrase(403, "Blocked by ReaderWebView policy");
+        }
+        return response;
+    }
+
     private void notifyListeners(IReaderViewListener.ChangeCode code) {
         Message msg = Message.obtain(viewHandler, ViewHandler.MSG_OTHER, code);
         viewHandler.sendMessage(msg);
@@ -527,6 +613,30 @@ public class ReaderWebView extends WebView
         @Override
         public boolean shouldOverrideUrlLoading(WebView view, String url) {
             return true;
+        }
+
+        @Override
+        public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
+            return true;
+        }
+
+        @Override
+        public WebResourceResponse shouldInterceptRequest(WebView view, String url) {
+            if (!isAllowedResourceUrl(url)) {
+                return blockedResourceResponse(url);
+            }
+            return super.shouldInterceptRequest(view, url);
+        }
+
+        @Override
+        public WebResourceResponse shouldInterceptRequest(WebView view, WebResourceRequest request) {
+            if (request != null && request.getUrl() != null) {
+                String url = request.getUrl().toString();
+                if (!isAllowedResourceUrl(url)) {
+                    return blockedResourceResponse(url);
+                }
+            }
+            return super.shouldInterceptRequest(view, request);
         }
 
         @Override
