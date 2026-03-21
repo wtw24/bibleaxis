@@ -25,13 +25,32 @@ This sequence validates domain/presentation tests, compiles the app, and confirm
 
 ## CI Workflow
 
-GitHub Actions workflow lives in `.github/workflows/android.yml` and currently:
+GitHub Actions workflow lives in `.github/workflows/android.yml` and now runs two jobs:
 
-- runs on `ubuntu-latest`
-- configures Java in CI
-- executes `./gradlew clean assembleDebug`
-- executes `./gradlew testDebugUnitTest`
-- uploads `bible/build/reports/tests/` as an artifact
+- `build` job:
+  - validates Gradle wrapper integrity
+  - configures Java 17 (Temurin)
+  - runs `./gradlew :bible:lintDebug` (currently non-blocking while legacy lint debt is reduced)
+  - runs `./gradlew :bible:testDebugUnitTest`
+  - runs `./gradlew :bible:assembleDebug`
+  - uploads unit test and lint reports as artifacts
+- `security` job:
+  - runs dependency review on pull requests (fails on high+ severity)
+  - runs repository secret scan
+
+CI is configured with least-privilege permissions and read-only defaults.
+
+## Local Equivalent Checks
+
+Run these before opening a PR:
+
+```bash
+./gradlew :bible:lintDebug
+./gradlew :bible:testDebugUnitTest
+./gradlew :bible:assembleDebug
+```
+
+Do not print signing values, tokens, or other secrets in command output or logs.
 
 ## Test Coverage Scope
 

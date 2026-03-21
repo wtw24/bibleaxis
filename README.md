@@ -18,6 +18,24 @@ BibleAxis is an independent Android fork of BibleQuote focused on day-to-day Bib
 
 For full setup (JDK/SDK requirements and local signing), see [Getting Started](docs/getting-started.md).
 
+## CI Safety Checks
+
+Pull requests to `develop` run Android CI with:
+
+- Gradle wrapper validation
+- Android lint
+- JVM unit tests
+- Debug assemble
+- Dependency review and secret scan
+
+Use the local equivalents before pushing:
+
+```bash
+./gradlew :bible:lintDebug
+./gradlew :bible:testDebugUnitTest
+./gradlew :bible:assembleDebug
+```
+
 ## Key Features
 
 - **Reader-first experience** - clean interface focused on Scripture text.
