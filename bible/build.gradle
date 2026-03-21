@@ -55,10 +55,12 @@ android {
             storePassword debugConfigValues.storePassword
         }
         release {
-            keyAlias releaseConfigValues.keyAlias
-            keyPassword releaseConfigValues.keyPassword
-            storeFile releaseConfigValues.storeFile
-            storePassword releaseConfigValues.storePassword
+            if (releaseConfigValues != null) {
+                keyAlias releaseConfigValues.keyAlias
+                keyPassword releaseConfigValues.keyPassword
+                storeFile releaseConfigValues.storeFile
+                storePassword releaseConfigValues.storePassword
+            }
         }
     }
 

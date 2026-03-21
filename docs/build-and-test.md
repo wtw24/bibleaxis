@@ -69,7 +69,7 @@ Current unit tests cover key areas including:
 
 ## Release Build Note
 
-`assembleRelease` requires valid signing values. See [Signing](signing.md) before running release builds.
+`assembleRelease` requires valid release signing values and fails fast when keys are missing or keystore path is invalid. See [Signing](signing.md) before running release builds.
 
 ## See Also
 

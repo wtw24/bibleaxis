@@ -27,9 +27,9 @@ DEBUG_KEY_PASSWORD=android
 
 Release signing is resolved by `releaseSigningValues()` in `signing.gradle`.
 
-- If required release values are missing, release config falls back to debug values.
-- Fallback is acceptable for local development only.
-- Publishing builds must use proper release keystore credentials.
+- Release tasks fail fast when signing values are missing or incomplete.
+- Release tasks also fail when `STORE_FILE` does not point to an existing keystore.
+- There is no debug-signing fallback for release builds.
 
 Required release keys:
 
@@ -43,6 +43,13 @@ KEY_PASSWORD=...
 ## CI Guidance
 
 Map CI secrets to the same keys used by `local.properties` before running release build tasks.
+
+Required keys must be present and non-empty in CI:
+
+- `STORE_FILE`
+- `STORE_PASSWORD`
+- `KEY_ALIAS`
+- `KEY_PASSWORD`
 
 ## See Also
 
