@@ -27,6 +27,7 @@ import de.wladimirwendland.bibleaxis.domain.repository.ICacheRepository;
 import de.wladimirwendland.bibleaxis.domain.repository.IHistoryRepository;
 import de.wladimirwendland.bibleaxis.domain.repository.ITskRepository;
 import de.wladimirwendland.bibleaxis.domain.repository.LibraryLoader;
+import de.wladimirwendland.bibleaxis.domain.threading.AppTaskRunner;
 import de.wladimirwendland.bibleaxis.managers.history.HistoryManager;
 import de.wladimirwendland.bibleaxis.managers.history.IHistoryManager;
 import de.wladimirwendland.bibleaxis.utils.FsUtilsWrapper;
@@ -117,5 +118,11 @@ public class AppModule {
     @Provides
     RxSchedulers  provideRxSchedulers() {
         return new RxSchedulers();
+    }
+
+    @Singleton
+    @Provides
+    AppTaskRunner provideAppTaskRunner() {
+        return new AppTaskRunner();
     }
 }
