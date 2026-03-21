@@ -47,10 +47,8 @@ class SplashViewModel(
 
     private suspend fun runUpdateStep(): Boolean {
         return try {
-            withContext(Dispatchers.Default) {
-                updateManager.update().blockingForEach { message ->
-                    resultData.postValue(SplashViewResult.UpdateResult(message))
-                }
+            updateManager.runPendingUpdates { message ->
+                resultData.postValue(SplashViewResult.UpdateResult(message))
             }
             true
         } catch (throwable: Throwable) {
