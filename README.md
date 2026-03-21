@@ -4,67 +4,11 @@
 
 [![](http://scripturesoftware.org/wp-content/uploads/2012/06/icon.png)](http://scripturesoftware.org/wp-content/uploads/2012/06/icon.png)
 
-BibleAxis is a powerful and simple Bible study application designed to help you
-explore Scripture deeper.
+> Android Bible study app for deep reading, navigation, and cross-references.
 
-## Features
+BibleAxis is an independent Android fork of BibleQuote focused on day-to-day Bible reading and study. The app combines a fast reader, search, bookmarks/tags, and reading history in a mixed Java/Kotlin codebase.
 
-- Multiple Bible translations
-- Fast navigation between books and verses
-- Cross-references
-- Bookmarks and tags
-- Verse highlighting
-- Powerful search
-- Reading history
-- Clean and distraction-free interface
-
-## Fork Notice
-
-This repository is an independent fork of BibleQuote for Android.
-
-- Original project and earlier code history remain credited to their authors.
-- New changes in this fork are maintained independently.
-- Distribution remains under Apache License 2.0 (see `LICENSE`).
-
-## Developer Setup (Quick Start: 3-5 minutes)
-
-### 1) Requirements
-
-- JDK 17
-- Android SDK (with platform/build tools required by the project)
-- `adb` available in `PATH`
-- Android device or emulator
-
-### 2) Create or connect a local debug keystore
-
-The debug build is signed with a local keystore. Do not commit keystore files to git.
-
-Create a local keystore in the project root:
-
-```bash
-keytool -genkeypair -v \
-  -keystore debug-bibleaxis.keystore \
-  -alias bibleaxisdebug \
-  -keyalg RSA -keysize 2048 -validity 10000 \
-  -storepass android -keypass android \
-  -dname "CN=BibleAxis Debug, OU=Development, O=Local, L=Local, ST=Local, C=DE"
-```
-
-Add these values to `local.properties`:
-
-```properties
-DEBUG_STORE_FILE=debug-bibleaxis.keystore
-DEBUG_STORE_PASSWORD=android
-DEBUG_KEY_ALIAS=bibleaxisdebug
-DEBUG_KEY_PASSWORD=android
-```
-
-If you already have a personal debug keystore, set its path and credentials in
-`local.properties` instead.
-
-### 3) Verify local setup
-
-Run tests, build, and install:
+## Quick Start
 
 ```bash
 ./gradlew :bible:testDebugUnitTest
@@ -72,34 +16,58 @@ Run tests, build, and install:
 ./gradlew :bible:installDebug
 ```
 
-## Release Signing (no secrets in repo)
+For full setup (JDK/SDK requirements and local signing), see [Getting Started](docs/getting-started.md).
 
-Release signing values must come from local machine settings or CI secrets, not from git.
+## Key Features
 
-Required fields in `local.properties` (or CI env/secret mapping):
+- **Reader-first experience** - clean interface focused on Scripture text.
+- **Fast navigation** - quickly jump between books, chapters, and verses.
+- **Study tools** - cross-references, bookmarks, tags, and highlights.
+- **Powerful search** - tested search processors and algorithms.
+- **Reading continuity** - history and state retention across sessions.
 
-```properties
-STORE_FILE=/absolute/or/workspace-relative/path/to/release.keystore
-STORE_PASSWORD=...
-KEY_ALIAS=...
-KEY_PASSWORD=...
+## Example
+
+```bash
+# Build and install debug app
+./gradlew :bible:assembleDebug :bible:installDebug
+
+# Start SplashActivity directly on a connected device
+adb shell am start -n \
+  de.wladimirwendland.bibleaxis.debug/\
+  de.wladimirwendland.bibleaxis.presentation.splash.SplashActivity
 ```
 
-Important: debug/fallback signing is acceptable for local development only.
-It is not acceptable for publishing release builds to a store.
+## Fork Notice
 
-## Troubleshooting
+This repository is maintained independently from the original BibleQuote Android project.
 
-- `keystore not found` or `bad password`: verify `DEBUG_*` or release `STORE_*`/`KEY_*` values in `local.properties`, check file path, alias, and passwords.
-- Need to open app directly on device: use `adb shell am start -n de.wladimirwendland.bibleaxis.debug/de.wladimirwendland.bibleaxis.presentation.splash.SplashActivity`.
+- Earlier code history remains credited to original authors.
+- New changes are maintained in this fork.
+- Distribution remains under Apache License 2.0.
+
+---
+
+## Documentation
+
+| Guide | Description |
+|-------|-------------|
+| [Getting Started](docs/getting-started.md) | Requirements, setup, and first debug run |
+| [Architecture](docs/architecture.md) | Module layout and package-level boundaries |
+| [Build and Test](docs/build-and-test.md) | Gradle tasks, CI workflow, and validation |
+| [Signing](docs/signing.md) | Debug/release signing rules and local.properties keys |
+| [Troubleshooting](docs/troubleshooting.md) | Common local setup and run-time issues |
 
 ## Contacts
 
 - Website: https://wladimir-wendland.de
-- Privacy policy: https://wladimir-wendland.de/privacy
 - Support: wladimir.wendland@gmail.com
 
 ## Credits
 
 - Copyright (C) 2011 Scripture Software and contributors.
 - Copyright (C) 2026 Wladimir Wendland.
+
+## License
+
+Apache License 2.0. See `LICENSE`.
