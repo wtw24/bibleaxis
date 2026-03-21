@@ -51,7 +51,7 @@ ext {
     targetSdkVersion = 35
 
     androidx_version = '1.1.0'
-    auto_value_version = '1.10'
+    auto_value_version = '1.11.1'
     butterknifeVersion = "10.2.3"
     daggerVersion = "2.51.1"
     lifecycle_version = '2.10.0'
