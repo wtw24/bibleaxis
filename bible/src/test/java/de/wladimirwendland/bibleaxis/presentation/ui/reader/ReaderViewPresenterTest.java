@@ -196,6 +196,7 @@ public class ReaderViewPresenterTest {
         presenter.openLink("RST.Gen.1.1");
 
         verify(view).showProgress(eq(false));
+        verify(view, never()).hideProgress();
         verify(view, never()).setTitle(anyString(), anyString());
         verify(view, never()).onOpenChapterFailure(any());
     }
@@ -225,6 +226,9 @@ public class ReaderViewPresenterTest {
 
         presenter.openLink("RST.Gen.1.1");
 
+        InOrder progressOrder = inOrder(view);
+        progressOrder.verify(view).showProgress(eq(false));
+        progressOrder.verify(view).hideProgress();
         verify(view).setTextFormatter(any(ModuleTextFormatter.class));
         verify(view).setContent(eq(BASE_URL), any(Chapter.class), eq(1), eq(true), any());
         verify(view).setTitle(eq("RST"), eq(HUMAN_LINK));
