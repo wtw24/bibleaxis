@@ -27,6 +27,7 @@ import de.wladimirwendland.bibleaxis.domain.entity.BibleReference;
 import de.wladimirwendland.bibleaxis.domain.entity.Chapter;
 import de.wladimirwendland.bibleaxis.domain.exceptions.OpenModuleException;
 import de.wladimirwendland.bibleaxis.domain.repository.IHighlightsRepository;
+import de.wladimirwendland.bibleaxis.domain.threading.AppTaskRunner;
 import de.wladimirwendland.bibleaxis.domain.textFormatters.ModuleTextFormatter;
 import de.wladimirwendland.bibleaxis.entity.TextAppearance;
 import de.wladimirwendland.bibleaxis.managers.Librarian;
@@ -40,8 +41,6 @@ import org.mockito.ArgumentCaptor;
 import org.mockito.InOrder;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
-
-import io.reactivex.schedulers.Schedulers;
 
 @RunWith(MockitoJUnitRunner.class)
 public class ReaderViewPresenterTest {
@@ -59,6 +58,8 @@ public class ReaderViewPresenterTest {
     private ReaderView view;
     @Mock
     private IHighlightsRepository highlightsRepository;
+    @Mock
+    private AppTaskRunner appTaskRunner;
 
     private ReaderViewPresenter presenter;
 
@@ -68,11 +69,20 @@ public class ReaderViewPresenterTest {
         when(preferenceHelper.isReadModeByDefault()).thenReturn(true);
         when(preferenceHelper.getBoolean(anyString())).thenReturn(true);
 
-        when(view.mainThread()).thenReturn(Schedulers.trampoline());
-        when(view.backgroundThread()).thenReturn(Schedulers.trampoline());
+        doAnswer(invocation -> {
+            Runnable runnable = invocation.getArgument(0);
+            runnable.run();
+            return null;
+        }).when(appTaskRunner).runOnIo(any(Runnable.class));
+
+        doAnswer(invocation -> {
+            Runnable runnable = invocation.getArgument(0);
+            runnable.run();
+            return null;
+        }).when(appTaskRunner).runOnMain(any(Runnable.class));
 
         presenter = new ReaderViewPresenter(
-                librarian, preferenceHelper, highlightsRepository, analyticsHelper);
+                librarian, preferenceHelper, highlightsRepository, appTaskRunner, analyticsHelper);
         presenter.attachView(view);
     }
 
@@ -186,6 +196,7 @@ public class ReaderViewPresenterTest {
         presenter.openLink("RST.Gen.1.1");
 
         verify(view).showProgress(eq(false));
+        verify(view, never()).hideProgress();
         verify(view, never()).setTitle(anyString(), anyString());
         verify(view, never()).onOpenChapterFailure(any());
     }
@@ -199,6 +210,7 @@ public class ReaderViewPresenterTest {
 
         InOrder progressOrder = inOrder(view);
         progressOrder.verify(view).showProgress(eq(false));
+        progressOrder.verify(view).hideProgress();
         progressOrder.verify(view).onOpenChapterFailure(any(OpenModuleException.class));
     }
 
@@ -214,6 +226,9 @@ public class ReaderViewPresenterTest {
 
         presenter.openLink("RST.Gen.1.1");
 
+        InOrder progressOrder = inOrder(view);
+        progressOrder.verify(view).showProgress(eq(false));
+        progressOrder.verify(view).hideProgress();
         verify(view).setTextFormatter(any(ModuleTextFormatter.class));
         verify(view).setContent(eq(BASE_URL), any(Chapter.class), eq(1), eq(true), any());
         verify(view).setTitle(eq("RST"), eq(HUMAN_LINK));

@@ -18,10 +18,6 @@ import de.wladimirwendland.bibleaxis.di.module.FragmentModule;
 
 import javax.inject.Inject;
 
-import io.reactivex.Scheduler;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.schedulers.Schedulers;
-
 public abstract class BaseFragment<T extends BasePresenter> extends Fragment implements BaseView {
 
     @Inject protected T presenter;
@@ -43,16 +39,6 @@ public abstract class BaseFragment<T extends BasePresenter> extends Fragment imp
     public void onDetach() {
         super.onDetach();
         detachView();
-    }
-
-    @Override
-    public Scheduler backgroundThread() {
-        return Schedulers.newThread();
-    }
-
-    @Override
-    public Scheduler mainThread() {
-        return AndroidSchedulers.mainThread();
     }
 
     @Override

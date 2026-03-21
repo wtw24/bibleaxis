@@ -12,13 +12,9 @@ import androidx.annotation.Nullable;
 
 import java.lang.ref.WeakReference;
 
-import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.disposables.Disposable;
-
 @SuppressWarnings("WeakerAccess")
 public abstract class BasePresenter<T extends BaseView> {
 
-    private final CompositeDisposable compositeDisposable = new CompositeDisposable();
     private WeakReference<T> viewRef;
 
     public void attachView(T view) {
@@ -27,14 +23,9 @@ public abstract class BasePresenter<T extends BaseView> {
 
     public void detachView() {
         viewRef.clear();
-        compositeDisposable.clear();
     }
 
     public abstract void onViewCreated();
-
-    protected void addSubscription(Disposable disposable) {
-        compositeDisposable.add(disposable);
-    }
 
     @Nullable
     protected T getView() {

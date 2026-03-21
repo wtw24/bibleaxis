@@ -27,6 +27,7 @@ import de.wladimirwendland.bibleaxis.domain.repository.ICacheRepository;
 import de.wladimirwendland.bibleaxis.domain.repository.IHistoryRepository;
 import de.wladimirwendland.bibleaxis.domain.repository.ITskRepository;
 import de.wladimirwendland.bibleaxis.domain.repository.LibraryLoader;
+import de.wladimirwendland.bibleaxis.domain.threading.AppTaskRunner;
 import de.wladimirwendland.bibleaxis.managers.history.HistoryManager;
 import de.wladimirwendland.bibleaxis.managers.history.IHistoryManager;
 import de.wladimirwendland.bibleaxis.utils.FsUtilsWrapper;
@@ -45,7 +46,6 @@ import dagger.Provides;
 import de.wladimirwendland.bibleaxis.data.library.LibraryContext;
 import de.wladimirwendland.bibleaxis.data.logger.AndroidLogger;
 import de.wladimirwendland.bibleaxis.data.logger.CrashlyticsLogger;
-import de.wladimirwendland.bibleaxis.domain.RxSchedulers;
 import de.wladimirwendland.bibleaxis.domain.logger.CompositeLogger;
 import de.wladimirwendland.bibleaxis.domain.logger.Logger;
 import de.wladimirwendland.bibleaxis.domain.migration.Migration;
@@ -111,11 +111,9 @@ public class AppModule {
     UpdateManager provideUpdateManager(PreferenceHelper prefHelper, Set<Migration> migrations) {
         return new UpdateManager(prefHelper, migrations);
     }
-
-
     @Singleton
     @Provides
-    RxSchedulers  provideRxSchedulers() {
-        return new RxSchedulers();
+    AppTaskRunner provideAppTaskRunner() {
+        return new AppTaskRunner();
     }
 }

@@ -21,10 +21,6 @@ import de.wladimirwendland.bibleaxis.BibleAxisApp;
 import de.wladimirwendland.bibleaxis.di.component.ActivityComponent;
 import de.wladimirwendland.bibleaxis.di.module.ActivityModule;
 import de.wladimirwendland.bibleaxis.utils.PreferenceHelper;
-
-import io.reactivex.Scheduler;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.schedulers.Schedulers;
 import de.wladimirwendland.bibleaxis.di.app.AppComponent;
 import de.wladimirwendland.bibleaxis.domain.logger.StaticLogger;
 
@@ -65,14 +61,6 @@ public abstract class BaseAppActivity extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
         StaticLogger.info(this, "Stop activity");
-    }
-
-    public Scheduler backgroundThread() {
-        return Schedulers.newThread();
-    }
-
-    public Scheduler mainThread() {
-        return AndroidSchedulers.mainThread();
     }
 
     public void refreshSystemBarsVisibility() {

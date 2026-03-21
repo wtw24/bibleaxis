@@ -17,6 +17,7 @@ import de.wladimirwendland.bibleaxis.domain.entity.Chapter;
 import de.wladimirwendland.bibleaxis.domain.entity.Highlight;
 import de.wladimirwendland.bibleaxis.domain.exceptions.OpenModuleException;
 import de.wladimirwendland.bibleaxis.domain.repository.IHighlightsRepository;
+import de.wladimirwendland.bibleaxis.domain.threading.AppTaskRunner;
 import de.wladimirwendland.bibleaxis.domain.textFormatters.ModuleTextFormatter;
 import de.wladimirwendland.bibleaxis.managers.Librarian;
 import de.wladimirwendland.bibleaxis.presentation.ui.base.BasePresenter;
@@ -24,9 +25,6 @@ import de.wladimirwendland.bibleaxis.presentation.widget.Mode;
 import de.wladimirwendland.bibleaxis.utils.PreferenceHelper;
 
 import javax.inject.Inject;
-
-import io.reactivex.Single;
-import io.reactivex.disposables.Disposable;
 
 import java.util.List;
 
@@ -41,15 +39,19 @@ public class ReaderViewPresenter extends BasePresenter<ReaderView> {
     private final PreferenceHelper preferenceHelper;
     @NonNull
     private final IHighlightsRepository highlightsRepository;
+    @NonNull
+    private final AppTaskRunner appTaskRunner;
 
     @Inject
     ReaderViewPresenter(@NonNull Librarian librarian,
                         @NonNull PreferenceHelper prefHelper,
                         @NonNull IHighlightsRepository highlightsRepository,
+                        @NonNull AppTaskRunner appTaskRunner,
                         @NonNull AnalyticsHelper helper) {
         this.librarian = librarian;
         this.preferenceHelper = prefHelper;
         this.highlightsRepository = highlightsRepository;
+        this.appTaskRunner = appTaskRunner;
         this.analyticsHelper = helper;
     }
 
@@ -148,30 +150,32 @@ public class ReaderViewPresenter extends BasePresenter<ReaderView> {
 
         analyticsHelper.moduleEvent(osisLink);
         getView().showProgress(false);
-        Disposable subscription = Single.just(osisLink)
-                .subscribeOn(getView().backgroundThread())
-                .map(link -> new ChapterData(
-                        librarian.openChapter(link),
-                        highlightsRepository.getByChapter(link.getModuleID(), link.getBookID(), link.getChapter())
-                ))
-                .observeOn(getView().mainThread())
-                .subscribe(
-                        chapterData -> getViewAndExecute(view -> {
-                            BaseModule module = librarian.getCurrModule();
-                            view.setTextFormatter(new ModuleTextFormatter(module, preferenceHelper));
-                            view.setContent(
-                                    librarian.getBaseUrl(),
-                                    chapterData.chapter,
-                                    osisLink.getFromVerse(),
-                                    module.isBible(),
-                                    chapterData.highlights
-                            );
-                            view.setTitle(osisLink.getModuleID(), librarian.getHumanBookLink());
-                            view.hideProgress();
-                        }),
-                        throwable -> getViewAndExecute(view -> view.onOpenChapterFailure(throwable))
+        appTaskRunner.runOnIo(() -> {
+            try {
+                ChapterData chapterData = new ChapterData(
+                        librarian.openChapter(osisLink),
+                        highlightsRepository.getByChapter(osisLink.getModuleID(), osisLink.getBookID(), osisLink.getChapter())
                 );
-        addSubscription(subscription);
+                appTaskRunner.runOnMain(() -> getViewAndExecute(view -> {
+                    BaseModule module = librarian.getCurrModule();
+                    view.setTextFormatter(new ModuleTextFormatter(module, preferenceHelper));
+                    view.setContent(
+                            librarian.getBaseUrl(),
+                            chapterData.chapter,
+                            osisLink.getFromVerse(),
+                            module.isBible(),
+                            chapterData.highlights
+                    );
+                    view.setTitle(osisLink.getModuleID(), librarian.getHumanBookLink());
+                    view.hideProgress();
+                }));
+            } catch (Throwable throwable) {
+                appTaskRunner.runOnMain(() -> getViewAndExecute(view -> {
+                    view.hideProgress();
+                    view.onOpenChapterFailure(throwable);
+                }));
+            }
+        });
     }
 
     private void viewCurrentChapter() {

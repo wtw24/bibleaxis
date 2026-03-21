@@ -57,7 +57,9 @@ Dependency injection is wired with Dagger modules/components under `di/`.
 
 - Java and Kotlin coexist, so refactors should keep API compatibility between both languages.
 - Build targets are `minSdkVersion 24` and `targetSdkVersion 35`.
-- Android manifest still declares `requestLegacyExternalStorage`, which influences file access behavior on newer Android versions.
+- Storage access relies on Android scoped storage patterns and SAF flows (for example `ACTION_OPEN_DOCUMENT_TREE`).
+- Cloud backup scope is minimized to library files; shared preferences and database content are excluded.
+- New asynchronous UI-bound work should use `AppTaskRunner` (shared IO executor + main-thread handoff) instead of ad-hoc `new Thread(...)` blocks.
 
 ## See Also
 

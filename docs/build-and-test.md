@@ -25,13 +25,37 @@ This sequence validates domain/presentation tests, compiles the app, and confirm
 
 ## CI Workflow
 
-GitHub Actions workflow lives in `.github/workflows/android.yml` and currently:
+GitHub Actions workflow lives in `.github/workflows/android.yml` and now runs two jobs:
 
-- runs on `ubuntu-latest`
-- configures Java in CI
-- executes `./gradlew clean assembleDebug`
-- executes `./gradlew testDebugUnitTest`
-- uploads `bible/build/reports/tests/` as an artifact
+- `build` job:
+  - validates Gradle wrapper integrity
+  - configures Java 17 (Temurin)
+  - runs `./gradlew :bible:lintDebug` (blocking for new issues; legacy findings are tracked in lint baseline)
+  - runs `./gradlew :bible:testDebugUnitTest`
+  - runs `./gradlew :bible:assembleDebug`
+  - uploads unit test and lint reports as artifacts
+- `security` job:
+  - runs dependency review on pull requests (fails on high+ severity)
+  - runs repository secret scan
+
+CI is configured with least-privilege permissions and read-only defaults.
+
+## Local Equivalent Checks
+
+Run these before opening a PR:
+
+```bash
+./gradlew :bible:lintDebug
+./gradlew :bible:testDebugUnitTest
+./gradlew :bible:assembleDebug
+```
+
+Do not print signing values, tokens, or other secrets in command output or logs.
+
+Lint baseline policy:
+
+- Existing legacy lint debt is captured in `bible/lint-baseline.xml`.
+- CI fails on newly introduced lint issues outside the baseline.
 
 ## Test Coverage Scope
 
@@ -45,7 +69,9 @@ Current unit tests cover key areas including:
 
 ## Release Build Note
 
-`assembleRelease` requires valid signing values. See [Signing](signing.md) before running release builds.
+`assembleRelease` requires valid release signing values and fails fast when keys are missing or keystore path is invalid. See [Signing](signing.md) before running release builds.
+
+Release builds use resource shrinking, code minification, and obfuscation (R8). Keep `mapping.txt` artifacts for troubleshooting and symbolization.
 
 ## See Also
 

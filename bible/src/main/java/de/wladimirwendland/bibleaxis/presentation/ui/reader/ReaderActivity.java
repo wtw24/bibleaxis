@@ -49,6 +49,7 @@ import de.wladimirwendland.bibleaxis.domain.exceptions.BookNotFoundException;
 import de.wladimirwendland.bibleaxis.domain.exceptions.ExceptionHelper;
 import de.wladimirwendland.bibleaxis.domain.exceptions.OpenModuleException;
 import de.wladimirwendland.bibleaxis.domain.repository.IHighlightsRepository;
+import de.wladimirwendland.bibleaxis.domain.threading.AppTaskRunner;
 import de.wladimirwendland.bibleaxis.domain.textFormatters.ITextFormatter;
 import de.wladimirwendland.bibleaxis.entity.TextAppearance;
 import de.wladimirwendland.bibleaxis.managers.Librarian;
@@ -88,6 +89,8 @@ public class ReaderActivity extends BaseActivity<ReaderViewPresenter>
     Librarian librarian;
     @Inject
     IHighlightsRepository highlightsRepository;
+    @Inject
+    AppTaskRunner appTaskRunner;
 
     private static final String KEY_LINK_OSIS = "linkOSIS";
     private static final String TAG = ReaderActivity.class.getSimpleName();
@@ -791,9 +794,9 @@ public class ReaderActivity extends BaseActivity<ReaderViewPresenter>
                     quote
             );
 
-            new Thread(() -> {
+            appTaskRunner.runOnIo(() -> {
                 long result = highlightsRepository.add(highlight);
-                runOnUiThread(() -> {
+                appTaskRunner.runOnMain(() -> {
                     if (result == -1) {
                         Toast.makeText(this, R.string.highlight_save_failed, Toast.LENGTH_SHORT).show();
                     } else {
@@ -805,16 +808,16 @@ public class ReaderActivity extends BaseActivity<ReaderViewPresenter>
                         presenter.openLink(librarian.getCurrentOSISLink().getPath());
                     }
                 });
-            }).start();
+            });
         } catch (Exception ex) {
             Toast.makeText(this, R.string.highlight_select_text_first, Toast.LENGTH_SHORT).show();
         }
     }
 
     private void deleteHighlight(long highlightId) {
-        new Thread(() -> {
+        appTaskRunner.runOnIo(() -> {
             boolean deleted = highlightsRepository.delete(highlightId);
-            runOnUiThread(() -> {
+            appTaskRunner.runOnMain(() -> {
                 if (!deleted) {
                     Toast.makeText(this, R.string.highlight_delete_failed, Toast.LENGTH_SHORT).show();
                     return;
@@ -824,7 +827,7 @@ public class ReaderActivity extends BaseActivity<ReaderViewPresenter>
                 clearPendingSelection();
                 presenter.openLink(librarian.getCurrentOSISLink().getPath());
             });
-        }).start();
+        });
     }
 
     private JSONObject parseSelectionPayload(String payload) throws Exception {

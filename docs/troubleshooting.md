@@ -14,6 +14,16 @@
 - Check `DEBUG_STORE_PASSWORD`, `DEBUG_KEY_PASSWORD`, `DEBUG_KEY_ALIAS`.
 - For release builds, check `STORE_PASSWORD`, `KEY_PASSWORD`, `KEY_ALIAS`.
 
+### `Release signing is required for release tasks`
+
+- Add all required release keys to `local.properties` (or CI secret store): `STORE_FILE`, `STORE_PASSWORD`, `KEY_ALIAS`, `KEY_PASSWORD`.
+- Ensure all values are non-empty.
+
+### `Release keystore not found`
+
+- Verify `STORE_FILE` points to an existing file.
+- Use an absolute path or a workspace-relative path from repository root.
+
 ## Build Issues
 
 ### Gradle/JDK mismatch
@@ -46,4 +56,4 @@ adb shell am start -n \
 
 - [Getting Started](getting-started.md) - expected local setup
 - [Build and Test](build-and-test.md) - standard verification flow
-- [Signing](signing.md) - signing source and fallback behavior
+- [Signing](signing.md) - signing source and fail-fast behavior
