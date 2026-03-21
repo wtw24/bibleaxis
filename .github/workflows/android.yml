@@ -37,7 +37,6 @@ jobs:
         run: chmod +x gradlew
 
       - name: Lint
-        continue-on-error: true
         run: ./gradlew :bible:lintDebug --stacktrace
 
       - name: Test
@@ -68,7 +67,7 @@ jobs:
           {
             echo "## Android CI Summary"
             echo "- Wrapper validation: executed"
-            echo "- Lint: executed (non-blocking while legacy issues are being remediated)"
+            echo "- Lint: executed"
             echo "- Unit tests: executed"
             echo "- Assemble debug: executed"
           } >> "$GITHUB_STEP_SUMMARY"

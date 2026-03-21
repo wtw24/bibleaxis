@@ -1,0 +1,2556 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<issues format="6" by="lint 8.5.2" type="baseline" client="gradle" dependencies="false" name="AGP (8.5.2)" variant="all" version="8.5.2">
+
+    <issue
+        id="ScopedStorage"
+        message="READ_EXTERNAL_STORAGE is deprecated (and is not granted) when targeting Android 13+. If you need to query or interact with MediaStore or media files on the shared storage, you should instead use one or more new storage permissions: `READ_MEDIA_IMAGES`, `READ_MEDIA_VIDEO` or `READ_MEDIA_AUDIO`."
+        errorLine1="    &lt;uses-permission android:name=&quot;android.permission.READ_EXTERNAL_STORAGE&quot; />"
+        errorLine2="                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/AndroidManifest.xml"
+            line="5"
+            column="36"/>
+    </issue>
+
+    <issue
+        id="CheckResult"
+        message="The result of `assertThat` is not used"
+        errorLine1="        assertThat(results);"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/test/java/de/wladimirwendland/bibleaxis/domain/search/MultiThreadSearchProcessorTest.java"
+            line="275"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="Range"
+        message="Value must be ≥ 0 but `getColumnIndex` can be -1"
+        errorLine1="                cursor.getLong(cursor.getColumnIndex(KEY_ID)),"
+        errorLine2="                               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/domain/entity/Bookmark.java"
+            line="73"
+            column="32"/>
+    </issue>
+
+    <issue
+        id="Range"
+        message="Value must be ≥ 0 but `getColumnIndex` can be -1"
+        errorLine1="                cursor.getString(cursor.getColumnIndex(NAME)),"
+        errorLine2="                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/domain/entity/Bookmark.java"
+            line="74"
+            column="34"/>
+    </issue>
+
+    <issue
+        id="Range"
+        message="Value must be ≥ 0 but `getColumnIndex` can be -1"
+        errorLine1="                cursor.getString(cursor.getColumnIndex(OSIS)),"
+        errorLine2="                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/domain/entity/Bookmark.java"
+            line="75"
+            column="34"/>
+    </issue>
+
+    <issue
+        id="Range"
+        message="Value must be ≥ 0 but `getColumnIndex` can be -1"
+        errorLine1="                cursor.getString(cursor.getColumnIndex(LINK)),"
+        errorLine2="                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/domain/entity/Bookmark.java"
+            line="76"
+            column="34"/>
+    </issue>
+
+    <issue
+        id="Range"
+        message="Value must be ≥ 0 but `getColumnIndex` can be -1"
+        errorLine1="                cursor.getString(cursor.getColumnIndex(DATE)),"
+        errorLine2="                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/domain/entity/Bookmark.java"
+            line="77"
+            column="34"/>
+    </issue>
+
+    <issue
+        id="Range"
+        message="Value must be ≥ 0 but `getColumnIndex` can be -1"
+        errorLine1="                cursor.getLong(cursor.getColumnIndex(TIME)));"
+        errorLine2="                               ~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/domain/entity/Bookmark.java"
+            line="78"
+            column="32"/>
+    </issue>
+
+    <issue
+        id="Range"
+        message="Value must be ≥ 0 but `getColumnIndex` can be -1"
+        errorLine1="                result = curr.getLong(curr.getColumnIndex(Bookmark.KEY_ID));"
+        errorLine2="                                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/dal/repository/bookmarks/DbBookmarksRepository.java"
+            line="57"
+            column="39"/>
+    </issue>
+
+    <issue
+        id="Range"
+        message="Value must be ≥ 0 but `getColumnIndex` can be -1"
+        errorLine1="                    tagIDs = cur.getLong(cur.getColumnIndex(Tag.KEY_ID));"
+        errorLine2="                                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/dal/repository/bookmarks/DbTagsRepository.java"
+            line="55"
+            column="42"/>
+    </issue>
+
+    <issue
+        id="Range"
+        message="Value must be ≥ 0 but `getColumnIndex` can be -1"
+        errorLine1="                cursor.getLong(cursor.getColumnIndex(KEY_ID)),"
+        errorLine2="                               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/domain/entity/Highlight.java"
+            line="79"
+            column="32"/>
+    </issue>
+
+    <issue
+        id="Range"
+        message="Value must be ≥ 0 but `getColumnIndex` can be -1"
+        errorLine1="                cursor.getString(cursor.getColumnIndex(MODULE_ID)),"
+        errorLine2="                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/domain/entity/Highlight.java"
+            line="80"
+            column="34"/>
+    </issue>
+
+    <issue
+        id="Range"
+        message="Value must be ≥ 0 but `getColumnIndex` can be -1"
+        errorLine1="                cursor.getString(cursor.getColumnIndex(BOOK_ID)),"
+        errorLine2="                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/domain/entity/Highlight.java"
+            line="81"
+            column="34"/>
+    </issue>
+
+    <issue
+        id="Range"
+        message="Value must be ≥ 0 but `getColumnIndex` can be -1"
+        errorLine1="                cursor.getInt(cursor.getColumnIndex(CHAPTER)),"
+        errorLine2="                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/domain/entity/Highlight.java"
+            line="82"
+            column="31"/>
+    </issue>
+
+    <issue
+        id="Range"
+        message="Value must be ≥ 0 but `getColumnIndex` can be -1"
+        errorLine1="                cursor.getInt(cursor.getColumnIndex(START_VERSE)),"
+        errorLine2="                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/domain/entity/Highlight.java"
+            line="83"
+            column="31"/>
+    </issue>
+
+    <issue
+        id="Range"
+        message="Value must be ≥ 0 but `getColumnIndex` can be -1"
+        errorLine1="                cursor.getInt(cursor.getColumnIndex(START_OFFSET)),"
+        errorLine2="                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/domain/entity/Highlight.java"
+            line="84"
+            column="31"/>
+    </issue>
+
+    <issue
+        id="Range"
+        message="Value must be ≥ 0 but `getColumnIndex` can be -1"
+        errorLine1="                cursor.getInt(cursor.getColumnIndex(END_VERSE)),"
+        errorLine2="                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/domain/entity/Highlight.java"
+            line="85"
+            column="31"/>
+    </issue>
+
+    <issue
+        id="Range"
+        message="Value must be ≥ 0 but `getColumnIndex` can be -1"
+        errorLine1="                cursor.getInt(cursor.getColumnIndex(END_OFFSET)),"
+        errorLine2="                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/domain/entity/Highlight.java"
+            line="86"
+            column="31"/>
+    </issue>
+
+    <issue
+        id="Range"
+        message="Value must be ≥ 0 but `getColumnIndex` can be -1"
+        errorLine1="                cursor.getString(cursor.getColumnIndex(COLOR)),"
+        errorLine2="                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/domain/entity/Highlight.java"
+            line="87"
+            column="34"/>
+    </issue>
+
+    <issue
+        id="Range"
+        message="Value must be ≥ 0 but `getColumnIndex` can be -1"
+        errorLine1="                cursor.getString(cursor.getColumnIndex(QUOTE)),"
+        errorLine2="                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/domain/entity/Highlight.java"
+            line="88"
+            column="34"/>
+    </issue>
+
+    <issue
+        id="Range"
+        message="Value must be ≥ 0 but `getColumnIndex` can be -1"
+        errorLine1="                cursor.getLong(cursor.getColumnIndex(TIME))"
+        errorLine2="                               ~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/domain/entity/Highlight.java"
+            line="89"
+            column="32"/>
+    </issue>
+
+    <issue
+        id="Range"
+        message="Value must be ≥ 0 but `getColumnIndex` can be -1"
+        errorLine1="                date = cursor.getString(cursor.getColumnIndex(Bookmark.DATE));"
+        errorLine2="                                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/dal/repository/migration/Migration_2_3.java"
+            line="79"
+            column="41"/>
+    </issue>
+
+    <issue
+        id="Range"
+        message="Value must be ≥ 0 but `getColumnIndex` can be -1"
+        errorLine1="                String id = cursor.getString(cursor.getColumnIndex(Bookmark.KEY_ID));"
+        errorLine2="                                             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/dal/repository/migration/Migration_2_3.java"
+            line="87"
+            column="46"/>
+    </issue>
+
+    <issue
+        id="SuspiciousIndentation"
+        message="The indentation string here is different from on the previous line (`&quot; &quot;` vs `\t`)"
+        errorLine1="  this.chapter = chapter;"
+        errorLine2="~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/utils/share/ShareBuilder.java"
+            line="34"
+            column="1"/>
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/utils/share/ShareBuilder.java"
+            line="33"
+            column="1"
+            message="Previous line indentation here"/>
+    </issue>
+
+    <issue
+        id="WrongConstant"
+        message="Must be one or more of: Intent.FLAG_GRANT_READ_URI_PERMISSION, Intent.FLAG_GRANT_WRITE_URI_PERMISSION"
+        errorLine1="            getContentResolver().takePersistableUriPermission(treeUri, takeFlags);"
+        errorLine2="                                                                       ~~~~~~~~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/presentation/ui/library/LibraryActivity.java"
+            line="532"
+            column="72"/>
+    </issue>
+
+    <issue
+        id="WrongConstant"
+        message="Must be one or more of: InputMethodManager.HIDE_IMPLICIT_ONLY, InputMethodManager.HIDE_NOT_ALWAYS"
+        errorLine1="                imm.hideSoftInputFromWindow(v.getWindowToken(), InputMethodManager.RESULT_UNCHANGED_SHOWN);"
+        errorLine2="                                                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/presentation/ui/search/SearchActivity.java"
+            line="221"
+            column="65"/>
+    </issue>
+
+    <issue
+        id="InflateParams"
+        message="Avoid passing `null` as the view root (needed to resolve layout parameters on the inflated layout&apos;s root element)"
+        errorLine1="  View view = inflater.inflate(R.layout.dialog_slider, null);"
+        errorLine2="                                                       ~~~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/presentation/widget/NumberChoiseView.java"
+            line="62"
+            column="56"/>
+    </issue>
+
+    <issue
+        id="NonConstantResourceId"
+        message="Resource IDs will be non-final by default in Android Gradle Plugin version 8.0, avoid using them as annotation attributes"
+        errorLine1="        @BindView(R.id.bookmark_link) TextView viewLink;"
+        errorLine2="                  ~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/presentation/ui/bookmarks/adapter/BookmarkAdapter.java"
+            line="47"
+            column="19"/>
+    </issue>
+
+    <issue
+        id="NonConstantResourceId"
+        message="Resource IDs will be non-final by default in Android Gradle Plugin version 8.0, avoid using them as annotation attributes"
+        errorLine1="        @BindView(R.id.bookmark_time) TextView viewTime;"
+        errorLine2="                  ~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/presentation/ui/bookmarks/adapter/BookmarkAdapter.java"
+            line="48"
+            column="19"/>
+    </issue>
+
+    <issue
+        id="NonConstantResourceId"
+        message="Resource IDs will be non-final by default in Android Gradle Plugin version 8.0, avoid using them as annotation attributes"
+        errorLine1="        @BindView(R.id.bookmark_title) TextView viewTitle;"
+        errorLine2="                  ~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/presentation/ui/bookmarks/adapter/BookmarkAdapter.java"
+            line="49"
+            column="19"/>
+    </issue>
+
+    <issue
+        id="NonConstantResourceId"
+        message="Resource IDs will be non-final by default in Android Gradle Plugin version 8.0, avoid using them as annotation attributes"
+        errorLine1="        @BindView(R.id.bookmark_tags) TextView viewTags;"
+        errorLine2="                  ~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/presentation/ui/bookmarks/adapter/BookmarkAdapter.java"
+            line="50"
+            column="19"/>
+    </issue>
+
+    <issue
+        id="NonConstantResourceId"
+        message="Resource IDs will be non-final by default in Android Gradle Plugin version 8.0, avoid using them as annotation attributes"
+        errorLine1="        @BindView(R.id.bookmark_delete) ImageButton viewDelete;"
+        errorLine2="                  ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/presentation/ui/bookmarks/adapter/BookmarkAdapter.java"
+            line="51"
+            column="19"/>
+    </issue>
+
+    <issue
+        id="NonConstantResourceId"
+        message="Resource IDs will be non-final by default in Android Gradle Plugin version 8.0, avoid using them as annotation attributes"
+        errorLine1="    @BindView(R.id.toolbar) Toolbar toolbar;"
+        errorLine2="              ~~~~~~~~~~~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/presentation/ui/bookmarks/BookmarksActivity.java"
+            line="46"
+            column="15"/>
+    </issue>
+
+    <issue
+        id="NonConstantResourceId"
+        message="Resource IDs will be non-final by default in Android Gradle Plugin version 8.0, avoid using them as annotation attributes"
+        errorLine1="    @BindView(R.id.pager) ViewPager2 viewPager;"
+        errorLine2="              ~~~~~~~~~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/presentation/ui/bookmarks/BookmarksActivity.java"
+            line="47"
+            column="15"/>
+    </issue>
+
+    <issue
+        id="NonConstantResourceId"
+        message="Resource IDs will be non-final by default in Android Gradle Plugin version 8.0, avoid using them as annotation attributes"
+        errorLine1="    @BindView(R.id.tab_layout) TabLayout tabLayout;"
+        errorLine2="              ~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/presentation/ui/bookmarks/BookmarksActivity.java"
+            line="48"
+            column="15"/>
+    </issue>
+
+    <issue
+        id="NonConstantResourceId"
+        message="Resource IDs will be non-final by default in Android Gradle Plugin version 8.0, avoid using them as annotation attributes"
+        errorLine1="    @BindView(R.id.list_bookmarks)"
+        errorLine2="              ~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/presentation/ui/bookmarks/BookmarksFragment.java"
+            line="53"
+            column="15"/>
+    </issue>
+
+    <issue
+        id="NonConstantResourceId"
+        message="Resource IDs will be non-final by default in Android Gradle Plugin version 8.0, avoid using them in switch case statements"
+        errorLine1="            case R.id.action_bar_delete:"
+        errorLine2="                 ~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/presentation/ui/bookmarks/BookmarksFragment.java"
+            line="99"
+            column="18"/>
+    </issue>
+
+    <issue
+        id="NonConstantResourceId"
+        message="Resource IDs will be non-final by default in Android Gradle Plugin version 8.0, avoid using them in switch case statements"
+        errorLine1="            case R.id.action_bar_refresh:"
+        errorLine2="                 ~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/presentation/ui/bookmarks/BookmarksFragment.java"
+            line="109"
+            column="18"/>
+    </issue>
+
+    <issue
+        id="NonConstantResourceId"
+        message="Resource IDs will be non-final by default in Android Gradle Plugin version 8.0, avoid using them in switch case statements"
+        errorLine1="                case R.id.action_edit:"
+        errorLine2="                     ~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/presentation/ui/bookmarks/BookmarksFragment.java"
+            line="211"
+            column="22"/>
+    </issue>
+
+    <issue
+        id="NonConstantResourceId"
+        message="Resource IDs will be non-final by default in Android Gradle Plugin version 8.0, avoid using them in switch case statements"
+        errorLine1="                case R.id.action_delete:"
+        errorLine2="                     ~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/presentation/ui/bookmarks/BookmarksFragment.java"
+            line="214"
+            column="22"/>
+    </issue>
+
+    <issue
+        id="NonConstantResourceId"
+        message="Resource IDs will be non-final by default in Android Gradle Plugin version 8.0, avoid using them as annotation attributes"
+        errorLine1="    @BindView(R.id.books) ListView booksList;"
+        errorLine2="              ~~~~~~~~~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/presentation/ui/library/LibraryActivity.java"
+            line="88"
+            column="15"/>
+    </issue>
+
+    <issue
+        id="NonConstantResourceId"
+        message="Resource IDs will be non-final by default in Android Gradle Plugin version 8.0, avoid using them as annotation attributes"
+        errorLine1="    @BindView(R.id.btnBook) Button btnBook;"
+        errorLine2="              ~~~~~~~~~~~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/presentation/ui/library/LibraryActivity.java"
+            line="89"
+            column="15"/>
+    </issue>
+
+    <issue
+        id="NonConstantResourceId"
+        message="Resource IDs will be non-final by default in Android Gradle Plugin version 8.0, avoid using them as annotation attributes"
+        errorLine1="    @BindView(R.id.btnChapter) Button btnChapter;"
+        errorLine2="              ~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/presentation/ui/library/LibraryActivity.java"
+            line="90"
+            column="15"/>
+    </issue>
+
+    <issue
+        id="NonConstantResourceId"
+        message="Resource IDs will be non-final by default in Android Gradle Plugin version 8.0, avoid using them as annotation attributes"
+        errorLine1="    @BindView(R.id.btnModule) Button btnModule;"
+        errorLine2="              ~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/presentation/ui/library/LibraryActivity.java"
+            line="91"
+            column="15"/>
+    </issue>
+
+    <issue
+        id="NonConstantResourceId"
+        message="Resource IDs will be non-final by default in Android Gradle Plugin version 8.0, avoid using them as annotation attributes"
+        errorLine1="    @BindView(R.id.btnApply) ImageButton btnApply;"
+        errorLine2="              ~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/presentation/ui/library/LibraryActivity.java"
+            line="92"
+            column="15"/>
+    </issue>
+
+    <issue
+        id="NonConstantResourceId"
+        message="Resource IDs will be non-final by default in Android Gradle Plugin version 8.0, avoid using them as annotation attributes"
+        errorLine1="    @BindView(R.id.chapterContainer) LinearLayout chapterContainer;"
+        errorLine2="              ~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/presentation/ui/library/LibraryActivity.java"
+            line="93"
+            column="15"/>
+    </issue>
+
+    <issue
+        id="NonConstantResourceId"
+        message="Resource IDs will be non-final by default in Android Gradle Plugin version 8.0, avoid using them as annotation attributes"
+        errorLine1="    @BindView(R.id.chapterChoose) GridView chapterList;"
+        errorLine2="              ~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/presentation/ui/library/LibraryActivity.java"
+            line="94"
+            column="15"/>
+    </issue>
+
+    <issue
+        id="NonConstantResourceId"
+        message="Resource IDs will be non-final by default in Android Gradle Plugin version 8.0, avoid using them as annotation attributes"
+        errorLine1="    @BindView(R.id.modules) ListView modulesList;"
+        errorLine2="              ~~~~~~~~~~~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/presentation/ui/library/LibraryActivity.java"
+            line="95"
+            column="15"/>
+    </issue>
+
+    <issue
+        id="NonConstantResourceId"
+        message="Resource IDs will be non-final by default in Android Gradle Plugin version 8.0, avoid using them in switch case statements"
+        errorLine1="            case R.id.action_bar_refresh:"
+        errorLine2="                 ~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/presentation/ui/library/LibraryActivity.java"
+            line="186"
+            column="18"/>
+    </issue>
+
+    <issue
+        id="NonConstantResourceId"
+        message="Resource IDs will be non-final by default in Android Gradle Plugin version 8.0, avoid using them in switch case statements"
+        errorLine1="            case R.id.menu_library_add:"
+        errorLine2="                 ~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/presentation/ui/library/LibraryActivity.java"
+            line="189"
+            column="18"/>
+    </issue>
+
+    <issue
+        id="NonConstantResourceId"
+        message="Resource IDs will be non-final by default in Android Gradle Plugin version 8.0, avoid using them in switch case statements"
+        errorLine1="            case R.id.menu_library_pick_folder:"
+        errorLine2="                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/presentation/ui/library/LibraryActivity.java"
+            line="192"
+            column="18"/>
+    </issue>
+
+    <issue
+        id="NonConstantResourceId"
+        message="Resource IDs will be non-final by default in Android Gradle Plugin version 8.0, avoid using them as annotation attributes"
+        errorLine1="    @OnItemClick(R.id.books)"
+        errorLine2="                 ~~~~~~~~~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/presentation/ui/library/LibraryActivity.java"
+            line="228"
+            column="18"/>
+    </issue>
+
+    <issue
+        id="NonConstantResourceId"
+        message="Resource IDs will be non-final by default in Android Gradle Plugin version 8.0, avoid using them as annotation attributes"
+        errorLine1="    @OnItemClick(R.id.chapterChoose)"
+        errorLine2="                 ~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/presentation/ui/library/LibraryActivity.java"
+            line="243"
+            column="18"/>
+    </issue>
+
+    <issue
+        id="NonConstantResourceId"
+        message="Resource IDs will be non-final by default in Android Gradle Plugin version 8.0, avoid using them as annotation attributes"
+        errorLine1="    @OnItemClick(R.id.modules)"
+        errorLine2="                 ~~~~~~~~~~~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/presentation/ui/library/LibraryActivity.java"
+            line="251"
+            column="18"/>
+    </issue>
+
+    <issue
+        id="NonConstantResourceId"
+        message="Resource IDs will be non-final by default in Android Gradle Plugin version 8.0, avoid using them in switch case statements"
+        errorLine1="            case R.id.btnBook:"
+        errorLine2="                 ~~~~~~~~~~~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/presentation/ui/library/LibraryActivity.java"
+            line="279"
+            column="18"/>
+    </issue>
+
+    <issue
+        id="NonConstantResourceId"
+        message="Resource IDs will be non-final by default in Android Gradle Plugin version 8.0, avoid using them in switch case statements"
+        errorLine1="            case R.id.btnChapter:"
+        errorLine2="                 ~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/presentation/ui/library/LibraryActivity.java"
+            line="282"
+            column="18"/>
+    </issue>
+
+    <issue
+        id="NonConstantResourceId"
+        message="Resource IDs will be non-final by default in Android Gradle Plugin version 8.0, avoid using them in switch case statements"
+        errorLine1="            case R.id.btnModule:"
+        errorLine2="                 ~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/presentation/ui/library/LibraryActivity.java"
+            line="285"
+            column="18"/>
+    </issue>
+
+    <issue
+        id="NonConstantResourceId"
+        message="Resource IDs will be non-final by default in Android Gradle Plugin version 8.0, avoid using them in switch case statements"
+        errorLine1="            case R.id.btnApply:"
+        errorLine2="                 ~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/presentation/ui/library/LibraryActivity.java"
+            line="288"
+            column="18"/>
+    </issue>
+
+    <issue
+        id="NonConstantResourceId"
+        message="Resource IDs will be non-final by default in Android Gradle Plugin version 8.0, avoid using them in switch case statements"
+        errorLine1="            case R.id.action_bar_find_in_page:"
+        errorLine2="                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/presentation/ui/reader/ReaderActivity.java"
+            line="258"
+            column="18"/>
+    </issue>
+
+    <issue
+        id="NonConstantResourceId"
+        message="Resource IDs will be non-final by default in Android Gradle Plugin version 8.0, avoid using them in switch case statements"
+        errorLine1="            case R.id.action_bar_search:"
+        errorLine2="                 ~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/presentation/ui/reader/ReaderActivity.java"
+            line="262"
+            column="18"/>
+    </issue>
+
+    <issue
+        id="NonConstantResourceId"
+        message="Resource IDs will be non-final by default in Android Gradle Plugin version 8.0, avoid using them in switch case statements"
+        errorLine1="            case R.id.action_bar_history:"
+        errorLine2="                 ~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/presentation/ui/reader/ReaderActivity.java"
+            line="266"
+            column="18"/>
+    </issue>
+
+    <issue
+        id="NonConstantResourceId"
+        message="Resource IDs will be non-final by default in Android Gradle Plugin version 8.0, avoid using them in switch case statements"
+        errorLine1="            case R.id.drawer_library:"
+        errorLine2="                 ~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/presentation/ui/reader/ReaderActivity.java"
+            line="580"
+            column="18"/>
+    </issue>
+
+    <issue
+        id="NonConstantResourceId"
+        message="Resource IDs will be non-final by default in Android Gradle Plugin version 8.0, avoid using them in switch case statements"
+        errorLine1="            case R.id.drawer_bookmarks:"
+        errorLine2="                 ~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/presentation/ui/reader/ReaderActivity.java"
+            line="583"
+            column="18"/>
+    </issue>
+
+    <issue
+        id="NonConstantResourceId"
+        message="Resource IDs will be non-final by default in Android Gradle Plugin version 8.0, avoid using them in switch case statements"
+        errorLine1="            case R.id.drawer_tags:"
+        errorLine2="                 ~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/presentation/ui/reader/ReaderActivity.java"
+            line="586"
+            column="18"/>
+    </issue>
+
+    <issue
+        id="NonConstantResourceId"
+        message="Resource IDs will be non-final by default in Android Gradle Plugin version 8.0, avoid using them in switch case statements"
+        errorLine1="            case R.id.drawer_settings:"
+        errorLine2="                 ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/presentation/ui/reader/ReaderActivity.java"
+            line="589"
+            column="18"/>
+    </issue>
+
+    <issue
+        id="NonConstantResourceId"
+        message="Resource IDs will be non-final by default in Android Gradle Plugin version 8.0, avoid using them in switch case statements"
+        errorLine1="            case R.id.drawer_night_mode:"
+        errorLine2="                 ~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/presentation/ui/reader/ReaderActivity.java"
+            line="592"
+            column="18"/>
+    </issue>
+
+    <issue
+        id="NonConstantResourceId"
+        message="Resource IDs will be non-final by default in Android Gradle Plugin version 8.0, avoid using them in switch case statements"
+        errorLine1="            case R.id.drawer_highlights:"
+        errorLine2="                 ~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/presentation/ui/reader/ReaderActivity.java"
+            line="600"
+            column="18"/>
+    </issue>
+
+    <issue
+        id="NonConstantResourceId"
+        message="Resource IDs will be non-final by default in Android Gradle Plugin version 8.0, avoid using them in switch case statements"
+        errorLine1="            case R.id.drawer_find_in_page:"
+        errorLine2="                 ~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/presentation/ui/reader/ReaderActivity.java"
+            line="607"
+            column="18"/>
+    </issue>
+
+    <issue
+        id="NonConstantResourceId"
+        message="Resource IDs will be non-final by default in Android Gradle Plugin version 8.0, avoid using them in switch case statements"
+        errorLine1="            case R.id.drawer_help:"
+        errorLine2="                 ~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/presentation/ui/reader/ReaderActivity.java"
+            line="614"
+            column="18"/>
+    </issue>
+
+    <issue
+        id="NonConstantResourceId"
+        message="Resource IDs will be non-final by default in Android Gradle Plugin version 8.0, avoid using them in switch case statements"
+        errorLine1="            case R.id.drawer_about:"
+        errorLine2="                 ~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/presentation/ui/reader/ReaderActivity.java"
+            line="617"
+            column="18"/>
+    </issue>
+
+    <issue
+        id="NonConstantResourceId"
+        message="Resource IDs will be non-final by default in Android Gradle Plugin version 8.0, avoid using them as annotation attributes"
+        errorLine1="    @BindView(R.id.search_list) ListView resultList;"
+        errorLine2="              ~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/presentation/ui/search/SearchActivity.java"
+            line="115"
+            column="15"/>
+    </issue>
+
+    <issue
+        id="NonConstantResourceId"
+        message="Resource IDs will be non-final by default in Android Gradle Plugin version 8.0, avoid using them as annotation attributes"
+        errorLine1="    @BindView(R.id.search_results_header) TextView searchResultsHeader;"
+        errorLine2="              ~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/presentation/ui/search/SearchActivity.java"
+            line="116"
+            column="15"/>
+    </issue>
+
+    <issue
+        id="NonConstantResourceId"
+        message="Resource IDs will be non-final by default in Android Gradle Plugin version 8.0, avoid using them as annotation attributes"
+        errorLine1="    @BindView(R.id.search_settings_container) LinearLayout searchSettingsContainer;"
+        errorLine2="              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/presentation/ui/search/SearchActivity.java"
+            line="117"
+            column="15"/>
+    </issue>
+
+    <issue
+        id="NonConstantResourceId"
+        message="Resource IDs will be non-final by default in Android Gradle Plugin version 8.0, avoid using them as annotation attributes"
+        errorLine1="    @BindView(R.id.search_text) EditText searchText;"
+        errorLine2="              ~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/presentation/ui/search/SearchActivity.java"
+            line="118"
+            column="15"/>
+    </issue>
+
+    <issue
+        id="NonConstantResourceId"
+        message="Resource IDs will be non-final by default in Android Gradle Plugin version 8.0, avoid using them as annotation attributes"
+        errorLine1="    @BindView(R.id.search_modules_button) Button modulesButton;"
+        errorLine2="              ~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/presentation/ui/search/SearchActivity.java"
+            line="119"
+            column="15"/>
+    </issue>
+
+    <issue
+        id="NonConstantResourceId"
+        message="Resource IDs will be non-final by default in Android Gradle Plugin version 8.0, avoid using them as annotation attributes"
+        errorLine1="    @BindView(R.id.search_scope) Spinner searchScope;"
+        errorLine2="              ~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/presentation/ui/search/SearchActivity.java"
+            line="120"
+            column="15"/>
+    </issue>
+
+    <issue
+        id="NonConstantResourceId"
+        message="Resource IDs will be non-final by default in Android Gradle Plugin version 8.0, avoid using them as annotation attributes"
+        errorLine1="    @BindView(R.id.search_whole_words_match) CheckBox wholeWordsMatch;"
+        errorLine2="              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/presentation/ui/search/SearchActivity.java"
+            line="121"
+            column="15"/>
+    </issue>
+
+    <issue
+        id="NonConstantResourceId"
+        message="Resource IDs will be non-final by default in Android Gradle Plugin version 8.0, avoid using them as annotation attributes"
+        errorLine1="    @BindView(R.id.search_single_book) Spinner singleBook;"
+        errorLine2="              ~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/presentation/ui/search/SearchActivity.java"
+            line="122"
+            column="15"/>
+    </issue>
+
+    <issue
+        id="NonConstantResourceId"
+        message="Resource IDs will be non-final by default in Android Gradle Plugin version 8.0, avoid using them as annotation attributes"
+        errorLine1="    @BindView(R.id.search_selected_books_button) Button selectedBooksButton;"
+        errorLine2="              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/presentation/ui/search/SearchActivity.java"
+            line="123"
+            column="15"/>
+    </issue>
+
+    <issue
+        id="NonConstantResourceId"
+        message="Resource IDs will be non-final by default in Android Gradle Plugin version 8.0, avoid using them as annotation attributes"
+        errorLine1="    @BindView(R.id.search_range_container) LinearLayout rangeContainer;"
+        errorLine2="              ~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/presentation/ui/search/SearchActivity.java"
+            line="124"
+            column="15"/>
+    </issue>
+
+    <issue
+        id="NonConstantResourceId"
+        message="Resource IDs will be non-final by default in Android Gradle Plugin version 8.0, avoid using them as annotation attributes"
+        errorLine1="    @BindView(R.id.from_book) Spinner spinnerFrom;"
+        errorLine2="              ~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/presentation/ui/search/SearchActivity.java"
+            line="125"
+            column="15"/>
+    </issue>
+
+    <issue
+        id="NonConstantResourceId"
+        message="Resource IDs will be non-final by default in Android Gradle Plugin version 8.0, avoid using them as annotation attributes"
+        errorLine1="    @BindView(R.id.to_book) Spinner spinnerTo;"
+        errorLine2="              ~~~~~~~~~~~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/presentation/ui/search/SearchActivity.java"
+            line="126"
+            column="15"/>
+    </issue>
+
+    <issue
+        id="NonConstantResourceId"
+        message="Resource IDs will be non-final by default in Android Gradle Plugin version 8.0, avoid using them in switch case statements"
+        errorLine1="            case R.id.action_bar_search_toggle:"
+        errorLine2="                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/presentation/ui/search/SearchActivity.java"
+            line="242"
+            column="18"/>
+    </issue>
+
+    <issue
+        id="NonConstantResourceId"
+        message="Resource IDs will be non-final by default in Android Gradle Plugin version 8.0, avoid using them as annotation attributes"
+        errorLine1="    @OnItemClick(R.id.search_list)"
+        errorLine2="                 ~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/presentation/ui/search/SearchActivity.java"
+            line="262"
+            column="18"/>
+    </issue>
+
+    <issue
+        id="NonConstantResourceId"
+        message="Resource IDs will be non-final by default in Android Gradle Plugin version 8.0, avoid using them as annotation attributes"
+        errorLine1="    @OnClick(R.id.search_modules_button)"
+        errorLine2="             ~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/presentation/ui/search/SearchActivity.java"
+            line="275"
+            column="14"/>
+    </issue>
+
+    <issue
+        id="NonConstantResourceId"
+        message="Resource IDs will be non-final by default in Android Gradle Plugin version 8.0, avoid using them as annotation attributes"
+        errorLine1="    @OnClick(R.id.search_selected_books_button)"
+        errorLine2="             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/presentation/ui/search/SearchActivity.java"
+            line="318"
+            column="14"/>
+    </issue>
+
+    <issue
+        id="NonConstantResourceId"
+        message="Resource IDs will be non-final by default in Android Gradle Plugin version 8.0, avoid using them as annotation attributes"
+        errorLine1="    @OnClick(R.id.search_start_button)"
+        errorLine2="             ~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/presentation/ui/search/SearchActivity.java"
+            line="382"
+            column="14"/>
+    </issue>
+
+    <issue
+        id="NonConstantResourceId"
+        message="Resource IDs will be non-final by default in Android Gradle Plugin version 8.0, avoid using them in switch case statements"
+        errorLine1="            case R.id.action_bookmarks:"
+        errorLine2="                 ~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/presentation/ui/reader/SelectTextHandler.java"
+            line="62"
+            column="18"/>
+    </issue>
+
+    <issue
+        id="NonConstantResourceId"
+        message="Resource IDs will be non-final by default in Android Gradle Plugin version 8.0, avoid using them in switch case statements"
+        errorLine1="            case R.id.action_share:"
+        errorLine2="                 ~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/presentation/ui/reader/SelectTextHandler.java"
+            line="75"
+            column="18"/>
+    </issue>
+
+    <issue
+        id="NonConstantResourceId"
+        message="Resource IDs will be non-final by default in Android Gradle Plugin version 8.0, avoid using them in switch case statements"
+        errorLine1="            case R.id.action_copy:"
+        errorLine2="                 ~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/presentation/ui/reader/SelectTextHandler.java"
+            line="79"
+            column="18"/>
+    </issue>
+
+    <issue
+        id="NonConstantResourceId"
+        message="Resource IDs will be non-final by default in Android Gradle Plugin version 8.0, avoid using them in switch case statements"
+        errorLine1="            case R.id.action_references:"
+        errorLine2="                 ~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/presentation/ui/reader/SelectTextHandler.java"
+            line="84"
+            column="18"/>
+    </issue>
+
+    <issue
+        id="NonConstantResourceId"
+        message="Resource IDs will be non-final by default in Android Gradle Plugin version 8.0, avoid using them as annotation attributes"
+        errorLine1="        @BindView(R.id.tag_name) TextView viewName;"
+        errorLine2="                  ~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/presentation/ui/bookmarks/adapter/TagsAdapter.java"
+            line="37"
+            column="19"/>
+    </issue>
+
+    <issue
+        id="NonConstantResourceId"
+        message="Resource IDs will be non-final by default in Android Gradle Plugin version 8.0, avoid using them as annotation attributes"
+        errorLine1="        @BindView(R.id.tag_count) TextView viewCount;"
+        errorLine2="                  ~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/presentation/ui/bookmarks/adapter/TagsAdapter.java"
+            line="38"
+            column="19"/>
+    </issue>
+
+    <issue
+        id="NonConstantResourceId"
+        message="Resource IDs will be non-final by default in Android Gradle Plugin version 8.0, avoid using them as annotation attributes"
+        errorLine1="    @BindView(R.id.tags_list) RecyclerView viewTagsList;"
+        errorLine2="              ~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/presentation/ui/bookmarks/TagsFragment.java"
+            line="40"
+            column="15"/>
+    </issue>
+
+    <issue
+        id="NonConstantResourceId"
+        message="Resource IDs will be non-final by default in Android Gradle Plugin version 8.0, avoid using them in switch case statements"
+        errorLine1="            case R.id.action_bar_refresh:"
+        errorLine2="                 ~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/presentation/ui/bookmarks/TagsFragment.java"
+            line="84"
+            column="18"/>
+    </issue>
+
+    <issue
+        id="VectorRaster"
+        message="Limit vector icons sizes to 200×200 to keep icon drawing fast; see https://developer.android.com/studio/write/vector-asset-studio#when for more"
+        errorLine1="    android:width=&quot;1000dp&quot;"
+        errorLine2="                   ~~~~~~">
+        <location
+            file="src/main/res/drawable/bg_splash.xml"
+            line="3"
+            column="20"/>
+    </issue>
+
+    <issue
+        id="SourceLockedOrientationActivity"
+        message="You should not lock orientation of your activities, so that you can support a good user experience for any device or orientation"
+        errorLine1="                    setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_REVERSE_PORTRAIT);"
+        errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/presentation/ui/reader/ReaderActivity.java"
+            line="448"
+            column="21"/>
+    </issue>
+
+    <issue
+        id="SourceLockedOrientationActivity"
+        message="You should not lock orientation of your activities, so that you can support a good user experience for any device or orientation"
+        errorLine1="                    setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_REVERSE_PORTRAIT);"
+        errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/presentation/ui/reader/ReaderActivity.java"
+            line="453"
+            column="21"/>
+    </issue>
+
+    <issue
+        id="SourceLockedOrientationActivity"
+        message="You should not lock orientation of your activities, so that you can support a good user experience for any device or orientation"
+        errorLine1="                    setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);"
+        errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/presentation/ui/reader/ReaderActivity.java"
+            line="462"
+            column="21"/>
+    </issue>
+
+    <issue
+        id="SourceLockedOrientationActivity"
+        message="You should not lock orientation of your activities, so that you can support a good user experience for any device or orientation"
+        errorLine1="                    setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);"
+        errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/presentation/ui/reader/ReaderActivity.java"
+            line="467"
+            column="21"/>
+    </issue>
+
+    <issue
+        id="PrivateResource"
+        message="The resource `@string/copy` is marked as private in androidx.preference:preference:1.2.0"
+        errorLine1="  android:title=&quot;@string/copy&quot;"
+        errorLine2="                 ~~~~~~~~~~~~">
+        <location
+            file="src/main/res/menu/menu_action_text_select.xml"
+            line="24"
+            column="18"/>
+    </issue>
+
+    <issue
+        id="PrivateResource"
+        message="Overriding `@string/copy` which is marked as private in androidx.preference:preference:1.2.0. If deliberate, use tools:override=&quot;true&quot;, otherwise pick a different name."
+        errorLine1="    &lt;string name=&quot;copy&quot;>Копія&lt;/string>"
+        errorLine2="                  ~~~~">
+        <location
+            file="src/main/res/values-be/strings.xml"
+            line="27"
+            column="19"/>
+    </issue>
+
+    <issue
+        id="PrivateResource"
+        message="Overriding `@string/copy` which is marked as private in androidx.preference:preference:1.2.0. If deliberate, use tools:override=&quot;true&quot;, otherwise pick a different name."
+        errorLine1=" &lt;string name=&quot;copy&quot;>Копировать&lt;/string>"
+        errorLine2="               ~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="48"
+            column="16"/>
+    </issue>
+
+    <issue
+        id="PrivateResource"
+        message="Overriding `@string/copy` which is marked as private in androidx.preference:preference:1.2.0. If deliberate, use tools:override=&quot;true&quot;, otherwise pick a different name."
+        errorLine1="    &lt;string name=&quot;copy&quot;>Копіювати&lt;/string>"
+        errorLine2="                  ~~~~">
+        <location
+            file="src/main/res/values-uk/strings.xml"
+            line="50"
+            column="19"/>
+    </issue>
+
+    <issue
+        id="PrivateResource"
+        message="Overriding `@string/copy` which is marked as private in androidx.preference:preference:1.2.0. If deliberate, use tools:override=&quot;true&quot;, otherwise pick a different name."
+        errorLine1="    &lt;string name=&quot;copy&quot;>Copy&lt;/string>"
+        errorLine2="                  ~~~~">
+        <location
+            file="src/main/res/values-en/strings.xml"
+            line="54"
+            column="19"/>
+    </issue>
+
+    <issue
+        id="UseAppTint"
+        message="Must use `app:tint` instead of `android:tint`"
+        errorLine1="                    android:tint=&quot;@android:color/white&quot; />"
+        errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/activity_reader.xml"
+            line="89"
+            column="21"/>
+    </issue>
+
+    <issue
+        id="UseAppTint"
+        message="Must use `app:tint` instead of `android:tint`"
+        errorLine1="                    android:tint=&quot;@android:color/white&quot; />"
+        errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/activity_reader.xml"
+            line="98"
+            column="21"/>
+    </issue>
+
+    <issue
+        id="UseAppTint"
+        message="Must use `app:tint` instead of `android:tint`"
+        errorLine1="                    android:tint=&quot;@android:color/white&quot; />"
+        errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/activity_reader.xml"
+            line="107"
+            column="21"/>
+    </issue>
+
+    <issue
+        id="UseAppTint"
+        message="Must use `app:tint` instead of `android:tint`"
+        errorLine1="        android:tint=&quot;@color/tag_gray_darker&quot; />"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/history_item.xml"
+            line="31"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="UseAppTint"
+        message="Must use `app:tint` instead of `android:tint`"
+        errorLine1="            android:tint=&quot;@color/tag_gray_darker&quot;/>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/item_bookmark.xml"
+            line="57"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UseAppTint"
+        message="Must use `app:tint` instead of `android:tint`"
+        errorLine1="        android:tint=&quot;@color/tag_gray_darker&quot; />"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/item_module.xml"
+            line="46"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="UseCompatTextViewDrawableXml"
+        message="Use `app:drawableLeftCompat` instead of `android:drawableLeft`"
+        errorLine1="        android:drawableLeft=&quot;@drawable/ic_tag_outline&quot;"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/item_bookmark.xml"
+            line="76"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="UseCompatTextViewDrawableXml"
+        message="Use `app:drawableTint` instead of `android:drawableTint`"
+        errorLine1="        android:drawableTint=&quot;@color/tag_gray_darker&quot;"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/item_bookmark.xml"
+            line="77"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="StringFormatMatches"
+        message="Wrong argument count, format string `search_modules_selected` requires `1` but format call supplies `2`"
+        errorLine1="        modulesButton.setText(getString("
+        errorLine2="                              ^">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/presentation/ui/search/SearchActivity.java"
+            line="853"
+            column="31"/>
+        <location
+            file="src/main/res/values-be/strings.xml"
+            line="108"
+            column="5"
+            message="This definition requires 1 argument"/>
+    </issue>
+
+    <issue
+        id="StringFormatMatches"
+        message="Wrong argument count, format string `search_modules_selected` requires `1` but format call supplies `2`"
+        errorLine1="        modulesButton.setText(getString("
+        errorLine2="                              ^">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/presentation/ui/search/SearchActivity.java"
+            line="853"
+            column="31"/>
+        <location
+            file="src/main/res/values-en/strings.xml"
+            line="115"
+            column="5"
+            message="This definition requires 1 argument"/>
+    </issue>
+
+    <issue
+        id="StringFormatMatches"
+        message="Wrong argument count, format string `search_modules_selected` requires `1` but format call supplies `2`"
+        errorLine1="        modulesButton.setText(getString("
+        errorLine2="                              ^">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/presentation/ui/search/SearchActivity.java"
+            line="853"
+            column="31"/>
+        <location
+            file="src/main/res/values-uk/strings.xml"
+            line="115"
+            column="5"
+            message="This definition requires 1 argument"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;menu_find_in_page&quot; is not translated in &quot;be&quot; (Belarusian)"
+        errorLine1=" &lt;string name=&quot;menu_find_in_page&quot;>Поиск на странице&lt;/string>"
+        errorLine2="         ~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="36"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;highlight&quot; is not translated in &quot;be&quot; (Belarusian), &quot;uk&quot; (Ukrainian), &quot;en&quot; (English)"
+        errorLine1=" &lt;string name=&quot;highlight&quot;>Маркер&lt;/string>"
+        errorLine2="         ~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="49"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;highlight_select_text_first&quot; is not translated in &quot;be&quot; (Belarusian), &quot;uk&quot; (Ukrainian), &quot;en&quot; (English)"
+        errorLine1=" &lt;string name=&quot;highlight_select_text_first&quot;>Сначала выделите текст&lt;/string>"
+        errorLine2="         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="50"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;highlight_save_failed&quot; is not translated in &quot;be&quot; (Belarusian), &quot;uk&quot; (Ukrainian), &quot;en&quot; (English)"
+        errorLine1=" &lt;string name=&quot;highlight_save_failed&quot;>Не удалось сохранить выделение&lt;/string>"
+        errorLine2="         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="51"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;highlight_color_yellow&quot; is not translated in &quot;be&quot; (Belarusian), &quot;uk&quot; (Ukrainian), &quot;en&quot; (English)"
+        errorLine1=" &lt;string name=&quot;highlight_color_yellow&quot;>Желтый&lt;/string>"
+        errorLine2="         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="52"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;highlight_color_orange&quot; is not translated in &quot;be&quot; (Belarusian), &quot;uk&quot; (Ukrainian), &quot;en&quot; (English)"
+        errorLine1=" &lt;string name=&quot;highlight_color_orange&quot;>Оранжевый&lt;/string>"
+        errorLine2="         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="53"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;highlight_color_red&quot; is not translated in &quot;be&quot; (Belarusian), &quot;uk&quot; (Ukrainian), &quot;en&quot; (English)"
+        errorLine1=" &lt;string name=&quot;highlight_color_red&quot;>Красный&lt;/string>"
+        errorLine2="         ~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="54"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;highlight_color_purple&quot; is not translated in &quot;be&quot; (Belarusian), &quot;uk&quot; (Ukrainian), &quot;en&quot; (English)"
+        errorLine1=" &lt;string name=&quot;highlight_color_purple&quot;>Фиолетовый&lt;/string>"
+        errorLine2="         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="55"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;highlight_color_cyan&quot; is not translated in &quot;be&quot; (Belarusian), &quot;uk&quot; (Ukrainian), &quot;en&quot; (English)"
+        errorLine1=" &lt;string name=&quot;highlight_color_cyan&quot;>Голубой&lt;/string>"
+        errorLine2="         ~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="56"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;highlight_color_green&quot; is not translated in &quot;be&quot; (Belarusian), &quot;uk&quot; (Ukrainian), &quot;en&quot; (English)"
+        errorLine1=" &lt;string name=&quot;highlight_color_green&quot;>Зеленый&lt;/string>"
+        errorLine2="         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="57"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;highlight_close_palette&quot; is not translated in &quot;be&quot; (Belarusian), &quot;uk&quot; (Ukrainian), &quot;en&quot; (English)"
+        errorLine1=" &lt;string name=&quot;highlight_close_palette&quot;>Скрыть палитру&lt;/string>"
+        errorLine2="         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="58"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;highlights_show&quot; is not translated in &quot;be&quot; (Belarusian), &quot;uk&quot; (Ukrainian), &quot;en&quot; (English)"
+        errorLine1=" &lt;string name=&quot;highlights_show&quot;>Показать маркеры&lt;/string>"
+        errorLine2="         ~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="59"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;highlights_hide&quot; is not translated in &quot;be&quot; (Belarusian), &quot;uk&quot; (Ukrainian), &quot;en&quot; (English)"
+        errorLine1=" &lt;string name=&quot;highlights_hide&quot;>Скрыть маркеры&lt;/string>"
+        errorLine2="         ~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="60"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;highlight_delete_question&quot; is not translated in &quot;be&quot; (Belarusian), &quot;uk&quot; (Ukrainian), &quot;en&quot; (English)"
+        errorLine1=" &lt;string name=&quot;highlight_delete_question&quot;>Удалить этот маркер?&lt;/string>"
+        errorLine2="         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="61"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;highlight_delete_failed&quot; is not translated in &quot;be&quot; (Belarusian), &quot;uk&quot; (Ukrainian), &quot;en&quot; (English)"
+        errorLine1=" &lt;string name=&quot;highlight_delete_failed&quot;>Не удалось удалить маркер&lt;/string>"
+        errorLine2="         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="62"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;library_chapter_label&quot; is not translated in &quot;be&quot; (Belarusian), &quot;uk&quot; (Ukrainian), &quot;en&quot; (English)"
+        errorLine1=" &lt;string name=&quot;library_chapter_label&quot;>Глава&lt;/string>"
+        errorLine2="         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="83"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;menu_library_pick_folder&quot; is not translated in &quot;be&quot; (Belarusian), &quot;uk&quot; (Ukrainian), &quot;en&quot; (English)"
+        errorLine1=" &lt;string name=&quot;menu_library_pick_folder&quot;>Выбрать место хранения&lt;/string>"
+        errorLine2="         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="117"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;module_delete_title&quot; is not translated in &quot;be&quot; (Belarusian), &quot;uk&quot; (Ukrainian), &quot;en&quot; (English)"
+        errorLine1=" &lt;string name=&quot;module_delete_title&quot;>Удаление модуля&lt;/string>"
+        errorLine2="         ~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="119"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;module_delete_message_intro&quot; is not translated in &quot;be&quot; (Belarusian), &quot;uk&quot; (Ukrainian), &quot;en&quot; (English)"
+        errorLine1=" &lt;string name=&quot;module_delete_message_intro&quot;>Для удаления модуля %1$s введите код:&lt;/string>"
+        errorLine2="         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="120"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;module_delete_message&quot; is not translated in &quot;be&quot; (Belarusian), &quot;uk&quot; (Ukrainian), &quot;en&quot; (English)"
+        errorLine1=" &lt;string name=&quot;module_delete_message&quot;>Для удаления модуля %1$s введите код: %2$s&lt;/string>"
+        errorLine2="         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="121"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;module_delete_code_hint&quot; is not translated in &quot;be&quot; (Belarusian), &quot;uk&quot; (Ukrainian), &quot;en&quot; (English)"
+        errorLine1=" &lt;string name=&quot;module_delete_code_hint&quot;>Код подтверждения&lt;/string>"
+        errorLine2="         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="122"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;module_delete_code_wrong&quot; is not translated in &quot;be&quot; (Belarusian), &quot;uk&quot; (Ukrainian), &quot;en&quot; (English)"
+        errorLine1=" &lt;string name=&quot;module_delete_code_wrong&quot;>Неверный код подтверждения&lt;/string>"
+        errorLine2="         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="123"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;module_delete_failed_reload&quot; is not translated in &quot;be&quot; (Belarusian), &quot;uk&quot; (Ukrainian), &quot;en&quot; (English)"
+        errorLine1=" &lt;string name=&quot;module_delete_failed_reload&quot;>Не удалось удалить модуль&lt;/string>"
+        errorLine2="         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="124"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;modules_storage_location_required&quot; is not translated in &quot;be&quot; (Belarusian), &quot;uk&quot; (Ukrainian), &quot;en&quot; (English)"
+        errorLine1=" &lt;string name=&quot;modules_storage_location_required&quot;>Выберите место хранения для папки BibleAxis&lt;/string>"
+        errorLine2="         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="132"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;modules_storage_location_saved&quot; is not translated in &quot;be&quot; (Belarusian), &quot;uk&quot; (Ukrainian), &quot;en&quot; (English)"
+        errorLine1=" &lt;string name=&quot;modules_storage_location_saved&quot;>Место хранения подключено&lt;/string>"
+        errorLine2="         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="133"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;modules_storage_picker_unavailable&quot; is not translated in &quot;be&quot; (Belarusian), &quot;uk&quot; (Ukrainian), &quot;en&quot; (English)"
+        errorLine1=" &lt;string name=&quot;modules_storage_picker_unavailable&quot;>Не удалось открыть выбор места хранения&lt;/string>"
+        errorLine2="         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="134"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;modules_storage_access_denied&quot; is not translated in &quot;be&quot; (Belarusian), &quot;uk&quot; (Ukrainian), &quot;en&quot; (English)"
+        errorLine1=" &lt;string name=&quot;modules_storage_access_denied&quot;>Нет доступа к выбранному месту хранения&lt;/string>"
+        errorLine2="         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="135"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;modules_storage_folder_invalid&quot; is not translated in &quot;be&quot; (Belarusian), &quot;uk&quot; (Ukrainian), &quot;en&quot; (English)"
+        errorLine1=" &lt;string name=&quot;modules_storage_folder_invalid&quot;>Место хранения недоступно или повреждено&lt;/string>"
+        errorLine2="         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="136"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;modules_storage_structure_created&quot; is not translated in &quot;be&quot; (Belarusian), &quot;uk&quot; (Ukrainian), &quot;en&quot; (English)"
+        errorLine1=" &lt;string name=&quot;modules_storage_structure_created&quot;>Папки BibleAxis/modules подготовлены&lt;/string>"
+        errorLine2="         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="137"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;modules_storage_structure_create_failed&quot; is not translated in &quot;be&quot; (Belarusian), &quot;uk&quot; (Ukrainian), &quot;en&quot; (English)"
+        errorLine1=" &lt;string name=&quot;modules_storage_structure_create_failed&quot;>Не удалось создать папки BibleAxis/modules&lt;/string>"
+        errorLine2="         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="138"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;modules_sync_failed&quot; is not translated in &quot;be&quot; (Belarusian), &quot;uk&quot; (Ukrainian), &quot;en&quot; (English)"
+        errorLine1=" &lt;string name=&quot;modules_sync_failed&quot;>Не удалось импортировать модули из выбранной папки&lt;/string>"
+        errorLine2="         ~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="139"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;find_in_page_hint&quot; is not translated in &quot;be&quot; (Belarusian)"
+        errorLine1="    &lt;string name=&quot;find_in_page_hint&quot;>Найти на странице&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="147"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;find_in_page_no_matches&quot; is not translated in &quot;be&quot; (Belarusian)"
+        errorLine1="    &lt;string name=&quot;find_in_page_no_matches&quot;>Нет совпадений&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="148"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;find_in_page_matches_format&quot; is not translated in &quot;be&quot; (Belarusian)"
+        errorLine1="    &lt;string name=&quot;find_in_page_matches_format&quot;>%1$d/%2$d&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="149"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;find_in_page_prev&quot; is not translated in &quot;be&quot; (Belarusian)"
+        errorLine1="    &lt;string name=&quot;find_in_page_prev&quot;>Предыдущее совпадение&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="150"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;find_in_page_next&quot; is not translated in &quot;be&quot; (Belarusian)"
+        errorLine1="    &lt;string name=&quot;find_in_page_next&quot;>Следующее совпадение&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="151"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;find_in_page_close&quot; is not translated in &quot;be&quot; (Belarusian)"
+        errorLine1="    &lt;string name=&quot;find_in_page_close&quot;>Закрыть поиск на странице&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="152"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;search_results_for_query&quot; is not translated in &quot;be&quot; (Belarusian), &quot;uk&quot; (Ukrainian), &quot;en&quot; (English)"
+        errorLine1="    &lt;string name=&quot;search_results_for_query&quot;>Результаты поиска по запросу: %1$s&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="167"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;search_old_testament_label&quot; is not translated in &quot;be&quot; (Belarusian), &quot;uk&quot; (Ukrainian), &quot;en&quot; (English)"
+        errorLine1="    &lt;string name=&quot;search_old_testament_label&quot;>Ветхий Завет&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="168"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;search_new_testament_label&quot; is not translated in &quot;be&quot; (Belarusian), &quot;uk&quot; (Ukrainian), &quot;en&quot; (English)"
+        errorLine1="    &lt;string name=&quot;search_new_testament_label&quot;>Новый Завет&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="169"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;search_other_books_label&quot; is not translated in &quot;be&quot; (Belarusian), &quot;uk&quot; (Ukrainian), &quot;en&quot; (English)"
+        errorLine1="    &lt;string name=&quot;search_other_books_label&quot;>Другие книги&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="170"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="StringFormatCount"
+        message="Inconsistent number of arguments in formatting string `search_modules_selected`; found both 1 here and 2 in values/strings.xml"
+        errorLine1="    &lt;string name=&quot;search_modules_selected&quot;>Выбрана модуляў: %1$d&lt;/string>"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values-be/strings.xml"
+            line="108"
+            column="5"/>
+        <location
+            file="src/main/res/values/strings.xml"
+            line="155"
+            column="5"
+            message="Conflicting number of arguments (2) here"/>
+    </issue>
+
+    <issue
+        id="StringFormatCount"
+        message="Inconsistent number of arguments in formatting string `search_modules_selected`; found both 1 here and 2 in values/strings.xml"
+        errorLine1="    &lt;string name=&quot;search_modules_selected&quot;>Selected modules: %1$d&lt;/string>"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values-en/strings.xml"
+            line="115"
+            column="5"/>
+        <location
+            file="src/main/res/values/strings.xml"
+            line="155"
+            column="5"
+            message="Conflicting number of arguments (2) here"/>
+    </issue>
+
+    <issue
+        id="StringFormatCount"
+        message="Inconsistent number of arguments in formatting string `search_modules_selected`; found both 1 here and 2 in values/strings.xml"
+        errorLine1="    &lt;string name=&quot;search_modules_selected&quot;>Обрано модулів: %1$d&lt;/string>"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values-uk/strings.xml"
+            line="115"
+            column="5"/>
+        <location
+            file="src/main/res/values/strings.xml"
+            line="155"
+            column="5"
+            message="Conflicting number of arguments (2) here"/>
+    </issue>
+
+    <issue
+        id="ObsoleteSdkInt"
+        message="Unnecessary; SDK_INT is always >= 16"
+        errorLine1="    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/presentation/widget/TouchImageView.java"
+            line="424"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="ObsoleteSdkInt"
+        message="Unnecessary; SDK_INT is always >= 24"
+        errorLine1="        if (VERSION.SDK_INT >= VERSION_CODES.JELLY_BEAN) {"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/presentation/widget/TouchImageView.java"
+            line="426"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="ObsoleteSdkInt"
+        message="Unnecessary; SDK_INT is always >= 9"
+        errorLine1="    @TargetApi(Build.VERSION_CODES.GINGERBREAD)"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/presentation/widget/TouchImageView.java"
+            line="800"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="UseCompoundDrawables"
+        message="This tag and its children can be replaced by one `&lt;TextView/>` and a compound drawable"
+        errorLine1="    &lt;LinearLayout"
+        errorLine2="     ~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/drawer_header.xml"
+            line="7"
+            column="6"/>
+    </issue>
+
+    <issue
+        id="VectorPath"
+        message="Very long vector path (903 characters), which is bad for performance. Considering reducing precision, removing minor details or rasterizing vector."
+        errorLine1="        android:pathData=&quot;M23.786,19.492L16.713,1.836c-0.624,-1.529 -2.376,-2.269 -3.911,-1.645l-0.925,0.378c-0.249,0.102 -0.472,0.244 -0.68,0.402c-0.548,-0.594 -1.326,-0.972 -2.196,-0.972H3C1.346,0 0,1.346 0,3V21c0,1.654 1.346,3 3,3h6c1.654,0 3,-1.346 3,-3V8.895l5.304,13.242c0.625,1.543 2.417,2.26 3.909,1.641l0.926,-0.378c1.505,-0.574 2.286,-2.434 1.647,-3.907zM13.574,7.446l2.778,-1.132 4.171,10.412 -2.778,1.132L13.574,7.446zM12.632,2.421l0.925,-0.378c0.496,-0.206 1.097,0.031 1.302,0.543l0.75,1.871 -2.777,1.132 -0.747,-1.866c-0.208,-0.51 0.038,-1.095 0.549,-1.303zM2,7h3v10H2V7zM7,7h3v10H7V7zM10,3v2H7V2h2c0.551,0 1,0.448 1,1zM3,2h2v3H2V3c0,-0.552 0.449,-1 1,-1zM2,21v-2h3v3H3c-0.551,0 -1,-0.448 -1,-1zM9,22h-2v-3h3v2c0,0.552 -0.449,1 -1,1zM21.929,21.009c-0.104,0.247 -0.297,0.438 -0.544,0.539h0l-0.926,0.378c-0.511,0.206 -1.095,-0.037 -1.3,-0.54l-0.669,-1.671 2.778,-1.132 0.665,1.661c0.102,0.247 0.101,0.52 -0.003,0.766z&quot; />"
+        errorLine2="                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/drawable/ic_sidebar_books.xml"
+            line="9"
+            column="27"/>
+    </issue>
+
+    <issue
+        id="VectorPath"
+        message="Very long vector path (1054 characters), which is bad for performance. Considering reducing precision, removing minor details or rasterizing vector."
+        errorLine1="        android:pathData=&quot;M13,22v1c0,0.553 -0.448,1 -1,1s-1,-0.447 -1,-1v-1c0,-0.553 0.448,-1 1,-1s1,0.447 1,1zM12,3c0.552,0 1,-0.448 1,-1v-1c0,-0.552 -0.448,-1 -1,-1s-1,0.448 -1,1v1c0,0.552 0.448,1 1,1zM23,11h-1c-0.553,0 -1,0.448 -1,1s0.447,1 1,1h1c0.553,0 1,-0.448 1,-1s-0.447,-1 -1,-1zM2,11h-1c-0.552,0 -1,0.448 -1,1s0.448,1 1,1h1c0.552,0 1,-0.448 1,-1s-0.448,-1 -1,-1zM4.222,18.364l-0.707,0.707c-0.391,0.391 -0.391,1.023 0,1.414s1.023,0.391 1.414,0l0.707,-0.707c0.391,-0.391 0.391,-1.023 0,-1.414s-1.023,-0.391 -1.414,0zM19.071,3.515l-0.707,0.707c-0.391,0.391 -0.391,1.023 0,1.414s1.023,0.391 1.414,0l0.707,-0.707c0.391,-0.391 0.391,-1.023 0,-1.414s-1.023,-0.391 -1.414,0zM19.778,18.365c-0.391,-0.391 -1.023,-0.391 -1.414,0s-0.391,1.023 0,1.414l0.707,0.707c0.391,0.391 1.023,0.391 1.414,0s0.391,-1.023 0,-1.414zM4.222,5.636c0.391,0.391 1.023,0.391 1.414,0s0.391,-1.023 0,-1.414l-0.707,-0.707c-0.391,-0.391 -1.023,-0.391 -1.414,0s-0.391,1.023 0,1.414zM19,12c0,3.859 -3.141,7 -7,7s-7,-3.141 -7,-7 3.14,-7 7,-7 7,3.14 7,7zM17,12c0,-2.757 -2.243,-5 -5,-5v10c2.757,0 5,-2.243 5,-5z&quot; />"
+        errorLine2="                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/drawable/ic_sidebar_dark_mode.xml"
+            line="9"
+            column="27"/>
+    </issue>
+
+    <issue
+        id="VectorPath"
+        message="Very long vector path (1078 characters), which is bad for performance. Considering reducing precision, removing minor details or rasterizing vector."
+        errorLine1="        android:pathData=&quot;M7.707,9.256c0.391,0.391 0.391,1.024 0,1.414c-0.391,0.391 -1.024,0.391 -1.414,0c-0.391,-0.391 -0.391,-1.024 0,-1.414c0.391,-0.391 1.024,-0.391 1.414,0zM21.559,15.341l-0.565,0.565c-0.027,1.233 -0.505,2.457 -1.435,3.399l-3.167,3.208c-0.943,0.955 -2.201,1.483 -3.543,1.487h-0.017c-1.335,0 -2.59,-0.52 -3.534,-1.464L1.882,15.183c-0.65,-0.649 -0.964,-1.542 -0.864,-2.453l0.765,-6.916c0.051,-0.456 0.404,-0.819 0.858,-0.881l6.889,-0.942c0.932,-0.124 1.87,0.193 2.528,0.851l7.475,7.412c0.387,0.387 0.697,0.823 0.931,1.288c0.812,-1.166 0.698,-2.795 -0.342,-3.835L12.531,2.302c-0.229,-0.229 -0.545,-0.335 -0.851,-0.292l-6.889,0.942c-0.549,0.074 -1.052,-0.309 -1.127,-0.855c-0.074,-0.547 0.309,-1.051 0.855,-1.126L11.409,0.028c0.921,-0.131 1.869,0.191 2.528,0.852l7.589,7.405c1.946,1.945 1.957,5.107 0.032,7.057zM18.121,13.671l-7.475,-7.412c-0.223,-0.223 -0.536,-0.326 -0.847,-0.287l-6.115,0.837l-0.679,6.14c-0.033,0.303 0.071,0.601 0.287,0.816l7.416,7.353c0.569,0.57 1.322,0.881 2.123,0.881h0.01c0.806,-0.002 1.561,-0.319 2.126,-0.893l3.167,-3.208c1.155,-1.17 1.149,-3.067 -0.014,-4.229z&quot; />"
+        errorLine2="                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/drawable/ic_tag_outline.xml"
+            line="9"
+            column="27"/>
+    </issue>
+
+    <issue
+        id="VectorPath"
+        message="Very long vector path (1238 characters), which is bad for performance. Considering reducing precision, removing minor details or rasterizing vector."
+        errorLine1="        android:pathData=&quot;M488.942,188.222L488.942,188.222c-16.507,-24.031 -36.159,-45.743 -58.432,-64.555l60.096,-60.075c12.135,-12.848 11.558,-33.101 -1.29,-45.236c-12.346,-11.661 -31.65,-11.647 -43.979,0.031l-69.248,69.269c-37.697,-18.837 -79.311,-28.5 -121.451,-28.203C159.882,60.36 71.893,108.716 20.334,188.222c-27.112,39.874 -27.112,92.264 0,132.139c16.507,24.031 36.159,45.743 58.432,64.555L18.67,445.054c-12.501,12.501 -12.501,32.769 0,45.269c12.501,12.501 32.769,12.501 45.269,0l69.248,-69.269c37.697,18.837 79.311,28.5 121.451,28.203c94.756,-0.905 182.745,-49.262 234.304,-128.768C516.112,280.586 516.112,228.125 488.942,188.222zM73.113,284.222c-12.285,-18.016 -12.285,-41.717 0,-59.733C112.451,162.079 180.866,124 254.638,123.454c24.861,-0.121 49.543,4.215 72.875,12.8l-39.552,39.531c-43.381,-18.416 -93.478,1.823 -111.893,45.204c-9.046,21.309 -9.046,45.38 0,66.689l-51.989,52.011C104.466,323.794 87.295,305.106 73.113,284.222zM436.163,284.222c-39.339,62.41 -107.754,100.489 -181.525,101.035c-24.861,0.121 -49.543,-4.215 -72.875,-12.8l39.552,-39.552c43.381,18.416 93.478,-1.823 111.893,-45.204c9.046,-21.309 9.046,-45.38 0,-66.689l51.989,-51.989c19.612,15.895 36.783,34.583 50.965,55.467C448.448,242.505 448.448,266.206 436.163,284.222L436.163,284.222z&quot; />"
+        errorLine2="                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/drawable/ic_visibility_off.xml"
+            line="9"
+            column="27"/>
+    </issue>
+
+    <issue
+        id="MergeRootFrame"
+        message="This `&lt;FrameLayout>` can be replaced with a `&lt;merge>` tag"
+        errorLine1="&lt;FrameLayout"
+        errorLine2="^">
+        <location
+            file="src/main/res/layout/activity_image_view.xml"
+            line="2"
+            column="1"/>
+    </issue>
+
+    <issue
+        id="Overdraw"
+        message="Possible overdraw: Root element paints background `@color/primary` with a theme that also paints a background (inferred theme is `@style/Theme.BibleAxis`)"
+        errorLine1="    android:background=&quot;@color/primary&quot;>"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/drawer_header.xml"
+            line="6"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.drawable.bg_library_header` appears to be unused"
+        errorLine1="&lt;layer-list xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;>"
+        errorLine2="^">
+        <location
+            file="src/main/res/drawable/bg_library_header.xml"
+            line="2"
+            column="1"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.color.white` appears to be unused"
+        errorLine1=" &lt;color name=&quot;white&quot;>#dddddd&lt;/color>"
+        errorLine2="        ~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/colors.xml"
+            line="4"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.color.light_gray` appears to be unused"
+        errorLine1=" &lt;color name=&quot;light_gray&quot;>#dadada&lt;/color>"
+        errorLine2="        ~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/colors.xml"
+            line="7"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.color.library_header_bg` appears to be unused"
+        errorLine1=" &lt;color name=&quot;library_header_bg&quot;>#EAF4FF&lt;/color>"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/colors.xml"
+            line="18"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.color.library_chapter_bg` appears to be unused"
+        errorLine1=" &lt;color name=&quot;library_chapter_bg&quot;>#FFFFFF&lt;/color>"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/colors.xml"
+            line="20"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.color.library_chapter_bg_selected` appears to be unused"
+        errorLine1=" &lt;color name=&quot;library_chapter_bg_selected&quot;>#DDEEFF&lt;/color>"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/colors.xml"
+            line="21"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.color.library_chapter_border` appears to be unused"
+        errorLine1=" &lt;color name=&quot;library_chapter_border&quot;>#C3CCD7&lt;/color>"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/colors.xml"
+            line="22"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.color.library_chapter_shadow` appears to be unused"
+        errorLine1=" &lt;color name=&quot;library_chapter_shadow&quot;>#D7DEE8&lt;/color>"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/colors.xml"
+            line="24"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.color.accent_dark` appears to be unused"
+        errorLine1=" &lt;color name=&quot;accent_dark&quot;>#2C1703&lt;/color>"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/colors.xml"
+            line="30"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.drawable.ic_action_day_night` appears to be unused">
+        <location
+            file="src/main/res/drawable-hdpi/ic_action_day_night.png"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.drawable.ic_action_select` appears to be unused">
+        <location
+            file="src/main/res/drawable-hdpi/ic_action_select.png"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.drawable.ic_library_chevron_down_white` appears to be unused"
+        errorLine1="&lt;vector xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;"
+        errorLine2="^">
+        <location
+            file="src/main/res/drawable/ic_library_chevron_down_white.xml"
+            line="2"
+            column="1"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.drawable.ic_list_tag` appears to be unused">
+        <location
+            file="src/main/res/drawable-hdpi/ic_list_tag.png"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.drawable.ic_menu_about` appears to be unused">
+        <location
+            file="src/main/res/drawable-hdpi/ic_menu_about.png"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.drawable.ic_menu_favorites` appears to be unused">
+        <location
+            file="src/main/res/drawable-hdpi/ic_menu_favorites.png"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.drawable.ic_menu_help` appears to be unused">
+        <location
+            file="src/main/res/drawable-hdpi/ic_menu_help.png"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.drawable.ic_menu_settings` appears to be unused">
+        <location
+            file="src/main/res/drawable-hdpi/ic_menu_settings.png"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.drawable.ic_menu_tag` appears to be unused">
+        <location
+            file="src/main/res/drawable-hdpi/ic_menu_tag.png"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.drawable.ic_visibility_off` appears to be unused"
+        errorLine1="&lt;vector xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;"
+        errorLine2="^">
+        <location
+            file="src/main/res/drawable/ic_visibility_off.xml"
+            line="2"
+            column="1"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.drawable.ic_visibility_on` appears to be unused"
+        errorLine1="&lt;vector xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;"
+        errorLine2="^">
+        <location
+            file="src/main/res/drawable/ic_visibility_on.xml"
+            line="2"
+            column="1"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.layout.item_list_no_id` appears to be unused"
+        errorLine1="&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;"
+        errorLine2="^">
+        <location
+            file="src/main/res/layout/item_list_no_id.xml"
+            line="2"
+            column="1"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.drawable.rectangle` appears to be unused"
+        errorLine1="&lt;shape "
+        errorLine2="^">
+        <location
+            file="src/main/res/drawable/rectangle.xml"
+            line="2"
+            column="1"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.highlight_color_yellow` appears to be unused"
+        errorLine1=" &lt;string name=&quot;highlight_color_yellow&quot;>Желтый&lt;/string>"
+        errorLine2="         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="52"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.highlight_color_orange` appears to be unused"
+        errorLine1=" &lt;string name=&quot;highlight_color_orange&quot;>Оранжевый&lt;/string>"
+        errorLine2="         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="53"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.highlight_color_red` appears to be unused"
+        errorLine1=" &lt;string name=&quot;highlight_color_red&quot;>Красный&lt;/string>"
+        errorLine2="         ~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="54"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.highlight_color_purple` appears to be unused"
+        errorLine1=" &lt;string name=&quot;highlight_color_purple&quot;>Фиолетовый&lt;/string>"
+        errorLine2="         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="55"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.highlight_color_cyan` appears to be unused"
+        errorLine1=" &lt;string name=&quot;highlight_color_cyan&quot;>Голубой&lt;/string>"
+        errorLine2="         ~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="56"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.highlight_color_green` appears to be unused"
+        errorLine1=" &lt;string name=&quot;highlight_color_green&quot;>Зеленый&lt;/string>"
+        errorLine2="         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="57"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.highlights_show` appears to be unused"
+        errorLine1=" &lt;string name=&quot;highlights_show&quot;>Показать маркеры&lt;/string>"
+        errorLine2="         ~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="59"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.highlights_hide` appears to be unused"
+        errorLine1=" &lt;string name=&quot;highlights_hide&quot;>Скрыть маркеры&lt;/string>"
+        errorLine2="         ~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="60"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.module_delete_message` appears to be unused"
+        errorLine1=" &lt;string name=&quot;module_delete_message&quot;>Для удаления модуля %1$s введите код: %2$s&lt;/string>"
+        errorLine2="         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="121"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.file_cant_read` appears to be unused"
+        errorLine1=" &lt;string name=&quot;file_cant_read&quot;>Файл недоступен для чтения&lt;/string>"
+        errorLine2="         ~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="126"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.choice_chapter` appears to be unused"
+        errorLine1=" &lt;string name=&quot;choice_chapter&quot;>Открыть…&lt;/string>"
+        errorLine2="         ~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="144"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.msg_permission_denied` appears to be unused"
+        errorLine1="    &lt;string name=&quot;msg_permission_denied&quot;>Отсутствуют разрешения необходимые для работы приложения&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="178"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.update_reload_modules` appears to be unused"
+        errorLine1=" &lt;string name=&quot;update_reload_modules&quot;>Обновление библиотеки модулей…&lt;/string>"
+        errorLine2="         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="182"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.update_preferences` appears to be unused"
+        errorLine1=" &lt;string name=&quot;update_preferences&quot;>Обновление настроек…&lt;/string>"
+        errorLine2="         ~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="184"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="UselessParent"
+        message="This `LinearLayout` layout or its `RelativeLayout` parent is unnecessary; transfer the `background` attribute to the other view"
+        errorLine1="    &lt;LinearLayout"
+        errorLine2="     ~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/drawer_header.xml"
+            line="7"
+            column="6"/>
+    </issue>
+
+    <issue
+        id="RedundantNamespace"
+        message="This namespace declaration is redundant"
+        errorLine1="        &lt;shape xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;"
+        errorLine2="               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/drawable/btn_default.xml"
+            line="5"
+            column="16"/>
+    </issue>
+
+    <issue
+        id="RedundantNamespace"
+        message="This namespace declaration is redundant"
+        errorLine1="        &lt;shape xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;"
+        errorLine2="               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/drawable/btn_default.xml"
+            line="15"
+            column="16"/>
+    </issue>
+
+    <issue
+        id="RedundantNamespace"
+        message="This namespace declaration is redundant"
+        errorLine1="        &lt;shape xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;"
+        errorLine2="               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/drawable/btn_default.xml"
+            line="25"
+            column="16"/>
+    </issue>
+
+    <issue
+        id="RedundantNamespace"
+        message="This namespace declaration is redundant"
+        errorLine1="        &lt;shape xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;"
+        errorLine2="               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/drawable/btn_default.xml"
+            line="35"
+            column="16"/>
+    </issue>
+
+    <issue
+        id="RedundantNamespace"
+        message="This namespace declaration is redundant"
+        errorLine1="        &lt;shape xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;"
+        errorLine2="               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/drawable/btn_default.xml"
+            line="45"
+            column="16"/>
+    </issue>
+
+    <issue
+        id="IconLauncherShape"
+        message="Launcher icon used as round icon did not have a circular shape">
+        <location
+            file="src/debug/res/mipmap-hdpi/ic_launcher.png"/>
+    </issue>
+
+    <issue
+        id="IconLauncherShape"
+        message="Launcher icon used as round icon did not have a circular shape">
+        <location
+            file="src/debug/res/mipmap-mdpi/ic_launcher.png"/>
+    </issue>
+
+    <issue
+        id="IconLauncherShape"
+        message="Launcher icon used as round icon did not have a circular shape">
+        <location
+            file="src/debug/res/mipmap-xhdpi/ic_launcher.png"/>
+    </issue>
+
+    <issue
+        id="IconLauncherShape"
+        message="Launcher icon used as round icon did not have a circular shape">
+        <location
+            file="src/debug/res/mipmap-xxhdpi/ic_launcher.png"/>
+    </issue>
+
+    <issue
+        id="IconLauncherShape"
+        message="Launcher icon used as round icon did not have a circular shape">
+        <location
+            file="src/debug/res/mipmap-xxxhdpi/ic_launcher.png"/>
+    </issue>
+
+    <issue
+        id="IconDensities"
+        message="Missing the following drawables in `drawable-xxhdpi`: ic_action_day_night.png, ic_list_tag.png">
+        <location
+            file="src/main/res/drawable-xxhdpi"/>
+    </issue>
+
+    <issue
+        id="IconDuplicates"
+        message="The following unrelated icon files have identical contents: ic_launcher_foreground.png, ic_launcher_monochrome.png">
+        <location
+            file="src/main/res/mipmap-hdpi/ic_launcher_monochrome.png"/>
+        <location
+            file="src/main/res/mipmap-hdpi/ic_launcher_foreground.png"/>
+    </issue>
+
+    <issue
+        id="IconDuplicates"
+        message="The following unrelated icon files have identical contents: ic_launcher_foreground.png, ic_launcher_monochrome.png">
+        <location
+            file="src/main/res/mipmap-mdpi/ic_launcher_monochrome.png"/>
+        <location
+            file="src/main/res/mipmap-mdpi/ic_launcher_foreground.png"/>
+    </issue>
+
+    <issue
+        id="IconDuplicates"
+        message="The following unrelated icon files have identical contents: ic_launcher_foreground.png, ic_launcher_monochrome.png">
+        <location
+            file="src/main/res/mipmap-xhdpi/ic_launcher_monochrome.png"/>
+        <location
+            file="src/main/res/mipmap-xhdpi/ic_launcher_foreground.png"/>
+    </issue>
+
+    <issue
+        id="IconDuplicates"
+        message="The following unrelated icon files have identical contents: ic_launcher_foreground.png, ic_launcher_monochrome.png">
+        <location
+            file="src/main/res/mipmap-xxhdpi/ic_launcher_monochrome.png"/>
+        <location
+            file="src/main/res/mipmap-xxhdpi/ic_launcher_foreground.png"/>
+    </issue>
+
+    <issue
+        id="IconDuplicates"
+        message="The following unrelated icon files have identical contents: ic_launcher_foreground.png, ic_launcher_monochrome.png">
+        <location
+            file="src/main/res/mipmap-xxxhdpi/ic_launcher_monochrome.png"/>
+        <location
+            file="src/main/res/mipmap-xxxhdpi/ic_launcher_foreground.png"/>
+    </issue>
+
+    <issue
+        id="AlwaysShowAction"
+        message="Prefer &quot;`ifRoom`&quot; instead of &quot;`always`&quot;"
+        errorLine1="  app:showAsAction=&quot;always|withText&quot;/>"
+        errorLine2="  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/menu/menu_action_bookmark_select.xml"
+            line="10"
+            column="3"/>
+        <location
+            file="src/main/res/menu/menu_action_bookmark_select.xml"
+            line="16"
+            column="3"/>
+    </issue>
+
+    <issue
+        id="AlwaysShowAction"
+        message="Prefer &quot;`ifRoom`&quot; instead of &quot;`always`&quot;"
+        errorLine1="  app:showAsAction=&quot;always|withText&quot;/>"
+        errorLine2="  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/menu/menu_action_text_select.xml"
+            line="10"
+            column="3"/>
+        <location
+            file="src/main/res/menu/menu_action_text_select.xml"
+            line="16"
+            column="3"/>
+        <location
+            file="src/main/res/menu/menu_action_text_select.xml"
+            line="22"
+            column="3"/>
+        <location
+            file="src/main/res/menu/menu_action_text_select.xml"
+            line="28"
+            column="3"/>
+    </issue>
+
+    <issue
+        id="AlwaysShowAction"
+        message="Prefer &quot;`ifRoom`&quot; instead of &quot;`always`&quot;"
+        errorLine1="  app:showAsAction=&quot;always|withText&quot;/>"
+        errorLine2="  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/menu/menu_bookmarks.xml"
+            line="10"
+            column="3"/>
+        <location
+            file="src/main/res/menu/menu_bookmarks.xml"
+            line="16"
+            column="3"/>
+    </issue>
+
+    <issue
+        id="Autofill"
+        message="Missing `autofillHints` attribute"
+        errorLine1="                &lt;EditText"
+        errorLine2="                 ~~~~~~~~">
+        <location
+            file="src/main/res/layout/activity_reader.xml"
+            line="57"
+            column="18"/>
+    </issue>
+
+    <issue
+        id="Autofill"
+        message="Missing `autofillHints` attribute"
+        errorLine1="    &lt;EditText"
+        errorLine2="     ~~~~~~~~">
+        <location
+            file="src/main/res/layout/bookmarks_dialog.xml"
+            line="46"
+            column="6"/>
+    </issue>
+
+    <issue
+        id="ClickableViewAccessibility"
+        message="Custom view ``ImageView`` has `setOnTouchListener` called on it but does not override `performClick`"
+        errorLine1="        super.setOnTouchListener(new PrivateOnTouchListener());"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/de/wladimirwendland/bibleaxis/presentation/widget/TouchImageView.java"
+            line="706"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;0/0&quot;, should use `@string` resource"
+        errorLine1="                    android:text=&quot;0/0&quot;"
+        errorLine2="                    ~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/activity_reader.xml"
+            line="78"
+            column="21"/>
+    </issue>
+
+    <issue
+        id="RtlSymmetry"
+        message="When you define `paddingLeft` you should probably also define `paddingRight` for right-to-left symmetry"
+        errorLine1="            android:paddingLeft=&quot;4dp&quot;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/item_bookmark.xml"
+            line="23"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="RtlSymmetry"
+        message="When you define `paddingEnd` you should probably also define `paddingStart` for right-to-left symmetry"
+        errorLine1="        android:paddingEnd=&quot;8dp&quot;"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/item_module.xml"
+            line="29"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="RtlSymmetry"
+        message="When you define `paddingLeft` you should probably also define `paddingRight` for right-to-left symmetry"
+        errorLine1="        android:paddingLeft=&quot;@dimen/default_margin_min&quot;"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/item_tag.xml"
+            line="14"
+            column="9"/>
+    </issue>
+
+</issues>

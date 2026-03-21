@@ -30,7 +30,7 @@ GitHub Actions workflow lives in `.github/workflows/android.yml` and now runs tw
 - `build` job:
   - validates Gradle wrapper integrity
   - configures Java 17 (Temurin)
-  - runs `./gradlew :bible:lintDebug` (currently non-blocking while legacy lint debt is reduced)
+  - runs `./gradlew :bible:lintDebug` (blocking for new issues; legacy findings are tracked in lint baseline)
   - runs `./gradlew :bible:testDebugUnitTest`
   - runs `./gradlew :bible:assembleDebug`
   - uploads unit test and lint reports as artifacts
@@ -51,6 +51,11 @@ Run these before opening a PR:
 ```
 
 Do not print signing values, tokens, or other secrets in command output or logs.
+
+Lint baseline policy:
+
+- Existing legacy lint debt is captured in `bible/lint-baseline.xml`.
+- CI fails on newly introduced lint issues outside the baseline.
 
 ## Test Coverage Scope
 

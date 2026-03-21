@@ -94,6 +94,11 @@ android {
             returnDefaultValues = true
         }
     }
+
+    lint {
+        baseline file("lint-baseline.xml")
+    }
+
     namespace 'de.wladimirwendland.bibleaxis'
 }
 
