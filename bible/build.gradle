@@ -155,7 +155,7 @@ dependencies {
     compileOnly "com.google.auto.value:auto-value-annotations:$auto_value_version"
 
     // OkHttp
-    implementation("com.squareup.okhttp3:okhttp:4.12.0")
+    implementation("com.squareup.okhttp3:okhttp:5.3.2")
 
     // Others
 
