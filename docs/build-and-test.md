@@ -46,11 +46,11 @@ Current PR1 baseline:
 
 | Component | Version | Source |
 |-----------|---------|--------|
-| Gradle Wrapper | 8.11.1 | `gradle/wrapper/gradle-wrapper.properties` |
+| Gradle Wrapper | 9.4.1 | `gradle/wrapper/gradle-wrapper.properties` |
 | Android Gradle Plugin | 8.9.1 | `build.gradle` |
 | Kotlin Gradle Plugin | 2.2.21 | `build.gradle` |
 | Google Services Plugin | 4.4.2 | `build.gradle` |
-| Crashlytics Gradle Plugin | 2.9.9 | `build.gradle` |
+| Crashlytics Gradle Plugin | 3.0.2 | `build.gradle` |
 | compileSdk | 36 | `build.gradle` |
 | JDK | 17 | `.github/workflows/android.yml` |
 
