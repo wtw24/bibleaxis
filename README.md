@@ -6,7 +6,7 @@
 
 > Android Bible study app for deep reading, navigation, and cross-references.
 
-BibleAxis is an independent Android fork of BibleQuote focused on day-to-day Bible reading and study. The app combines a fast reader, search, bookmarks/tags, and reading history in a mixed Java/Kotlin codebase.
+BibleAxis is an independent Android fork of DeskBible focused on day-to-day Bible reading and study. The app combines a fast reader, search, bookmarks/tags, and reading history in a mixed Java/Kotlin codebase.
 
 ## Quick Start
 
@@ -58,7 +58,7 @@ adb shell am start -n \
 
 ## Fork Notice
 
-This repository is maintained independently from the original BibleQuote Android project.
+This repository is maintained independently from the original DeskBible Android project.
 
 - Earlier code history remains credited to original authors.
 - New changes are maintained in this fork.
@@ -73,7 +73,6 @@ This repository is maintained independently from the original BibleQuote Android
 | [Getting Started](docs/getting-started.md) | Requirements, setup, and first debug run |
 | [Architecture](docs/architecture.md) | Module layout and package-level boundaries |
 | [Build and Test](docs/build-and-test.md) | Gradle tasks, CI workflow, and validation |
-| [Toolchain Upgrade Strategy](docs/toolchain-upgrade.md) | Safe staged path for OkHttp 5.x and Gradle 9.x |
 | [Signing](docs/signing.md) | Debug/release signing rules and local.properties keys |
 | [Troubleshooting](docs/troubleshooting.md) | Common local setup and run-time issues |
 
