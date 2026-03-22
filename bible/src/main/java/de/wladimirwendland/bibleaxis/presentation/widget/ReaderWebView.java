@@ -455,7 +455,7 @@ public class ReaderWebView extends WebView
                 "}\r\n" +
                 ".textHighlight {\r\n" +
                 "border-radius: 3px;\r\n" +
-                "padding: 0 1px;\r\n" +
+                "padding: 0 1px 0 0;\r\n" +
                 "}\r\n" +
                 "img {\r\n" +
                 "max-width: 100%;\r\n" +

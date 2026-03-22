@@ -14,8 +14,10 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 
 import de.wladimirwendland.bibleaxis.async.AsyncManager;
+import de.wladimirwendland.bibleaxis.data.backup.HighlightsBackupManager;
 import de.wladimirwendland.bibleaxis.domain.controller.ILibraryController;
 import de.wladimirwendland.bibleaxis.domain.repository.IBookmarksRepository;
+import de.wladimirwendland.bibleaxis.domain.threading.AppTaskRunner;
 import de.wladimirwendland.bibleaxis.managers.Librarian;
 import de.wladimirwendland.bibleaxis.utils.PreferenceHelper;
 
@@ -35,6 +37,8 @@ public class BibleAxisApp extends Application implements Thread.UncaughtExceptio
     @Inject Librarian librarian;
     @Inject ILibraryController libraryController;
     @Inject PreferenceHelper prefHelper;
+    @Inject AppTaskRunner appTaskRunner;
+    @Inject HighlightsBackupManager highlightsBackupManager;
     @Inject Logger logger;
 
     private AppComponent appComponent;
@@ -73,6 +77,14 @@ public class BibleAxisApp extends Application implements Thread.UncaughtExceptio
 
     public PreferenceHelper getPrefHelper() {
         return prefHelper;
+    }
+
+    public AppTaskRunner getAppTaskRunner() {
+        return appTaskRunner;
+    }
+
+    public HighlightsBackupManager getHighlightsBackupManager() {
+        return highlightsBackupManager;
     }
 
     @Override

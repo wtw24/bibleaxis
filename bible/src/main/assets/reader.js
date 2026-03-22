@@ -180,13 +180,45 @@ function getNodeOffset(root, charOffset) {
     };
 }
 
+function getVerseTextStartOffset(verseNode) {
+    if (!verseNode) {
+        return 0;
+    }
+
+    var verseNumberNode = verseNode.querySelector('.verseNumber');
+    if (!verseNumberNode) {
+        return 0;
+    }
+
+    var range = document.createRange();
+    range.setStart(verseNode, 0);
+    range.setEndAfter(verseNumberNode);
+    return range.toString().length;
+}
+
 function applyHighlightInVerse(verseNode, startOffset, endOffset, color, id) {
     if (endOffset <= startOffset) {
         return;
     }
 
-    var startPosition = getNodeOffset(verseNode, startOffset);
-    var endPosition = getNodeOffset(verseNode, endOffset);
+    var verseText = verseNode.textContent || '';
+    var verseTextStartOffset = getVerseTextStartOffset(verseNode);
+    var safeStartOffset = Math.max(verseTextStartOffset, Math.min(startOffset, verseText.length));
+    var safeEndOffset = Math.max(0, Math.min(endOffset, verseText.length));
+
+    while (safeStartOffset < safeEndOffset && /\s/.test(verseText.charAt(safeStartOffset))) {
+        safeStartOffset++;
+    }
+    while (safeEndOffset > safeStartOffset && /\s/.test(verseText.charAt(safeEndOffset - 1))) {
+        safeEndOffset--;
+    }
+
+    if (safeEndOffset <= safeStartOffset) {
+        return;
+    }
+
+    var startPosition = getNodeOffset(verseNode, safeStartOffset);
+    var endPosition = getNodeOffset(verseNode, safeEndOffset);
     if (startPosition == null || endPosition == null) {
         return;
     }
@@ -199,7 +231,7 @@ function applyHighlightInVerse(verseNode, startOffset, endOffset, color, id) {
     wrapper.className = 'textHighlight';
     wrapper.setAttribute('data-highlight-color', color);
     wrapper.style.backgroundColor = highlightsVisible ? color : 'transparent';
-    wrapper.style.padding = highlightsVisible ? '0 1px' : '0';
+    wrapper.style.padding = highlightsVisible ? '0 1px 0 0' : '0';
     wrapper.style.borderRadius = highlightsVisible ? '3px' : '0';
     wrapper.style.pointerEvents = highlightsVisible ? 'auto' : 'none';
     wrapper.setAttribute('data-highlight-id', id);
@@ -218,7 +250,7 @@ function setHighlightsVisible(visible) {
         var node = nodes[i];
         var color = node.getAttribute('data-highlight-color') || '';
         node.style.backgroundColor = highlightsVisible ? color : 'transparent';
-        node.style.padding = highlightsVisible ? '0 1px' : '0';
+        node.style.padding = highlightsVisible ? '0 1px 0 0' : '0';
         node.style.borderRadius = highlightsVisible ? '3px' : '0';
         node.style.pointerEvents = highlightsVisible ? 'auto' : 'none';
     }

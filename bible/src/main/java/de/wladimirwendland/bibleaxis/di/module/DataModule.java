@@ -15,11 +15,14 @@ import de.wladimirwendland.bibleaxis.dal.repository.XmlTskRepository;
 import de.wladimirwendland.bibleaxis.dal.repository.bookmarks.DbBookmarksRepository;
 import de.wladimirwendland.bibleaxis.dal.repository.bookmarks.DbTagsRepository;
 import de.wladimirwendland.bibleaxis.dal.repository.highlights.DbHighlightsRepository;
+import de.wladimirwendland.bibleaxis.data.backup.HighlightsBackupManager;
 import de.wladimirwendland.bibleaxis.domain.repository.IBookmarksRepository;
 import de.wladimirwendland.bibleaxis.domain.repository.IHistoryRepository;
 import de.wladimirwendland.bibleaxis.domain.repository.IHighlightsRepository;
 import de.wladimirwendland.bibleaxis.domain.repository.ITagsRepository;
 import de.wladimirwendland.bibleaxis.domain.repository.ITskRepository;
+import de.wladimirwendland.bibleaxis.domain.threading.AppTaskRunner;
+import de.wladimirwendland.bibleaxis.utils.PreferenceHelper;
 
 import javax.inject.Singleton;
 
@@ -48,6 +51,17 @@ public class DataModule {
     @Singleton
     IHighlightsRepository getHighlightsRepository(DbLibraryHelper dbLibraryHelper) {
         return new DbHighlightsRepository(dbLibraryHelper);
+    }
+
+    @Provides
+    @Singleton
+    HighlightsBackupManager provideHighlightsBackupManager(
+            Context context,
+            PreferenceHelper preferenceHelper,
+            DbLibraryHelper dbLibraryHelper,
+            AppTaskRunner appTaskRunner
+    ) {
+        return new HighlightsBackupManager(context, preferenceHelper, dbLibraryHelper, appTaskRunner);
     }
 
     @Provides

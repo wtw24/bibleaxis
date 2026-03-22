@@ -112,6 +112,22 @@
             android:summaryOff="@string/always_view_verse_numbers_disabled"
             android:summaryOn="@string/always_view_verse_numbers_enabled"
             android:title="@string/always_view_verse_numbers_title"/>
+
+        <Preference
+            android:key="choose_highlights_backup_storage"
+            android:summary="@string/highlights_backup_storage_not_selected"
+            android:title="@string/highlights_backup_storage_title"/>
+
+        <Preference
+            android:key="highlights_last_backup_status"
+            android:selectable="false"
+            android:summary="@string/highlights_last_backup_never"
+            android:title="@string/highlights_last_backup_title"/>
+
+        <Preference
+            android:key="restore_highlights_backup"
+            android:summary="@string/highlights_restore_summary"
+            android:title="@string/highlights_restore_title"/>
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/share_passage">

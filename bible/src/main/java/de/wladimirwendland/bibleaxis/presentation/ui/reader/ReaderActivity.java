@@ -41,6 +41,7 @@ import androidx.appcompat.widget.SwitchCompat;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import de.wladimirwendland.bibleaxis.data.backup.HighlightsBackupManager;
 import de.wladimirwendland.bibleaxis.R;
 import de.wladimirwendland.bibleaxis.di.component.ActivityComponent;
 import de.wladimirwendland.bibleaxis.domain.entity.Chapter;
@@ -91,6 +92,8 @@ public class ReaderActivity extends BaseActivity<ReaderViewPresenter>
     IHighlightsRepository highlightsRepository;
     @Inject
     AppTaskRunner appTaskRunner;
+    @Inject
+    HighlightsBackupManager highlightsBackupManager;
 
     private static final String KEY_LINK_OSIS = "linkOSIS";
     private static final String TAG = ReaderActivity.class.getSimpleName();
@@ -800,6 +803,7 @@ public class ReaderActivity extends BaseActivity<ReaderViewPresenter>
                     if (result == -1) {
                         Toast.makeText(this, R.string.highlight_save_failed, Toast.LENGTH_SHORT).show();
                     } else {
+                        highlightsBackupManager.scheduleAutoBackup();
                         if (!isHighlightsVisible) {
                             setHighlightsVisible(true);
                         }
@@ -823,6 +827,7 @@ public class ReaderActivity extends BaseActivity<ReaderViewPresenter>
                     return;
                 }
 
+                highlightsBackupManager.scheduleAutoBackup();
                 readerView.clearTextSelection();
                 clearPendingSelection();
                 presenter.openLink(librarian.getCurrentOSISLink().getPath());

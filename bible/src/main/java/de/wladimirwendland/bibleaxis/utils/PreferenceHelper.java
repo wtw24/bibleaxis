@@ -48,6 +48,7 @@ public class PreferenceHelper {
     private static final String KEY_LAST_READ = "last_read";
     private static final String KEY_AUTO_HIDE_NAVIGATION_BAR = "auto_hide_navigation_bar";
     private static final String KEY_MODULES_SOURCE_TREE_URI = "modules_source_tree_uri";
+    private static final String KEY_HIGHLIGHTS_LAST_BACKUP_AT = "highlights_last_backup_at";
 
     private final SharedPreferences preference;
     private final Context context;
@@ -169,6 +170,14 @@ public class PreferenceHelper {
 
     public void setModulesSourceTreeUri(@NonNull String value) {
         preference.edit().putString(KEY_MODULES_SOURCE_TREE_URI, value).apply();
+    }
+
+    public long getHighlightsLastBackupAt() {
+        return preference.getLong(KEY_HIGHLIGHTS_LAST_BACKUP_AT, 0L);
+    }
+
+    public void setHighlightsLastBackupAt(long value) {
+        preference.edit().putLong(KEY_HIGHLIGHTS_LAST_BACKUP_AT, value).apply();
     }
 
     private String getFontFamily() {
