@@ -12,6 +12,8 @@ public interface IReaderViewListener {
 
 	void onReaderClickHighlight(String highlightId);
 
+	void onReaderClickStrong(String strongCode);
+
 	void onReaderTextSelection(String payload);
 
 	void onReaderViewChange(ChangeCode code);

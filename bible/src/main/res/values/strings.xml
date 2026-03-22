@@ -34,6 +34,7 @@
 	<string name="menu_history">История</string>
 	<string name="menu_search">Поиск</string>
 	<string name="menu_find_in_page">Поиск на странице</string>
+	<string name="menu_strong_numbers">Номера Стронга</string>
 	<string name="menu_help">Справка</string>
 	<string name="menu_settings">Настройки</string>
 	<string name="cancel">Отмена</string>
@@ -164,6 +165,7 @@
     <string name="find_in_page_prev">Предыдущее совпадение</string>
     <string name="find_in_page_next">Следующее совпадение</string>
     <string name="find_in_page_close">Закрыть поиск на странице</string>
+    <string name="strong_click_placeholder">Номер Стронга: %1$s</string>
     <string name="search_modules">Модули</string>
     <string name="search_modules_choose">Выбрать модули</string>
     <string name="search_modules_selected">Выбрано модулей: %1$d — %2$s</string>

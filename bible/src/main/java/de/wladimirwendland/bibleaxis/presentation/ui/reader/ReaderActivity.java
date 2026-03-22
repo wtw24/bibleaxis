@@ -123,6 +123,7 @@ public class ReaderActivity extends BaseActivity<ReaderViewPresenter>
     private SwitchCompat highlightsSwitch;
     private SwitchCompat nightModeSwitch;
     private SwitchCompat findInPageSwitch;
+    private SwitchCompat strongNumbersSwitch;
     private LinearLayout highlightPalette;
     private LinearLayout findInPagePanel;
     private EditText findInPageInput;
@@ -138,6 +139,7 @@ public class ReaderActivity extends BaseActivity<ReaderViewPresenter>
     private boolean isUpdatingHighlightsSwitch;
     private boolean isUpdatingNightModeSwitch;
     private boolean isUpdatingFindInPageSwitch;
+    private boolean isUpdatingStrongNumbersSwitch;
     private JSONObject pendingSelection;
     private String pendingSelectionSignature;
     private final List<String> highlightColors = Arrays.asList(
@@ -184,7 +186,8 @@ public class ReaderActivity extends BaseActivity<ReaderViewPresenter>
             if (handled
                     && menuItem.getItemId() != R.id.drawer_night_mode
                     && menuItem.getItemId() != R.id.drawer_highlights
-                    && menuItem.getItemId() != R.id.drawer_find_in_page) {
+                    && menuItem.getItemId() != R.id.drawer_find_in_page
+                    && menuItem.getItemId() != R.id.drawer_strong_numbers) {
                 drawerLayout.closeDrawers();
             }
             return handled;
@@ -192,6 +195,7 @@ public class ReaderActivity extends BaseActivity<ReaderViewPresenter>
         setupHighlightsSwitch();
         setupNightModeSwitch();
         setupFindInPageSwitch();
+        setupStrongNumbersSwitch();
 
         ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(
                 this, drawerLayout, toolbar, R.string.openDrawer, R.string.closeDrawer) {
@@ -323,6 +327,7 @@ public class ReaderActivity extends BaseActivity<ReaderViewPresenter>
         syncHighlightsSwitch();
         syncNightModeSwitch();
         syncFindInPageSwitch();
+        syncStrongNumbersSwitch();
         invalidateOptionsMenu();
     }
 
@@ -387,6 +392,11 @@ public class ReaderActivity extends BaseActivity<ReaderViewPresenter>
         } catch (NumberFormatException ignored) {
             // ignore invalid id
         }
+    }
+
+    @Override
+    public void onReaderClickStrong(String strongCode) {
+        Toast.makeText(this, getString(R.string.strong_click_placeholder, strongCode), Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -615,6 +625,13 @@ public class ReaderActivity extends BaseActivity<ReaderViewPresenter>
                     findInPageSwitch.setChecked(!findInPageSwitch.isChecked());
                 } else {
                     setFindInPageEnabled(!presenter.isFindInPageEnabled());
+                }
+                return true;
+            case R.id.drawer_strong_numbers:
+                if (strongNumbersSwitch != null) {
+                    strongNumbersSwitch.setChecked(!strongNumbersSwitch.isChecked());
+                } else {
+                    setStrongNumbersEnabled(!presenter.isStrongNumbersEnabled());
                 }
                 return true;
             case R.id.drawer_help:
@@ -1015,6 +1032,37 @@ public class ReaderActivity extends BaseActivity<ReaderViewPresenter>
         syncHighlightsSwitch();
     }
 
+    private void setupStrongNumbersSwitch() {
+        if (navigationView == null) {
+            return;
+        }
+        MenuItem item = navigationView.getMenu().findItem(R.id.drawer_strong_numbers);
+        if (item == null) {
+            return;
+        }
+
+        View actionView = item.getActionView();
+        if (actionView == null) {
+            return;
+        }
+
+        strongNumbersSwitch = actionView.findViewById(R.id.drawer_strong_numbers_switch);
+        if (strongNumbersSwitch == null) {
+            return;
+        }
+
+        strongNumbersSwitch.setClickable(true);
+        strongNumbersSwitch.setFocusable(false);
+        actionView.setOnClickListener(v -> strongNumbersSwitch.setChecked(!strongNumbersSwitch.isChecked()));
+        strongNumbersSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (isUpdatingStrongNumbersSwitch) {
+                return;
+            }
+            setStrongNumbersEnabled(isChecked);
+        });
+        syncStrongNumbersSwitch();
+    }
+
     private void syncHighlightsSwitch() {
         if (highlightsSwitch == null) {
             return;
@@ -1053,6 +1101,19 @@ public class ReaderActivity extends BaseActivity<ReaderViewPresenter>
         isUpdatingFindInPageSwitch = false;
     }
 
+    private void syncStrongNumbersSwitch() {
+        if (strongNumbersSwitch == null) {
+            return;
+        }
+        boolean enabled = presenter.isStrongNumbersEnabled();
+        if (strongNumbersSwitch.isChecked() == enabled) {
+            return;
+        }
+        isUpdatingStrongNumbersSwitch = true;
+        strongNumbersSwitch.setChecked(enabled);
+        isUpdatingStrongNumbersSwitch = false;
+    }
+
     private void setHighlightsVisible(boolean visible) {
         isHighlightsVisible = visible;
         readerView.setHighlightsVisible(visible);
@@ -1071,5 +1132,11 @@ public class ReaderActivity extends BaseActivity<ReaderViewPresenter>
         syncFindInPageSwitch();
         invalidateOptionsMenu();
         analyticsHelper.clickEvent(enabled ? "find_in_page_enabled" : "find_in_page_disabled");
+    }
+
+    private void setStrongNumbersEnabled(boolean enabled) {
+        presenter.setStrongNumbersEnabled(enabled);
+        syncStrongNumbersSwitch();
+        analyticsHelper.clickEvent(enabled ? "strong_numbers_enabled" : "strong_numbers_disabled");
     }
 }

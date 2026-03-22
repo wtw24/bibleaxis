@@ -49,6 +49,7 @@ public class PreferenceHelper {
     private static final String KEY_AUTO_HIDE_NAVIGATION_BAR = "auto_hide_navigation_bar";
     private static final String KEY_MODULES_SOURCE_TREE_URI = "modules_source_tree_uri";
     private static final String KEY_HIGHLIGHTS_LAST_BACKUP_AT = "highlights_last_backup_at";
+    private static final String KEY_SHOW_STRONG_NUMBERS = "show_strong_numbers";
 
     private final SharedPreferences preference;
     private final Context context;
@@ -198,6 +199,14 @@ public class PreferenceHelper {
 
     public void setFindInPageEnabled(boolean enabled) {
         preference.edit().putBoolean(KEY_FIND_IN_PAGE_ENABLED, enabled).apply();
+    }
+
+    public boolean isStrongNumbersEnabled() {
+        return preference.getBoolean(KEY_SHOW_STRONG_NUMBERS, false);
+    }
+
+    public void setStrongNumbersEnabled(boolean enabled) {
+        preference.edit().putBoolean(KEY_SHOW_STRONG_NUMBERS, enabled).apply();
     }
 
     private String getTextBackground() {

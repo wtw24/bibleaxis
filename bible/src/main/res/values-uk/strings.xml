@@ -34,6 +34,7 @@
     <string name="menu_history">Історія</string>
     <string name="menu_search">Пошук</string>
     <string name="menu_find_in_page">Пошук на сторінці</string>
+    <string name="menu_strong_numbers">Номери Стронга</string>
     <string name="menu_help">Допомога</string>
     <string name="menu_settings">Налаштування</string>
     <string name="cancel">Скасувати</string>
@@ -124,6 +125,7 @@
     <string name="find_in_page_prev">Попередній збіг</string>
     <string name="find_in_page_next">Наступний збіг</string>
     <string name="find_in_page_close">Закрити пошук на сторінці</string>
+    <string name="strong_click_placeholder">Номер Стронга: %1$s</string>
     <string name="search_modules">Модулі</string>
     <string name="search_modules_choose">Обрати модулі</string>
     <string name="search_modules_selected">Обрано модулів: %1$d</string>

@@ -26,6 +26,7 @@
     <string name="menu_search">Пошук</string>
     <string name="copy">Копія</string>
     <string name="menu_help">Дапамога</string>
+    <string name="menu_strong_numbers">Нумары Стронга</string>
     <string name="app_about_design_label">Дызайн:</string>
     <string name="bookmark_invalid_removed">Недапушчальная закладка выдаленая</string>
     <string name="category_reader_other_history_size_summary">Бягучы памер гісторыі: %1$s</string>
@@ -145,4 +146,5 @@
     <string name="update_reload_modules">Абнаўленне бібліятэкі модуляў…</string>
     <string name="update_builtin_modules">Абнаўленне ўбудаваных модуляў…</string>
     <string name="update_preferences">Абнаўленне налад…</string>
+    <string name="strong_click_placeholder">Нумар Стронга: %1$s</string>
 </resources>

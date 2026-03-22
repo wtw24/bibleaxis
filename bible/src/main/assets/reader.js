@@ -61,6 +61,11 @@ function handleClick(x, y) {
 		    reader.onClickHighlight(highlightId);
 		    return;
 		}
+		var hrefAttr = element.getAttribute ? element.getAttribute('href') : null;
+		if (hrefAttr && /^s(?:[gh]\s*)?\d+$/i.test(hrefAttr)) {
+			reader.onClickStrong(hrefAttr.replace(/\s+/g, '').toUpperCase());
+			return;
+		}
 		if (element instanceof window.HTMLAnchorElement && (element.href.indexOf('#') != -1)) {
 			return;
 		} else if (element.nodeName == "IMG") {

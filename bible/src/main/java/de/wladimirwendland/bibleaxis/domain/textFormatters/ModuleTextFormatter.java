@@ -25,10 +25,16 @@ public class ModuleTextFormatter implements ITextFormatter {
 
     public ModuleTextFormatter(BaseModule module, PreferenceHelper prefHelper) {
         this.visibleVerseNumbers = module.isBible() || prefHelper.viewBookVerse();
+        String htmlFilter = module.getHtmlFilter();
         if (module.isContainsStrong()) {
-            formatters.add(new NoStrongTextFormatter());
+            if (prefHelper.isStrongNumbersEnabled()) {
+                formatters.add(new StrongLinkTextFormatter());
+                htmlFilter = htmlFilter + "|(a)|(/a)";
+            } else {
+                formatters.add(new NoStrongTextFormatter());
+            }
         }
-        formatters.add(new StripTagsTextFormatter("<(?!" + module.getHtmlFilter() + ")(.)*?>"));
+        formatters.add(new StripTagsTextFormatter("<(?!" + htmlFilter + ")(.)*?>"));
     }
 
     public ModuleTextFormatter(BaseModule module, ITextFormatter formatter) {

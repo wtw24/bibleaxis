@@ -20,6 +20,7 @@ class ViewHandler extends Handler {
     static final int MSG_ON_CLICK_IMAGE = 2;
     static final int MSG_ON_TEXT_SELECTION = 3;
     static final int MSG_ON_CLICK_HIGHLIGHT = 4;
+    static final int MSG_ON_CLICK_STRONG = 5;
 
     private WeakReference<IReaderViewListener> weakListener;
 
@@ -43,6 +44,9 @@ class ViewHandler extends Handler {
                 break;
             case MSG_ON_CLICK_HIGHLIGHT:
                 listener.onReaderClickHighlight((String) msg.obj);
+                break;
+            case MSG_ON_CLICK_STRONG:
+                listener.onReaderClickStrong((String) msg.obj);
                 break;
             default:
                 listener.onReaderViewChange((IReaderViewListener.ChangeCode) msg.obj);

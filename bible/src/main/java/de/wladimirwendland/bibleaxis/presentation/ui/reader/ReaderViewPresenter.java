@@ -82,6 +82,21 @@ public class ReaderViewPresenter extends BasePresenter<ReaderView> {
         preferenceHelper.setFindInPageEnabled(enabled);
     }
 
+    boolean isStrongNumbersEnabled() {
+        return preferenceHelper.isStrongNumbersEnabled();
+    }
+
+    void setStrongNumbersEnabled(boolean enabled) {
+        preferenceHelper.setStrongNumbersEnabled(enabled);
+        getViewAndExecute(view -> {
+            BaseModule module = librarian.getCurrModule();
+            if (module != null) {
+                view.setTextFormatter(new ModuleTextFormatter(module, preferenceHelper));
+            }
+            view.updateContent();
+        });
+    }
+
     boolean isVolumeButtonsToScroll() {
         return preferenceHelper.volumeButtonsToScroll();
     }

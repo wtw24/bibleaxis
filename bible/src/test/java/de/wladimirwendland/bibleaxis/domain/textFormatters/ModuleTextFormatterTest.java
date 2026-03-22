@@ -46,6 +46,7 @@ public class ModuleTextFormatterTest {
     public void testBefore() {
         MockitoAnnotations.initMocks(this);
         when(prefHelper.viewBookVerse()).thenReturn(true);
+        when(prefHelper.isStrongNumbersEnabled()).thenReturn(false);
 
         mModule = new BibleAxisModule("base", "biblequote.ini");
         mModule.setContainsStrong(false);
@@ -114,5 +115,16 @@ public class ModuleTextFormatterTest {
         Assert.assertTrue(result.contains("G59"));
         Assert.assertTrue(result.contains("1234"));
         Assert.assertTrue(result.contains("59"));
+    }
+
+    @Test
+    public void testFormatModuleWithStrongLinksEnabled() {
+        mModule.setContainsStrong(true);
+        when(prefHelper.isStrongNumbersEnabled()).thenReturn(true);
+        ModuleTextFormatter formatter = new ModuleTextFormatter(mModule, prefHelper);
+
+        String result = formatter.format(testVersesWithStrong);
+        Assert.assertTrue(result.contains("href=\"sG1234\""));
+        Assert.assertTrue(result.contains("href=\"sG59\""));
     }
 }

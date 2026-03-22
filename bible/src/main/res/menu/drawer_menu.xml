@@ -33,6 +33,11 @@
                 android:title="@string/menu_find_in_page"
                 app:actionLayout="@layout/item_drawer_find_in_page_switch" />
             <item
+                android:id="@+id/drawer_strong_numbers"
+                android:icon="@drawable/ic_sidebar_strong_numbers"
+                android:title="@string/menu_strong_numbers"
+                app:actionLayout="@layout/item_drawer_strong_numbers_switch" />
+            <item
                 android:id="@+id/drawer_settings"
                 android:icon="@drawable/ic_sidebar_settings"
                 android:title="@string/menu_settings" />

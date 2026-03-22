@@ -81,6 +81,7 @@ public class ReaderWebView extends WebView
     public boolean mPageLoaded;
     private String baseUrl;
     private String content;
+    private Chapter currentChapter;
     private Mode currMode = Mode.Read;
     private int currVerse;
     private ITextFormatter formatter = new StripTagsTextFormatter();
@@ -331,6 +332,7 @@ public class ReaderWebView extends WebView
     public void setContent(String baseUrl, Chapter chapter, int currVerse, Boolean isBible, List<Highlight> highlights) {
         this.baseUrl = baseUrl;
         this.isBible = Boolean.TRUE.equals(isBible);
+        this.currentChapter = chapter;
         this.content = getContent(chapter);
         this.currVerse = currVerse;
         this.highlights = highlights == null ? Collections.emptyList() : highlights;
@@ -339,6 +341,7 @@ public class ReaderWebView extends WebView
 
     public void update() {
         Log.d(TAG, "update");
+        this.content = getContent(currentChapter);
         highlightApplySession++;
         mPageLoaded = false;
         taskHandler.removeMessages(ReaderTaskHandler.MSG_HANDLE_SCROLL);
@@ -439,6 +442,15 @@ public class ReaderWebView extends WebView
                 "vertical-align: super;\r\n" +
                 "line-height: 1;\r\n" +
                 "margin-right: 0.25em;\r\n" +
+                "}\r\n" +
+                "a[href^=\"s\"] {\r\n" +
+                "color: #6f7f93;\r\n" +
+                "font-size: 0.58em;\r\n" +
+                "vertical-align: super;\r\n" +
+                "line-height: 1;\r\n" +
+                "text-decoration: none;\r\n" +
+                "margin-left: 0.1em;\r\n" +
+                "opacity: 0.82;\r\n" +
                 "}\r\n" +
                 ".verse.introVerse {\r\n" +
                 "color: " + introTextColor + ";\r\n" +
@@ -793,6 +805,12 @@ public class ReaderWebView extends WebView
         @JavascriptInterface
         public void onClickHighlight(String highlightId) {
             Message msg = Message.obtain(viewHandler, ViewHandler.MSG_ON_CLICK_HIGHLIGHT, highlightId);
+            viewHandler.sendMessage(msg);
+        }
+
+        @JavascriptInterface
+        public void onClickStrong(String strongCode) {
+            Message msg = Message.obtain(viewHandler, ViewHandler.MSG_ON_CLICK_STRONG, strongCode);
             viewHandler.sendMessage(msg);
         }
 
