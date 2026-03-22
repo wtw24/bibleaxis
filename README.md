@@ -73,6 +73,7 @@ This repository is maintained independently from the original BibleQuote Android
 | [Getting Started](docs/getting-started.md) | Requirements, setup, and first debug run |
 | [Architecture](docs/architecture.md) | Module layout and package-level boundaries |
 | [Build and Test](docs/build-and-test.md) | Gradle tasks, CI workflow, and validation |
+| [Toolchain Upgrade Strategy](docs/toolchain-upgrade.md) | Safe staged path for OkHttp 5.x and Gradle 9.x |
 | [Signing](docs/signing.md) | Debug/release signing rules and local.properties keys |
 | [Troubleshooting](docs/troubleshooting.md) | Common local setup and run-time issues |
 
