@@ -38,6 +38,12 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
 
+      - name: Prepare debug keystore
+        run: |
+          if [ ! -f debug-bibleaxis.keystore ]; then
+            keytool -genkeypair -v -keystore debug-bibleaxis.keystore -storepass android -keypass android -alias bibleaxisdebug -keyalg RSA -keysize 2048 -validity 10000 -dname "CN=BibleAxis Debug, OU=CI, O=BibleAxis, L=NA, ST=NA, C=US"
+          fi
+
       - name: Lint
         run: ./gradlew :bible:lintDebug --stacktrace
 
